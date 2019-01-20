@@ -31,7 +31,3 @@ function setup() {
 		createP(phrase);
 	});
 }
-
-function draw() {
-
-}
