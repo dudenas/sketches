@@ -3,6 +3,7 @@ console.log('bot has started');
 var Twit = require('twit');
 var config = require('./config');
 
+// setup twitter
 var T = new Twit({
   consumer_key: config.consumer_key,
   consumer_secret: config.consumer_secret,
@@ -12,8 +13,45 @@ var T = new Twit({
   strictSSL: true, // optional - requires SSL certificates to be valid.
 })
 
-T.post('statuses/update', {
-  status: 'hello world!'
-}, function (err, data, response) {
-  console.log(data)
-})
+// get the info from twitter
+// let params = {
+//   q: 'lithuania since:2019-01-01',
+//   count: 10
+// };
+
+// function gotData(err, data, response) {
+//   let tweets = data.statuses;
+//   tweets.forEach(i => {
+//     console.log(i.text);
+//   })
+// };
+
+// T.get('search/tweets', params, gotData);
+
+// post the tweet
+function tweetIt(txt, id) {
+  let tweet = {
+    in_reply_to_status_id: id,
+    status: txt
+  };
+
+  function tweeted(err, data, response) {
+    err ? console.error(err) : console.log(data.text);
+  }
+
+  T.post('statuses/update', tweet, tweeted);
+}
+
+let searchFor = {
+  track: '@MuramartG',
+};
+
+let stream = T.stream('statuses/filter', searchFor)
+
+stream.on('tweet', gotTweet);
+
+function gotTweet(eventMsg) {
+  let name = eventMsg.user.screen_name;
+  let id = eventMsg.id_str;
+  tweetIt(`@${name} thank you for communicating`, id);
+}
