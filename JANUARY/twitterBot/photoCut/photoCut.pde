@@ -13,7 +13,7 @@ void setupVariables() {
   minDiam = 200;
   maxDiam = width;
 
-  if (args != null) {
+  if (args != null && int(args[0]) != -1) {
     String url = args[0];
     src = loadImage(url, "png");
     if (src.width > src.height) {
@@ -38,7 +38,7 @@ void setupVariables() {
 }
 
 void settings() {
-  if (args != null && args[1] != null) {
+  if (args != null && args[1].equals("fb")) {
     w = 851;
     h = 315;
   } else {
@@ -46,7 +46,7 @@ void settings() {
     h = 800;
   }
   size(w, h);
-  pixelDensity(2);
+  //pixelDensity(2);
 }
 
 void setup() {
@@ -66,7 +66,7 @@ void draw() {
   background(clrs[0]);
   image(src, 0, 0, src.width, src.height);
   image(art_img, 0, 0, width, height);
-  filter(GRAY);
+  //filter(GRAY);
   saveImage();
   noLoop();
   exit();

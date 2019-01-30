@@ -19,6 +19,7 @@ void setup() {
   size(800, 800);
   setupVariables();
   img = src;
+  printArray(args);
   if (args != null) {
     int stages = int(args[0]);
     newCut(stages);

@@ -71,7 +71,7 @@ function gotTweet(eventMsg) {
   // console.log(eventMsg);
   // var fs = require('fs');
   // var json = JSON.stringify(eventMsg, null, 2);
-  // fs.writeFile('tweet.json', json, (err, result) => {
+  // fs.writeFile('tweet_simple.json', json, (err, result) => {
   //   if (err) console.log('error', err);
   // });
 
@@ -79,7 +79,10 @@ function gotTweet(eventMsg) {
   let from = eventMsg.user.screen_name;
   let id = eventMsg.id_str;
   let tweetTxt = eventMsg.text;
-  let imgUrl = eventMsg.entities.media[0].media_url;
-  let fb = "fb";
+  let imgUrl = -1;
+  if (eventMsg.entities.media != undefined) {
+    imgUrl = eventMsg.entities.media[0].media_url;
+  }
+  let fb = tweetTxt.match(/\bfb\b/) != null ? "fb" : -1;
   tweetIt(`@${from} thank you for communicating`, id, imgUrl, fb);
 }
