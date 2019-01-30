@@ -9,12 +9,12 @@ PImage nextImage(PImage img, int diam) {
   img.loadPixels();
   newImg.loadPixels();
   int startX = 0;
-  for (int i = 0; i < width; i += 1) { 
-    for (int j = 0; j < height - 1; j += 1) {
-      int indexA = i + j * width;
-      int indexB = i + j * width;
+  for (int i = 0; i < img.width; i ++) { 
+    for (int j = 0; j < img.height - 1; j ++) {
+      int indexA = i + j * img.width;
+      int indexB = i + j * img.width;
       if (i > startX && i < startX + diam) {
-        indexB = floor(map(i, startX, startX+diam, startX+diam, startX)) + j * width;
+        indexB = floor(map(i, startX, startX+diam, startX+diam, startX)) + j * img.width;
       }
       newImg.pixels[indexA] = img.pixels[indexB];
     }

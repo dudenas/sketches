@@ -20,11 +20,11 @@ var T = new Twit({
 })
 
 // post it
-function tweetIt(txt, id, imgUrl) {
+function tweetIt(txt, id, imgUrl, fb) {
   // execute processing sketch
   let cmd = 'processing-java --sketch=`pwd`/photoCut --run';
 
-  exec(`${cmd} ${imgUrl}`, processing);
+  exec(`${cmd} ${imgUrl} ${fb}`, processing);
 
   function processing() {
     let filePath = 'photoCut/img/output.png';
@@ -80,5 +80,6 @@ function gotTweet(eventMsg) {
   let id = eventMsg.id_str;
   let tweetTxt = eventMsg.text;
   let imgUrl = eventMsg.entities.media[0].media_url;
-  tweetIt(`@${from} thank you for communicating`, id, imgUrl);
+  let fb = "fb";
+  tweetIt(`@${from} thank you for communicating`, id, imgUrl, fb);
 }
