@@ -20,14 +20,15 @@ var T = new Twit({
 })
 
 // post it
-function tweetIt(txt, id, imgUrl, fb) {
+function tweetIt(txt, id, imgUrl, social) {
   // execute processing sketch
-  let cmd = 'processing-java --sketch=`pwd`/photoCut --run';
+  // let cmd = 'processing-java --sketch=`pwd`/photoCut --run';
+  let cmd = 'PC/photoCut';
 
-  exec(`${cmd} ${imgUrl} ${fb}`, processing);
+  exec(`${cmd} ${imgUrl} ${social}`, processing);
 
   function processing() {
-    let filePath = 'photoCut/img/output.png';
+    let filePath = 'PC/img/output.png';
     let params = {
       encoding: 'base64'
     }
@@ -83,6 +84,11 @@ function gotTweet(eventMsg) {
   if (eventMsg.entities.media != undefined) {
     imgUrl = eventMsg.entities.media[0].media_url;
   }
-  let fb = tweetTxt.match(/\bfb\b/) != null ? "fb" : -1;
-  tweetIt(`@${from} thank you for communicating`, id, imgUrl, fb);
+  let regex = /\b(fb|twitter)\b/
+  let social = tweetTxt.match(regex);
+  if (social != null) {
+    if (social[0] == "fb") social = "fb";
+    else if (social[0] == "twitter") social = "twitter";
+  } else social = -1;
+  tweetIt(`@${from} thank you for communicating`, id, imgUrl, social);
 }
