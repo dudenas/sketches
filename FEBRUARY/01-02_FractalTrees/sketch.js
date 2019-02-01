@@ -5,7 +5,7 @@ let clrs = {
 
 let axiom = 'F';
 let sentence = axiom;
-let len = 80;
+let len = 60;
 const SW = 1;
 let angle;
 
@@ -16,12 +16,21 @@ rules[0] = {
 };
 
 function setup() {
-	createCanvas(600, 600);
+	createCanvas(1000, 600);
+	pixelDensity(2);
 	angle = radians(25);
 
 	createP(axiom);
 	createButton('generate').mousePressed(generate);
 	turtle();
+}
+
+function keyPressed(){
+	let now = new Date();
+	if (key == 'S') {
+		console.log('saved');
+		save(`output${now.getSeconds()}-${now.getMilliseconds()}.png`);
+	}
 }
 
 // draw turtle graphics
@@ -30,9 +39,9 @@ function turtle() {
 	resetMatrix();
 	translate(width / 2, height);
 	strokeWeight(SW);
-	stroke(color(clrs["main"], 125));
-	angle = radians(random(-25, 25));
+	stroke(color(clrs["main"], 75));
 	for (let i = 0; i < sentence.length; i++) {
+		random(1) > 0.1 ? angle = radians(random(15, 25)) : angle = radians(-random(1, 2));
 		let curr = sentence.charAt(i);
 		// instructions to go;
 		switch (curr) {
