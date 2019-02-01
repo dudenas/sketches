@@ -20,15 +20,18 @@ var T = new Twit({
 })
 
 // post it
+let count = 0;
 function tweetIt(txt, id, imgUrl, social) {
   // execute processing sketch
   // let cmd = 'processing-java --sketch=`pwd`/photoCut --run';
+  console.log("starting processing the image...");
   let cmd = 'PC/photoCut';
-
-  exec(`${cmd} ${imgUrl} ${social}`, processing);
+  exec(`${cmd} ${imgUrl} ${social} ${count}`, processing);
+  console.log("finnished processing");
 
   function processing() {
-    let filePath = 'PC/img/output.png';
+    console.log("starts Writting");
+    let filePath = `PC/img/output${count}.png`;
     let params = {
       encoding: 'base64'
     }
@@ -43,9 +46,10 @@ function tweetIt(txt, id, imgUrl, social) {
       //this is where the tweet goes
       // with the media attached
       var mediaIdStr = data.media_id_string;
+      console.log(id);
       var params = {
-        status: `${txt} #muramart`,
         in_reply_to_status_id: id,
+        status: `${txt} #muramart`,
         media_ids: [mediaIdStr]
       }
 
@@ -53,6 +57,7 @@ function tweetIt(txt, id, imgUrl, social) {
         err ? console.error(err) : console.log(data.text);
       }
       // Post tweet
+      count++;
       T.post('statuses/update', params, tweeted);
     }
   }
@@ -60,7 +65,7 @@ function tweetIt(txt, id, imgUrl, social) {
 
 // get the stream search for a tweet with specific txt
 let searchFor = {
-  track: '@MuramartG',
+  track: '@MuramartG give me art',
 };
 
 let stream = T.stream('statuses/filter', searchFor)
@@ -68,14 +73,7 @@ let stream = T.stream('statuses/filter', searchFor)
 stream.on('tweet', gotTweet);
 
 function gotTweet(eventMsg) {
-  // get the info of the event in json
-  // console.log(eventMsg);
-  // var fs = require('fs');
-  // var json = JSON.stringify(eventMsg, null, 2);
-  // fs.writeFile('tweet_simple.json', json, (err, result) => {
-  //   if (err) console.log('error', err);
-  // });
-
+  console.log("someone mentionted you");
   // use the actual event for getting name and msg id
   let from = eventMsg.user.screen_name;
   let id = eventMsg.id_str;
@@ -90,5 +88,5 @@ function gotTweet(eventMsg) {
     if (social[0] == "fb") social = "fb";
     else if (social[0] == "twitter") social = "twitter";
   } else social = -1;
-  tweetIt(`@${from} thank you for communicating`, id, imgUrl, social);
+  tweetIt(`@${from} Love you @${from} for exploring `, id, imgUrl, social);
 }
