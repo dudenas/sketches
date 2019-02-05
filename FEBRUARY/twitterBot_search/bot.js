@@ -45,7 +45,7 @@ T.get('search/tweets', getParams, function (err, data, response) {
     myData.users.push(p);
   })
   var jsonMyData = JSON.stringify(myData, null, 2);
-  fs.writeFile('asado.json', jsonMyData, (err, result) => {
+  fs.writeFile('tango.json', jsonMyData, (err, result) => {
     if (err) console.log('error', err);
     else {
       console.log('saved');
