@@ -1,0 +1,12 @@
+// Chatbot's brain
+
++set #
+- <set num=<star>>
+
++ #
+* <star> > <get num> => pick a lower number
+* <star> < <get num> => pick a higher number
+* <star> == <get num> => you got it
+
++ *
+- Guess a number between 0 and 100
