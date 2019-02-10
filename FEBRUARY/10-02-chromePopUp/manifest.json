@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "murama art",
+  "version": "0.1",
+  "content_scripts": [{
+    "matches": [
+      "<all_urls>"
+    ],
+    "js": ["content.js"]
+  }],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": ["tabs"],
+  "browser_action": {
+    "default_icon": "muramart.png",
+    "default_popup": "sketch/index.html",
+    "default_title": "a pop up will come here"
+  }
+}
