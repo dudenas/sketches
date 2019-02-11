@@ -1,0 +1,8 @@
+{
+  "manifest_version": 2,
+  "name": "murama art",
+  "version": "1.0",
+  "chrome_url_overrides": {
+    "newtab": "sketch/index.html"
+  }
+}
