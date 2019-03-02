@@ -26,6 +26,12 @@ class Cell {
     if (this.walls[3]) line(tempX, tempY + scl, tempX, tempY);
   }
 
+  highlight() {
+    noStroke();
+    fill(clrs['main']);
+    rect(this.x * scl, this.y * scl, scl, scl);
+  }
+
   //————————————————————————————————————————————————check neighbors
   checkNeighbors() {
     let neighbors = [];
@@ -47,13 +53,18 @@ class Cell {
     if (left && !left.visited) {
       neighbors.push(left);
     }
+
+    if (neighbors.length > 0) {
+      return neighbors[floor(random(0, neighbors.length))];
+    } else {
+      return undefined;
+    }
   }
 
   index(x, y) {
     if (x < 0 || y < 0 || x > cols - 1 || y > rows - 1) {
       return -1;
-    }
-    return x + y * cols;
+    } else return x + y * cols;
   }
 
 }
