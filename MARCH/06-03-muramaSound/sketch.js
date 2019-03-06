@@ -41,6 +41,8 @@ function setupVariables() {
 
 //———————————————————————————————————— preload
 function preload() {
+	myDiv = createDiv('press me');
+	myDiv.position(windowWidth / 2, windowHeight / 2);
 	song = loadSound('data/song.mp3', () => {
 		song.loop();
 		song.jump(36);
@@ -52,10 +54,15 @@ function preload() {
 function setup() {
 	createCanvas(windowWidth, windowHeight);
 	setupVariables();
+	pixelDensity(2);
 }
 
 //———————————————————————————————————— draw
 function draw() {
+	if (getAudioContext().state || !divRemoved) {
+		myDiv.remove();
+		divRemoved = true;
+	}
 	//background(clrs['bg']);
 	alpha = map(level, 0, 1, 5, 255);
 	scl = map(level, 0, 1, 1, 2);
@@ -86,8 +93,14 @@ function draw() {
 	if (level < 0.1 || level > 0.9) removeWalkers();
 }
 //———————————————————————————————————— sound
+function touchStarted() {
+	if (getAudioContext().state !== 'running') {
+		getAudioContext().resume();
+	}
+}
+
 function removeWalkers() {
-	let walkersSize = level * 200 * scl;
+	let walkersSize = level * 100 * scl;
 	if (walkersSize < walkers.length && walkers.length > 1) {
 		walkers.splice(0, 1);
 	}
