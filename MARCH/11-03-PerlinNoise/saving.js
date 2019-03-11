@@ -1,6 +1,6 @@
 // saving
 let save = false;
-let totalFrames = 300;
+let totalFrames = 1200;
 let capturer;
 
 //———————————————————————————————————— save
@@ -9,10 +9,12 @@ function saveSetup() {
   pixelDensity(2);
   capturer = new CCapture({
     format: 'png',
-    framerate: 30,
+    framerate: 60,
     verbose: true
   });
-  capturer.start();
+  if (save) {
+    capturer.start();
+  }
 }
 
 function saveDraw() {
