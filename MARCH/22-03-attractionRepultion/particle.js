@@ -3,13 +3,13 @@ class Particle {
     if (attractor || alpha) {
       this.pos = createVector(x, y);
     } else {
-      this.pos = createVector(x, y);
-      // this.pos = createVector(width / 2, height / 2);
+      // this.pos = createVector(x, y);
+      this.pos = createVector(width / 2, height / 2);
     }
     this.prev = this.pos.copy();
-    // this.vel = p5.Vector.random2D();
-    this.vel = createVector();
-    // this.vel.setMag(random(2, 5));
+    this.vel = p5.Vector.random2D();
+    // this.vel = createVector();
+    this.vel.setMag(random(2, 5));
     this.acc = createVector();
     this.maxSpeed = 4;
     if (attractor) {
