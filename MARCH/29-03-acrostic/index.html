@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,15 +15,31 @@
 
 	<style>
 		body {
-			margin:0;
-			padding:0;
 			overflow: hidden;
+			height: 100vh;
+			width: 100vw;
 		}
-		canvas {
-			margin:auto;
+
+		#container {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+			width: 100%;
 		}
 	</style>
 </head>
+
 <body>
+	<div id="container">
+		<h1>Acrostic</h1>
+		<p>
+			word : <input type="text" id="input" value="murama">
+			<button id="submit">submit</button>
+		</p>
+	</div>
+
 </body>
+
 </html>
