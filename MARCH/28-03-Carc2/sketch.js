@@ -4,14 +4,14 @@ let ratio = 1.414;
 let startAngle = -Math.PI / 6;
 let endAngle = Math.PI + Math.PI / 6;
 let arcs = [];
-let totalFrames = 250;
+let totalFrames = 150;
 
 let ease;
 let styles;
 
 function setup() {
 	createCanvas(540, 540);
-	pixelDensity(2);
+	saveSetup();
 	ease = new p5.Ease();
 	styles = ease.listAlgos();
 	styles = ['doublePolynomialSigmoid']; // ['doubleExponentialSigmoid', 
@@ -31,6 +31,8 @@ function draw() {
 	for (let a of arcs) {
 		a.render()
 	}
+
+	saveDraw();
 }
 
 function setupSystem(r, rmin, sw, index) {
