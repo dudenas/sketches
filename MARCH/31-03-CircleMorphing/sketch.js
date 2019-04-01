@@ -20,6 +20,7 @@ function polarToCartesian(r, angle) {
 function setup() {
 	createCanvas(540, 540);
 	angleMode(DEGREES);
+	saveSetup();
 	let startA = 0;
 	let endA = 120;
 	let start = polarToCartesian(r, startA);
@@ -87,4 +88,5 @@ function draw() {
 	}
 	pcir = cir;
 	// if(amt == 0)console.log(frameCount); // 1036
+	saveDraw();
 }
