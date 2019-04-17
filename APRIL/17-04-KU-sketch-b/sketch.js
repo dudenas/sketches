@@ -1,18 +1,18 @@
 let clrs = [5, 250, '#ED5656', '#FECF19', '#7CEAD1'];
-let scl = 20;
+let scl = 40;
 let cols, rows;
 let cells;
 let SW = 5;
 let update = true;
+let sclSlider;
 
 //—————————————————————————————————————————————————————— setup
 function setup() {
 	createCanvas(960, 540);
 	strokeCap(SQUARE);
 	dataSetup();
-	cols = floor(width / scl);
-	rows = floor(height / scl);
-	console.log(cols, rows);
+	sclSlider = createSlider(10, 80, 40);
+	sclSlider.position(40, height - 40);
 }
 
 //—————————————————————————————————————————————————————— draw
@@ -23,17 +23,25 @@ function draw() {
 	}
 	background(clrs[0]);
 	// dataDraw();
-	
+
 	for (let c of cells) {
 		c.update();
 		c.show();
 	}
 	dataDraw();
 	// noLoop();
+	fill(clrs[1]);
+	text(sclSlider.value(), 20, height - 35);
+	scl = sclSlider.value();
+	console.log(scl);
 }
 
 //—————————————————————————————————————————————————————— grfcSetup
 function grfcSetup() {
+	cols = floor(width / scl);
+	rows = floor(height / scl);
+	console.log(cols, rows);
+
 	cells = [];
 	day = month[DAY];
 	for (let i = 0; i < cols; i++) {
