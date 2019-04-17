@@ -1,5 +1,5 @@
 let clrs = [5, 250, '#ED5656', '#FECF19', '#7CEAD1'];
-let scl = 20;
+let scl = 40;
 let cols, rows;
 let cells;
 let SW = 5;
@@ -11,7 +11,7 @@ function setup() {
 	createCanvas(960, 540);
 	strokeCap(SQUARE);
 	dataSetup();
-	sclSlider = createSlider(10, 80, 20);
+	sclSlider = createSlider(10, 80, 40);
 	sclSlider.position(40, height - 40);
 }
 
