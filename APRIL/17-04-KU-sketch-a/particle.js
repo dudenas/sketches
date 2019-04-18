@@ -1,3 +1,7 @@
+function updateSpeed() {
+  maxSpeed = map(currValue, 0, 2, 0, 8);
+}
+
 //————————————————————————————————————————————————————————————————————————————————— Particle
 class Particle {
   constructor(x, y) {
@@ -5,19 +9,21 @@ class Particle {
     this.vel = createVector(0, 0);
     this.acc = createVector(0, 0);
     this.r = random(r, r * 3);
+    this.speed = random(1, 1.5);
   }
   //————————————————————————————————————————————————————————————————————————————————— Particle render
   render() {
     this.lookUp();
-    this.update();
     this.edges();
+    this.update();
+    
     this.show();
   }
 
   //————————————————————————————————————————————————————————————————————————————————— Particle update
   update() {
     this.vel.add(this.acc);
-    this.vel.limit(maxSpeed);
+    this.vel.limit(maxSpeed * this.speed);
     this.pos.add(this.vel);
     this.acc.mult(0);
   }

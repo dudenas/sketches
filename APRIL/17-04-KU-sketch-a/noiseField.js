@@ -4,6 +4,7 @@ let scl;
 let grid;
 let SW = 1;
 let time = 0;
+let deviation = -Math.PI; //Math.PI / 4;
 
 //————————————————————————————————————————————————————————————————————————————————— fieldSetup
 function fieldSetup() {
@@ -32,7 +33,7 @@ function fieldDraw() {
 function fieldUpdate() {
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
-      grid[i][j].setAngle();
+      grid[i][j].updateAngle();
     }
   }
 }
@@ -42,11 +43,19 @@ class Cell {
   constructor(x, y) {
     this.pos = createVector(x * scl, y * scl);
     this.angle = 0;
-    this.setAngle();
+    this.setupAngle();
   }
-  //————————————————————————————————————————————————————————————————————————————————— cell setAngle
-  setAngle() {
-    this.angle = map(noise(this.pos.x / (width), this.pos.y / (height), time), 0, 1, 0, TWO_PI);
+  //————————————————————————————————————————————————————————————————————————————————— cell updateAngle
+  updateAngle() {
+    // this.angle = map(noise(this.pos.x / (width), this.pos.y / (height), time), 0, 1, 0, TWO_PI);
+    // this.angle = PI / 4;
+
+  }
+
+  //————————————————————————————————————————————————————————————————————————————————— cell setupAngle
+  setupAngle() {
+    let index = floor(map(this.pos.x / scl, 0, width / scl, 0, 96));
+    this.angle = map(day[index].value, 0, 2, 0, deviation);
   }
 
   //————————————————————————————————————————————————————————————————————————————————— cell show
