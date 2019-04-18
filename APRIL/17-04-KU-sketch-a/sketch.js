@@ -6,7 +6,6 @@ let particles = [];
 let debug = true;
 let fr;
 let incr = 0.005;
-let update = true;
 let alpha = 25;
 
 //————————————————————————————————————————————————————————————————————————————————— setup

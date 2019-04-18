@@ -49,7 +49,6 @@ class Cell {
   updateAngle() {
     // this.angle = map(noise(this.pos.x / (width), this.pos.y / (height), time), 0, 1, 0, TWO_PI);
     // this.angle = PI / 4;
-
   }
 
   //————————————————————————————————————————————————————————————————————————————————— cell setupAngle

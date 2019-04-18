@@ -18,6 +18,7 @@ let currTime = 0;
 let currValue = 0;
 let currX, currY = 0;
 let day = undefined;
+let update = true;
 
 
 //—————————————————————————————————————————————————————— dataPreload
