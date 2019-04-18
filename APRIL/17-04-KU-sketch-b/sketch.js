@@ -29,11 +29,11 @@ function draw() {
 		c.show();
 	}
 	dataDraw();
-	// noLoop();
+
+	// update scl value by the slider
 	fill(clrs[1]);
 	text(sclSlider.value(), 20, height - 35);
 	scl = sclSlider.value();
-	console.log(scl);
 }
 
 //—————————————————————————————————————————————————————— grfcSetup
