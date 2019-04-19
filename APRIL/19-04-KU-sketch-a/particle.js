@@ -15,7 +15,7 @@ class Particle {
     this.pos = createVector(x, y);
     this.vel = createVector(0, 0);
     this.acc = createVector(0, 0);
-    this.r = random(r, pow(r, 2));
+    this.r = random(r, r * 3);
     this.speed = random(1, 1.1);
     this.finnished = false;
   }

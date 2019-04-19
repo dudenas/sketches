@@ -1,5 +1,5 @@
 let clrs = [250, 5, [255, 0, 85]];
-let r = 5;
+let r = 4;
 let maxSpeed = 4;
 let maxParticles = 75;
 let particles = [];
