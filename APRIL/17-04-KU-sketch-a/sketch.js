@@ -3,7 +3,7 @@ let r = 4;
 let maxSpeed = 4;
 let maxParticles = 200;
 let particles = [];
-let debug = true;
+let debug = false;
 let fr;
 let incr = 0.005;
 let alpha = 25;
