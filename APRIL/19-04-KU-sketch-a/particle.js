@@ -1,5 +1,6 @@
 function updateSpeed() {
   maxSpeed = map(currValue, 0, 2, 0.5, 8);
+  maxR = map(currValue, 0, 2, r * 2, r * 6);
 }
 
 function generateWave() {
@@ -15,7 +16,7 @@ class Particle {
     this.pos = createVector(x, y);
     this.vel = createVector(0, 0);
     this.acc = createVector(0, 0);
-    this.r = random(r, r * 3);
+    this.r = random(r, maxR);
     this.speed = random(1, 1.1);
     this.finnished = false;
   }
