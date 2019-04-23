@@ -48,7 +48,7 @@ function dataUpdate() {
   if (month != undefined) {
     day = month[DAY];
     if (day != undefined) {
-      let step = floor((width - padd * 4) / 24);
+      let step = floor((width - padd * 2) / 24);
       for (let i = 0; i < 1000 && day[i] != undefined; i++) {
         let hour = float(day[i].hour);
         let minute = float(day[i].minute);
@@ -108,6 +108,7 @@ function dataUpdate() {
   if (day[currTime] == undefined) {
     currTime = 0;
   }
+
   // draw current time
   stroke(clrs[2]);
   strokeWeight(SW);
@@ -115,7 +116,7 @@ function dataUpdate() {
 
   // draw text
   noStroke();
-  fill(clrs[1]);
+  fill(clrs[3]);
   text(`${YEAR} ${MONTH} ${DAY} — min ${nf(min,1,2)} / max ${nf(max,1,2)} — currValue ${nf(currValue, 1, 2)}`, width / 2, height - padd);
 
   if (frameCount % framesToChangeDay == 0) {
