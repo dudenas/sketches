@@ -1,10 +1,17 @@
-let clrs = [250, 5, [255, 0, 85], 125];
+let clrs = [5, 250, [255, 0, 85], 125];
 let ease, styles;
 let totalFrames = 150;
+let video;
+
+//————————————————————————————————————————————————————————————————————————————————— Preload
+function preload() {
+	video = createVideo('files/walk.mp4');
+}
 
 //————————————————————————————————————————————————————————————————————————————————— Setup
 function setup() {
 	createCanvas(540, 540);
+	video.size(width, height);
 
 	// easing functions
 	ease = new p5.Ease();
@@ -17,12 +24,17 @@ function setup() {
 
 	grfcSetup();
 	saveSetup();
+
+	video.loop();
+	video.hide();
 }
 
 //————————————————————————————————————————————————————————————————————————————————— Draw
 function draw() {
 	background(clrs[0]);
-	translate(0, -scl);
+	// image(video, 0, 0);
+	video.loadPixels();
 	grfcDraw();
 	saveDraw();
+
 }
