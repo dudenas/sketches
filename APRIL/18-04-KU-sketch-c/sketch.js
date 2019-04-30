@@ -2,7 +2,7 @@
 let clrs = [
 	[50, 65, 185], 5, [255, 0, 85], 250
 ];
-let alpha = 25;
+let alpha = 5;
 
 // debug
 let fr;
@@ -14,7 +14,7 @@ let intervalFrames = 1;
 
 //————————————————————————————————————————————————————————————————————————————————— setup
 function setup() {
-	createCanvas(800, 800);
+	createCanvas(windowWidth, windowHeight);
 	pixelDensity(2);
 
 	background(clrs[0][0], clrs[0][1], clrs[0][2]);
@@ -57,6 +57,10 @@ function draw() {
 //————————————————————————————————————————————————————————————————————————————————— helpFunctions
 function keyPressed() {
 	if (key == ' ') debug = !debug;
+	if (key == 's') {
+		noLoop();
+	}
+	if (key == 'b') loop();
 }
 
 //————————————————————————————————————————————————————————————————————————————————— helpFunctions

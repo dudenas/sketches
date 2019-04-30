@@ -5,9 +5,9 @@ let data;
 let month;
 
 // set date 
-const YEAR = 2019;
-const MONTH = 10;
-let DAY = 24;
+const YEAR = 2020;
+const MONTH = 12;
+let DAY = 23;
 let framesToChangeTime = 10;
 let framesToChangeDay = 60 * 5;
 
@@ -119,11 +119,11 @@ function dataUpdate() {
   fill(clrs[3]);
   text(`${YEAR} ${MONTH} ${DAY} — min ${nf(min,1,2)} / max ${nf(max,1,2)} — currValue ${nf(currValue, 1, 2)}`, width / 2, height - padd);
 
-  if (frameCount % framesToChangeDay == 0) {
-    DAY++;
-    update = true;
-  }
-  if (month[DAY] == undefined) {
-    DAY = 1;
-  }
+  // if (frameCount % framesToChangeDay == 0) {
+  //   DAY++;
+  //   update = true;
+  // }
+  // if (month[DAY] == undefined) {
+  //   DAY = 1;
+  // }
 }
