@@ -6,7 +6,7 @@ let capturer;
 // in initialization phase
 function saveSetup() {
   pixelDensity(2);
-  ``
+
   frameRate(30);
   capturer = new CCapture({
     format: 'png',
