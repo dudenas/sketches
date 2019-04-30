@@ -34,7 +34,7 @@ class Letter {
   //————————————————————————————————————————————————————————————————————————————————— Letter update
   update() {
     let percent = ((frameCount + this.index * 4) % (totalFrames)) / (totalFrames);
-    // percent = ease[styles[2]](percent);
+    // percent = ease[styles[3]](percent);
     this.x1 = map(sin(percent * TWO_PI), -1, 1, padd - scl / 10, -scl / 2 + padd);
     this.x2 = map(sin(percent * TWO_PI), -1, 1, -padd + scl / 10, scl / 2 - padd);
 

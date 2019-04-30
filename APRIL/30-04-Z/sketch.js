@@ -31,4 +31,6 @@ function draw() {
 
 	// save
 	saveDraw();
+
+	totalFrames = map(sin(frameCount * TWO_PI), -1, 1, 120, 40);
 }
