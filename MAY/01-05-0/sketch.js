@@ -1,6 +1,17 @@
 let clrs = [5, 250, [255, 0, 85], 125];
 let ease, styles;
-let totalFrames = 35;
+let totalFrames = 150;
+let video, loaded = false;
+let nextFrame = 0;
+
+//————————————————————————————————————————————————————————————————————————————————— Preload
+function preload() {
+	video = createVideo("files/pulpFiction.mp4", () => {
+		console.log('video is loaded');
+		loaded = true;
+
+	});
+}
 
 //————————————————————————————————————————————————————————————————————————————————— Setup
 function setup() {
@@ -20,17 +31,22 @@ function setup() {
 
 	// setup save
 	saveSetup();
+
+	video.hide();
+	video.loop();
 }
 
 //————————————————————————————————————————————————————————————————————————————————— Draw
 function draw() {
-	background(clrs[0]);
+	// if (loaded) {
+		background(clrs[0]);
+		// image(video, 0, 0);
 
-	// draw graphics
-	grfcDraw();
+		video.loadPixels();
+		// draw graphics
+		grfcDraw();
 
-	// save
-	saveDraw();
-
-	totalFrames = map(sin(frameCount * TWO_PI), -1, 1, 120, 40);
+		// save
+		saveDraw();
+	// }
 }
