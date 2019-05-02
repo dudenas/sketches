@@ -1,15 +1,6 @@
 let clrs = [250, 5, [255, 0, 85], 125];
 let ease, styles;
-let totalFrames = 150;
-let img;
-let nextFrame = 0;
-
-//————————————————————————————————————————————————————————————————————————————————— Preload
-// function preload() {
-// 	img = loadImage("files/img.png", () => {
-// 		console.log('img is loaded');
-// 	});
-// }
+let totalFrames = 90;
 
 //————————————————————————————————————————————————————————————————————————————————— Setup
 function setup() {
@@ -21,7 +12,7 @@ function setup() {
 	styles = ['quadraticInOut', 'elasticInOut', 'doubleExponentialSigmoid', 'normalizedInverseErf', 'backIn', 'bounceInOut'];
 
 	// setup style
-	strokeCap(PROJECT);
+	strokeCap(SQUARE);
 	strokeJoin(BEVEL);
 
 	// setup graphics
@@ -34,10 +25,10 @@ function setup() {
 //————————————————————————————————————————————————————————————————————————————————— Draw
 function draw() {
 	background(clrs[0]);
-	// image(img, 0, 0);
 
-	// img.loadPixels();
-	let x = (width - ((cols - 1) * spacing)) / 2
+	let temp = letters[letters.length - 1].x;
+	let stable = letters[letters.length - 1].xo;
+	let x = (width - ((cols - 1) * spacing)) / 2 + (stable - temp) / 2;
 	translate(x, 0);
 	// draw graphics
 	grfcDraw();
