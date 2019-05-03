@@ -14,22 +14,26 @@ let intervalFrames = 1;
 
 //————————————————————————————————————————————————————————————————————————————————— setup
 function setup() {
-	createCanvas(windowWidth, windowHeight);
+	// asign to canvas css
+	let canvas = createCanvas(800, 500);
+	let cv = select("#canvas");
+	canvas.parent(cv);
+
 	pixelDensity(2);
 
 	background(clrs[0][0], clrs[0][1], clrs[0][2]);
-	background(clrs[1], alpha);
+	background(clrs[1], 255);
 
 	dataSetup();
 	fieldSetup();
 
-	// framerate Setup
-	fr = createP('');
+	// setup interface
+	buttonsSetup();
 }
 
 //————————————————————————————————————————————————————————————————————————————————— draw
 function draw() {
-	// set interval and update it
+	// set interval for a wave and update it
 	if (intervalFrames % interval == 0) {
 		generateWave();
 		interval = floor(map(currValue, 0, 2, 100, 25));
@@ -50,17 +54,20 @@ function draw() {
 	fieldUpdate();
 	particlesUpdate();
 
-	// framrate Draw
-	fr.html(floor(frameRate()));
+	// interface update
+	buttonUpdate();
 }
 
 //————————————————————————————————————————————————————————————————————————————————— helpFunctions
+let running = false;
+
 function keyPressed() {
 	if (key == ' ') debug = !debug;
-	if (key == 's') {
-		noLoop();
+	if (key == 'B') {
+		running = !running;
 	}
-	if (key == 'b') loop();
+	if (running) loop();
+	else noLoop();
 }
 
 //————————————————————————————————————————————————————————————————————————————————— helpFunctions
