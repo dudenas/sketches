@@ -17,32 +17,41 @@ function buttonsSetup() {
   yearDrop.changed(() => {
     YEAR = Number(yearDrop.value());
     monthSetup();
-    dataSetup();
   });
+  YEAR = Number(yearDrop.value());
 
   // setupmonth
   monthSetup();
 
-  dayDrop = createSelect();
-  dayDrop.parent(select("#dropDown"));
-  for (let i = 1; i <= 31; i++) {
-    dayDrop.option(i);
-  }
-
-  dayDrop.changed(() => {
-    DAY = Number(dayDrop.value());
-    dataSetup();
-  });
+  // setupday
+  daySetup();
 }
 
 //—————————————————————————————————————————————————————— buttonUpdate
 function buttonUpdate() {
-  // monthSetup();
   //fps
   fr.html(`fps | ${floor(frameRate())}`);
   // speed
   speedSliderDiv.html(`speed | ${speedSlider.value()}`);
-  framesToChangeTime = map(speedSlider.value(), 1, 5, 15 * 60 * 60, 15);
+  switch (speedSlider.value()) {
+    case 1:
+      framesToChangeTime = 15 * 60;
+      break;
+    case 2:
+      framesToChangeTime = 15 * 15;
+      break;
+    case 3:
+      framesToChangeTime = 15 * 5;
+      break;
+    case 4:
+      framesToChangeTime = 15;
+      break;
+    case 5:
+      framesToChangeTime = 10;
+      break;
+  }
+  // framesToChangeTime = floor(map(speedSlider.value(), 1, 5, 15 * 60 * 60, 15));
+  console.log(framesToChangeTime);
 }
 
 //—————————————————————————————————————————————————————— setupMonth
@@ -60,8 +69,37 @@ function monthSetup() {
     i++;
   }
 
+  MONTH = Number(monthDrop.value());
+  daySetup();
+
   monthDrop.changed(() => {
     MONTH = Number(monthDrop.value());
-    dataSetup();
+    month = data[YEAR][MONTH];
+    daySetup();
   });
+}
+
+//—————————————————————————————————————————————————————— setupDay
+function daySetup() {
+  if (dayDrop) dayDrop.remove();
+  dayDrop = createSelect();
+  dayDrop.parent(select("#dropDown"));
+  let i = 1;
+  while (month[i] != undefined) {
+    dayDrop.option(i);
+    i++;
+  }
+
+  DAY = Number(dayDrop.value());
+  day = month[DAY];
+
+  dayDrop.changed(() => {
+    DAY = Number(dayDrop.value());
+    day = month[DAY];
+    currTime = 0;
+    setFirstValues = true;
+  });
+
+  currTime = 0;
+  setFirstValues = true;
 }

@@ -59,15 +59,9 @@ function draw() {
 }
 
 //————————————————————————————————————————————————————————————————————————————————— helpFunctions
-let running = false;
 
 function keyPressed() {
 	if (key == ' ') debug = !debug;
-	if (key == 'B') {
-		running = !running;
-	}
-	if (running) loop();
-	else noLoop();
 }
 
 //————————————————————————————————————————————————————————————————————————————————— helpFunctions

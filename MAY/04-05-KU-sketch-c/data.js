@@ -84,7 +84,6 @@ function dataUpdate() {
               currValue = floor(day[currTime].value);
               currX = x;
               currY = y2;
-              console.log(currValue);
             }
           } else {
             nextValue = day[currTime].value;
