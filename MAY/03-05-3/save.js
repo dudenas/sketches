@@ -1,5 +1,5 @@
 // saving
-let save = true;
+let save = false;
 let capturer;
 
 //———————————————————————————————————— save

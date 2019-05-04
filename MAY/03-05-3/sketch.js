@@ -10,11 +10,10 @@ function preload() {
 //————————————————————————————————————————————————————————————————————————————————— Setup
 function setup() {
 	createCanvas(540, 540);
-
 	// easing functions
 	ease = new p5.Ease();
 	styles = ease.listAlgos();
-	styles = ['quadraticInOut', 'elasticInOut', 'doubleExponentialSigmoid', 'normalizedInverseErf', 'backIn', 'bounceInOut'];
+	styles = ['quadraticInOut', 'elasticOut', 'doubleExponentialSigmoid', 'normalizedInverseErf', 'backInOut', 'bounceInOut'];
 
 	// setup style
 	strokeCap(SQUARE);
@@ -31,19 +30,10 @@ function setup() {
 //————————————————————————————————————————————————————————————————————————————————— Draw
 function draw() {
 	// draw Background
-  background(clrs[0]);
+	background(clrs[0]);
 	// grfcUpdate
 	grfcUpdate();
 
 	// save
 	saveDraw();
-}
-
-//————————————————————————————————————————————— helping functions
-function make2Darray(cols, rows) {
-	let arr = new Array(cols);
-	for (let i = 0; i < arr.length; i++) {
-		arr[i] = new Array(rows);
-	}
-	return arr;
 }
