@@ -1,6 +1,6 @@
 let clrs = [5, 250, [255, 0, 85], 125];
 let ease, styles;
-let totalFrames = 60;
+let totalFrames = 90;
 
 //————————————————————————————————————————————————————————————————————————————————— Preload
 function preload() {
