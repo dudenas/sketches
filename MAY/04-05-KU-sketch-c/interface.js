@@ -24,7 +24,6 @@ function buttonsSetup() {
       let minute = today.getMinutes();
       let tempTime = (hour * 60 + minute) / (24 * 60 + 60);
       currTime = floor(map(tempTime, 0, 1, 0, 96));
-      console.log(hour, minute);
       setNextValue = true;
       setFirstValues = true;
     } else {
