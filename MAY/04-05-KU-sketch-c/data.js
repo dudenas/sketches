@@ -79,7 +79,7 @@ function dataUpdate() {
             nextValue = day[currTime + 1].value;
             setNextValue = true;
             // if it's the first day
-            if (currTime == 0 && setFirstValues) {
+            if (setFirstValues) {
               setFirstValues = false;
               currValue = floor(day[currTime].value);
               currX = x;
@@ -135,6 +135,8 @@ function dataUpdate() {
   if (frameCount % framesToChangeTime == 0) currTime++;
   if (day[currTime] == undefined) {
     currTime = 0;
+    setNextValue = true;
+    setFirstValues = true;
   }
 
   // draw current time and set it

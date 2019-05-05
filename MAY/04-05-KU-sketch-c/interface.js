@@ -1,5 +1,6 @@
 let speedSlider, speedSliderDiv;
 let yearDrop, monthDrop, dayDrop;
+let currentTimeButton, currentTimeOn = false;
 
 //—————————————————————————————————————————————————————— buttonSetup
 function buttonsSetup() {
@@ -8,6 +9,29 @@ function buttonsSetup() {
   // speed
   speedSliderDiv = createP('').parent(select("#speedSlider"));
   speedSlider = createSlider(1, 5, 1).parent(select("#speedSlider"));
+  // currentTime
+  currentTimeButton = createCheckbox('currentTime', false).parent(select("#currentTime"));
+  currentTimeButton.changed(() => {
+    var today = new Date();
+    currentTimeOn = !currentTimeOn;
+    if (currentTimeOn) {
+      DAY = today.getDate();
+      MONTH = today.getMonth() + 1;
+      YEAR = today.getFullYear();
+      month = data[YEAR][MONTH];
+      day = month[DAY];
+      let hour = today.getHours();
+      let minute = today.getMinutes();
+      let tempTime = (hour * 60 + minute) / (24 * 60 + 60);
+      currTime = floor(map(tempTime, 0, 1, 0, 96));
+      console.log(hour, minute);
+      setNextValue = true;
+      setFirstValues = true;
+    } else {
+      YEAR = Number(yearDrop.value());
+      monthSetup();
+    }
+  });
 
   // dropw down date
   yearDrop = createSelect();
@@ -15,8 +39,10 @@ function buttonsSetup() {
   yearDrop.option('2019');
   yearDrop.option('2020');
   yearDrop.changed(() => {
-    YEAR = Number(yearDrop.value());
-    monthSetup();
+    if (!currentTimeOn) {
+      YEAR = Number(yearDrop.value());
+      monthSetup();
+    }
   });
   YEAR = Number(yearDrop.value());
 
@@ -35,7 +61,7 @@ function buttonUpdate() {
   speedSliderDiv.html(`speed | ${speedSlider.value()}`);
   switch (speedSlider.value()) {
     case 1:
-      framesToChangeTime = 15 * 60;
+      framesToChangeTime = 15 * 60 * 60;
       break;
     case 2:
       framesToChangeTime = 15 * 15;
@@ -47,11 +73,10 @@ function buttonUpdate() {
       framesToChangeTime = 15;
       break;
     case 5:
-      framesToChangeTime = 10;
+      framesToChangeTime = 5;
       break;
   }
   // framesToChangeTime = floor(map(speedSlider.value(), 1, 5, 15 * 60 * 60, 15));
-  console.log(framesToChangeTime);
 }
 
 //—————————————————————————————————————————————————————— setupMonth
@@ -73,9 +98,11 @@ function monthSetup() {
   daySetup();
 
   monthDrop.changed(() => {
-    MONTH = Number(monthDrop.value());
-    month = data[YEAR][MONTH];
-    daySetup();
+    if (!currentTimeOn) {
+      MONTH = Number(monthDrop.value());
+      month = data[YEAR][MONTH];
+      daySetup();
+    }
   });
 }
 
@@ -94,12 +121,14 @@ function daySetup() {
   day = month[DAY];
 
   dayDrop.changed(() => {
-    DAY = Number(dayDrop.value());
-    day = month[DAY];
-    currTime = 0;
-    setFirstValues = true;
+    if (!currentTimeOn) {
+      DAY = Number(dayDrop.value());
+      day = month[DAY];
+      setNextValue = true;
+      setFirstValues = true;
+    }
   });
 
-  currTime = 0;
+  setNextValue = true;
   setFirstValues = true;
 }
