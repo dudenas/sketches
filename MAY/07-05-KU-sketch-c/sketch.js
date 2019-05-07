@@ -4,7 +4,7 @@ let clrs = [
 ];
 
 let alpha = 5;
-let res = 1;
+let res = 10;
 
 // debug
 let fr;
@@ -55,7 +55,7 @@ function sketch(p) {
 			// set interval for a wave and update it
 			if (intervalFrames % interval == 0) {
 				generateWave(p);
-				interval = p.floor(p.map(currValue, 0, 2, 150, 25));
+				interval = p.floor(p.map(currValue, 0, 2, 100, 25));
 				intervalFrames = 0;
 			}
 			intervalFrames++;
