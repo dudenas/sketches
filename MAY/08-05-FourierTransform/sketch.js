@@ -1,4 +1,4 @@
-let clrs = [250, 5, [85, 0, 255]]
+let clrs = [250, 5, [85, 0, 255], 255]
 let time = 0
 let SW = 2
 let total = 200
@@ -7,7 +7,7 @@ let noiseMax = 3
 let x = []
 let fourierY, fourierX
 let path = []
-let r;
+let r
 let step = 0,
 	totalSteps = 13
 
@@ -22,6 +22,7 @@ function setup() {
 	rockCreate()
 
 	background(clrs[0])
+	blendMode(MULTIPLY)
 }
 
 function draw() {
@@ -34,16 +35,16 @@ function draw() {
 	}
 	endShape()
 	if (path.length == total + 5) {
-		r = random(width / 20, width / 3)
+		// r = random(width / 20, width / 3)
 		// r -= width / (totalSteps * 2)
 		r -= width / 40
-		rockCreate();
-		step++;
+		rockCreate()
+		step++
 	}
 
 	if (step == totalSteps) {
-		// save();
-		noLoop();
+		// save()
+		noLoop()
 	}
 
 	const dt = TWO_PI / fourierX.length
@@ -83,8 +84,10 @@ function rockCreate() {
 		let angle = map(i, 0, total, 0, TWO_PI)
 		let xoff = map(cos(angle), -1, 1, 0, noiseMax)
 		let yoff = map(sin(angle), -1, 1, 0, noiseMax)
-		let na = map(noise(xoff + start, yoff), 0, 1, -50, 50)
-		let nb = map(noise(yoff, xoff + start), 0, 1, -50, 50)
+		// let na = map(noise(xoff + start, yoff), 0, 1, -50, 50)
+		// let nb = map(noise(yoff, xoff + start), 0, 1, -50, 50)
+		let na = map(noise(xoff + start, yoff), 0, 1, -10, 10)
+		let nb = map(noise(yoff, xoff + start), 0, 1, -10, 10)
 		let a = r * cos(angle) + na
 		let b = r * sin(angle) + nb
 		const c = new Complex(a, b)
