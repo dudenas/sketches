@@ -71,7 +71,6 @@ function updateDom() {
 		document.getElementById('logo').setAttribute("style", "background: var(--sub-color); left: 4%")
 	} else {
 		document.getElementById('menu').setAttribute("style", "transform:translate3d(-80vh, 0, 0)")
-		document.getElementById('logo').setAttribute("style", "background: var(--main-color)")
-		document.getElementById('logo').setAttribute("style", "background: var(--sub-color); left: 10%")
+		document.getElementById('logo').setAttribute("style", "background: var(--main-color); left: 10%")
 	}
 }
