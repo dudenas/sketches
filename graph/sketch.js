@@ -11,11 +11,12 @@ let cristianChecked = false,
 	practisingActive = false,
 	educationChecked = false,
 	educationActive = false,
-	sexChecked = false
-sexActive = false
+	sexChecked = false,
+	sexActive = false,
+	showDuration = false
 
 function preload() {
-	data = loadJSON('data/data-new.json', () => {
+	data = loadJSON('data/data.json', () => {
 		console.log('data loaded')
 	})
 }
@@ -78,6 +79,12 @@ function setup() {
 			redraw()
 		});
 
+		select('#duration_active')
+		.changed(() => {
+			showDuration = !showDuration
+			redraw()
+		});
+
 
 	// save button
 	select('#saveButton')
@@ -101,6 +108,7 @@ function draw() {
 	let avg = 0
 	// let value = {}
 	let value = []
+	let duration = []
 	let count = 0
 
 	let toPick = cristianActive + practisingActive + sexActive + educationActive
@@ -114,6 +122,9 @@ function draw() {
 		let sex = id['about']['sex']
 		let education = id['about']['education']
 		let age = id['about']['age']
+
+		// duration
+		let dur = nf(id['time']['duration'], 0, 1)
 
 		// statements for buttons ////////////////////////////////////////////////////////////////////////////////////////////////
 		if (cristianActive) {
@@ -142,6 +153,7 @@ function draw() {
 		if (condition == toPick) {
 			value[count] = age
 			value.push(age)
+			duration.push(dur)
 			if (maxValue < age) maxValue = age
 			if (minValue > age) minValue = age
 			avg += age
@@ -166,12 +178,20 @@ function draw() {
 	value.sort()
 	for (let i = 0; i < count; i++) {
 		let val = value[i]
+		let dur = duration[i]
 		let y = map(val, 0, maxValue, height - height / 10, ypadd)
 		let x = ((width - xpadd * 2) / graphlen) * (i) + xpadd * 3 / 2
 		noStroke()
 		fill(clrs[1])
 		let up = i % 2 == 0 ? 1 : -1
 		text(val, x, y - txtpadd * up)
+		if (showDuration) {
+			push()
+			translate(x, y - txtpadd * up * 3)
+			rotate(PI / 2)
+			text(dur, 0, 0)
+			pop()
+		}
 		stroke(clrs[2])
 		strokeWeight(4)
 		noFill()
@@ -179,7 +199,7 @@ function draw() {
 	}
 
 	let x = xpadd
-	let y1 = ypadd;
+	let y1 = ypadd
 	let y2 = height - height / 10
 	stroke(clrs[1])
 	strokeWeight(1)
@@ -214,15 +234,11 @@ function saveFrame() {
 	save(`${txt}.png`)
 }
 
-// function draw() {
-
-// }
-
 // let json = {
 // 	about: {
 // 		age: 0,
 // 		sex: true, // true women false man undefined kita
-// 		education: true, // true aukstasis false nebaigtas aukstasis undefined kita
+// 		education: true, // true aukstasis false nebaigtas aukstasis
 // 		cristian: true, // true / false
 // 		practising: true, // true / false
 // 	},
