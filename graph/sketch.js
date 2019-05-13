@@ -140,7 +140,6 @@ function draw() {
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		if (condition == toPick) {
-			console.log(condition, toPick)
 			value[count] = age
 			value.push(age)
 			if (maxValue < age) maxValue = age
@@ -164,8 +163,8 @@ function draw() {
 	textSize(8)
 	// let graphlen = Object.keys(value).length
 	let graphlen = value.length
-	value.sort()
-	for (let i = 0; i < graphlen; i++) {
+	// value.sort()
+	for (let i = 0; i < count; i++) {
 		let val = value[i]
 		let y = map(val, 0, maxValue, height - height / 10, ypadd)
 		let x = ((width - xpadd * 2) / graphlen) * (i) + xpadd * 3 / 2
