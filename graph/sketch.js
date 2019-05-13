@@ -13,7 +13,8 @@ let cristianChecked = false,
 	educationActive = false,
 	sexChecked = false,
 	sexActive = false,
-	showDuration = false
+	showDuration = false,
+	showAge = true
 
 function preload() {
 	data = loadJSON('data/data.json', () => {
@@ -79,9 +80,15 @@ function setup() {
 			redraw()
 		});
 
-		select('#duration_active')
+	select('#duration_active')
 		.changed(() => {
 			showDuration = !showDuration
+			redraw()
+		});
+
+	select('#age_active')
+		.changed(() => {
+			showAge = !showAge
 			redraw()
 		});
 
@@ -184,7 +191,9 @@ function draw() {
 		noStroke()
 		fill(clrs[1])
 		let up = i % 2 == 0 ? 1 : -1
-		text(val, x, y - txtpadd * up)
+		if (showAge) {
+			text(val, x, y - txtpadd * up)
+		}
 		if (showDuration) {
 			push()
 			translate(x, y - txtpadd * up * 3)
