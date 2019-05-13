@@ -68,6 +68,10 @@ input:focus {
   background: black;
 }
 
+button:focus {
+  outline: 0;
+}
+
 /* The slider */
 
 .slider_name {
