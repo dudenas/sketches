@@ -6,9 +6,13 @@ let xpadd, ypadd, txtpadd
 let txt = 'booooooom'
 
 let cristianChecked = false,
+	cristianActive = false,
 	practisingChecked = false,
+	practisingActive = false,
 	educationChecked = false,
+	educationActive = false,
 	sexChecked = false
+sexActive = false
 
 function preload() {
 	data = loadJSON('data/data-new.json', () => {
@@ -50,6 +54,30 @@ function setup() {
 			redraw()
 		});
 
+	select('#cristian_active')
+		.changed(() => {
+			cristianActive = !cristianActive
+			redraw()
+		});
+
+	select('#education_active')
+		.changed(() => {
+			educationActive = !educationActive
+			redraw()
+		});
+
+	select('#sex_active')
+		.changed(() => {
+			sexActive = !sexActive
+			redraw()
+		});
+
+	select('#practising_active')
+		.changed(() => {
+			practisingActive = !practisingActive
+			redraw()
+		});
+
 
 	// save button
 	select('#saveButton')
@@ -74,8 +102,10 @@ function draw() {
 	// let value = {}
 	let value = []
 	let count = 0
+
+	let toPick = cristianActive + practisingActive + sexActive + educationActive
+
 	for (let i = 0; i < len; i++) {
-		let toreach = 0
 		let condition = 0
 		let id = data[i]
 		// about
@@ -86,25 +116,31 @@ function draw() {
 		let age = id['about']['age']
 
 		// statements for buttons ////////////////////////////////////////////////////////////////////////////////////////////////
-		if (cristianChecked) {
-			condition += cristian
-			toreach++
+		if (cristianActive) {
+			if (cristianChecked == cristian) {
+				condition++
+			}
 		}
-		if (practisingChecked) {
-			condition += practising
-			toreach++
+		if (practisingActive) {
+			if (practisingChecked == practising) {
+				condition++
+			}
 		}
-		if (sexChecked) {
-			condition += sex
-			toreach++
+		if (sexActive) {
+			if (sexChecked == sex) {
+				condition++
+			}
 		}
-		if (educationChecked) {
-			condition += education
-			toreach++
+		if (educationActive) {
+			if (educationChecked == education) {
+				condition++
+			}
 		}
 
+
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		if (condition == toreach) {
+		if (condition == toPick) {
+			console.log(condition, toPick)
 			value[count] = age
 			value.push(age)
 			if (maxValue < age) maxValue = age
@@ -128,7 +164,6 @@ function draw() {
 	textSize(8)
 	// let graphlen = Object.keys(value).length
 	let graphlen = value.length
-	// console.log(graphlen)
 	value.sort()
 	for (let i = 0; i < graphlen; i++) {
 		let val = value[i]
