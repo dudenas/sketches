@@ -1,0 +1,281 @@
+:root {
+  --main-color: white;
+  --sub-color: black;
+  --test-color: teal;
+  --test-color-2: magenta;
+  --sub-font-size: 24px;
+  --main-font-size: 16px;
+
+  /* border */
+  --button-font-size: 18px;
+  --button-width: 160px;
+  --button-height: 60px;
+  --button-border-radius: 80px;
+  --button-border-stroke: 2px;
+
+  /* font family */
+  --light-font-family: 'Oxygen-Light', sans-serif;
+  --bold-font-family: 'Oxygen-Bold', sans-serif;
+}
+
+hr {
+  border-style: solid;
+  color: var(--main-color);
+  border-width: 0.5px;
+  z-index: 10;
+  position: absolute;
+}
+
+#line-1 {
+  width: 80%;
+  left: 10%;
+}
+
+#line-2 {
+  width: 0;
+  height: 80%;
+  top: -10%;
+  left: 45%;
+}
+
+.from-line {
+  margin: 0 0 0 10px;
+}
+
+* {
+  font-family: var(--light-font-family);
+  text-align: center;
+}
+
+body {
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+#canvas {
+  filter: blur(40px);
+  position: absolute;
+  transform: scale(1.4, 1.4);
+  z-index: -1;
+  transition: transform ease-in-out 3000ms, filter ease-in-out 1000ms;
+}
+
+/* menu */
+#menu {
+  width: 35vw;
+  height: 100vh;
+  background: var(--main-color);
+  transform: translate3d(-80vh, 0, 0);
+  transition: transform ease-in-out 1000ms;
+}
+
+/* menu top */
+#menu-top {
+  width: 100%;
+  height: 55%;
+  z-index: 2;
+}
+
+#menu-top-button {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: calc(100% - 140px);
+  z-index: 5;
+}
+
+.menu-top-button {
+  color: var(--sub-color);
+  font-size: var(--sub-font-size);
+  text-align: left;
+  width: 100%;
+  height: 40px;
+  margin: 0 0 25px 10%;
+  z-index: 5;
+}
+
+/* menu bottom */
+#menu-bot {
+  width: 100%;
+  height: 45%;
+  top: 55%;
+  background: var(--sub-color);
+  z-index: 2;
+}
+
+/* date */
+.menu-bot-top {
+  width: 80%;
+  height: 40%;
+  top: 10%;
+  left: 10%;
+  position: relative;
+  z-index: 2;
+}
+
+.date-txt-title,
+.date-txt {
+  color: var(--main-color);
+  text-align: left;
+  padding: 0 0 10px 0;
+  z-index: 3;
+}
+
+.date-txt {
+  font-size: var(--sub-font-size);
+  font-family: var(--bold-font-family);
+}
+
+.menu-bot-top-left {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.menu-bot-top-right-button,
+.menu-bot-bot-right-button {
+  background: var(--main-color);
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  right: 0%;
+  top: 20px;
+  position: absolute;
+  z-index: 4;
+}
+
+/* values */
+.menu-bot-bot {
+  width: 80%;
+  height: 40%;
+  top: 20%;
+  left: 10%;
+  position: relative;
+}
+
+.menu-bot-bot-left {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+}
+
+.menu-bot-bot-right {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  right: 0%;
+  position: absolute;
+}
+
+/* logo */
+#logo {
+  /* margin: auto; */
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 2;
+
+  width: var(--button-width);
+  height: var(--button-height);
+  background: var(--main-color);
+  transition: background-color 1000ms ease-in-out, left 1000ms ease-in-out;
+}
+
+/* about */
+#about {
+  margin: auto;
+  position: absolute;
+  top: 10%;
+  right: 10%;
+
+  width: var(--button-width);
+  height: var(--button-height);
+  color: var(--main-color);
+  font-size: var(--sub-font-size);
+}
+
+/* text */
+#startText,
+#explainText,
+#controllers {
+  font-size: 64px;
+  color: var(--main-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 75%;
+}
+
+#explainText {
+  font-size: var(--sub-font-size);
+  display: none;
+}
+
+/* controllers */
+#controllers {
+  top: calc(50% - 20px);
+  display: none;
+}
+
+.ctrl {
+  font-size: var(--main-font-size);
+  padding: 15px;
+}
+
+.ctrl-head {
+  font-size: var(--sub-font-size);
+  padding: 60px;
+}
+
+.ctrl-txt,
+.ctrl-img {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10px 0 10px;
+}
+
+.ctrl-img {
+  font-family: var(--bold-font-family);
+  border-radius: 15px;
+  padding: 20px 30px;
+  border: var(--button-border-stroke) solid var(--main-color);
+}
+
+/* next button */
+#nextButton {
+  margin: auto;
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+
+  opacity: 0.5;
+  color: var(--main-color);
+  border: var(--button-border-stroke) solid var(--main-color);
+  background: none;
+  font-size: var(--button-font-size);
+  border-radius: var(--button-border-radius);
+  width: var(--button-width);
+  height: var(--button-height);
+  box-sizing: border-box;
+
+  transition: opacity 0.25s ease-in-out;
+}
+
+#nextButton:hover {
+  opacity: 1;
+}
+
+#pageNumber {
+  margin: auto;
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  width: var(--button-width);
+  height: var(--button-height);
+
+  transform: rotate(-90deg);
+  color: var(--main-color);
+}

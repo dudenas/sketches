@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>13-05-KU-begin</title>
+	<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<script src="libraries/p5.js"></script>
+	<script src="libraries/p5.dom.js"></script>
+	<script src="sketch.js"></script>
+</head>
+
+<body>
+	<div id="canvas"></div>
+	<!-- logo -->
+	<div id="logo"></div>
+	<!-- about -->
+	<div id="about">Apie</div>
+	<!-- text -->
+	<div id="startText">Welcome to<br>University by the sea</div>
+	<div id="explainText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non magna accumsan,
+		tincidunt leo eget, auctor est. Ut tincidunt velit nec nulla malesuada, vitae faucibus libero pulvinar. Praesent
+		quis libero dolor. Praesent suscipit nec sem non suscipit. Duis luctus enim eu metus facilisis placerat. Duis neque
+		ex, semper ut lectus non</div>
+	<div id="controllers">
+		<div class="ctrl ctrl-head">valdymas</div>
+		<div class="ctrl">
+			<div class="ctrl-img">H</div>
+			<div class="ctrl-txt">interface</div>
+		</div>
+		<div class="ctrl">
+			<div class="ctrl-img">spacebar</div>
+			<div class="ctrl-txt">sustabdyti animacija</div>
+		</div>
+		<div class="ctrl">
+			<div class="ctrl-img">D</div>
+			<div class="ctrl-txt">parsisiusti png</div>
+		</div>
+	</div>
+	<!-- next button -->
+	<button id="nextButton">praleisti</button>
+	<!-- page number -->
+	<div id="pageNumber">1 / 3</div>
+	<div id="menu">
+		<!--menu top -->
+		<div id="menu-top">
+			<div id="menu-top-button">
+				<div class="menu-top-button">keisti spalva</div>
+				<div class="menu-top-button">parsisiusti</div>
+			</div>
+		</div>
+		<!--menu bottom -->
+		<div id="menu-bot">
+			<div class="menu-bot-top">
+				<div class="menu-bot-top-left">
+					<div class="date-txt-title">date</div>
+					<div class="date-txt">2019 05 12</div>
+				</div>
+				<div class="menu-bot-top-right-button"></div>
+			</div>
+			<hr id="line-1">
+			<div class="menu-bot-bot">
+				<div class="menu-bot-bot-left">
+					<div class="date-txt-title">laikas</div>
+					<div class="date-txt">04:20:00</div>
+				</div>
+				<hr id="line-2" size="2">
+				<div class="menu-bot-bot-right">
+					<div class="date-txt-title from-line">bangavimas</div>
+					<div class="date-txt from-line">1.05</div>
+					<div class="menu-bot-bot-right-button"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
