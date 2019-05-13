@@ -163,7 +163,7 @@ function draw() {
 	textSize(8)
 	// let graphlen = Object.keys(value).length
 	let graphlen = value.length
-	// value.sort()
+	value.sort()
 	for (let i = 0; i < count; i++) {
 		let val = value[i]
 		let y = map(val, 0, maxValue, height - height / 10, ypadd)
