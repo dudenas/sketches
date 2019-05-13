@@ -18,6 +18,8 @@
   --bold-font-family: 'Oxygen-Bold', sans-serif;
 }
 
+button:focus {outline:0;}
+
 hr {
   border-style: solid;
   color: var(--main-color);
