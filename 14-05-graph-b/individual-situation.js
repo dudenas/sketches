@@ -6,6 +6,7 @@ function individualSituationDraw() {
   let minValue = 1
   let value = []
   let count = 0
+  let avg = 0
 
   let toPick = cristianActive + practisingActive + sexActive + educationActive
 
@@ -28,10 +29,11 @@ function individualSituationDraw() {
       // set values for each question
       let val = sit[currQuestion]
       value[count] = val
+      avg += val
       count++
     }
   }
-
+  avg /= count
 
   // draw graph
   background(clrs[0])
@@ -41,7 +43,7 @@ function individualSituationDraw() {
   fill(clrs[1])
   text(txt, width / 2, height / 10)
   textSize(18)
-  text(`${situations[currSituation]} | total — ${count}`, width / 2, height / 10 + txtpadd * 2)
+  text(`${situations[currSituation]} | total — ${count} | avg — ${nf(avg,0,2)}`, width / 2, height / 10 + txtpadd * 2)
 
 
   textSize(8)
@@ -83,4 +85,11 @@ function individualSituationDraw() {
     fill(clrs[1])
     text(i, x - txtpadd, y)
   }
+
+  // avg line
+  let avgY = map(avg, 1, 7, height - height / 10, ypadd)
+  stroke(clrs[2])
+  strokeWeight(1)
+  noFill();
+  line(x, avgY, width, avgY)
 }
