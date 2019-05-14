@@ -1,0 +1,155 @@
+* {
+  font-size: 12px;
+  font-family: 'Raleway', sans-serif;
+}
+
+h3 {
+  font-size: 14px;
+  font-family: 'Raleway', sans-serif;
+}
+
+#canvas {
+  top: -5%;
+  position: relative;
+}
+
+body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.alignCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+
+.switch,
+.input_name,
+#saveButton {
+  position: relative;
+  display: inline-block;
+  margin: 0 10px 0 10px;
+  width: 60px;
+  height: 26px;
+}
+
+/* Hide default HTML checkbox */
+
+.switch input,
+.check_switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+input:focus {
+  outline: 0;
+  background: black;
+  color: white;
+}
+
+.input_name {
+  border-radius: 18px;
+  border: 2px solid black;
+  width: 240px;
+  height: 12px;
+  text-align: center;
+}
+
+#saveButton {
+  border-radius: 18px;
+  border: 1px solid black;
+  height: 18px;
+  margin: 10px;
+}
+
+#saveButton:hover {
+  color: white;
+  background: black;
+}
+
+button:focus {
+  outline: 0;
+}
+
+/* The slider */
+
+.slider_name {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #0000FF;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider_name:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider_name {
+  background-color: #7B06F7;
+}
+
+input:checked+.slider_name:before {
+  -webkit-transform: translateX(32px);
+  -ms-transform: translateX(32px);
+  transform: translateX(32px);
+}
+
+/* Rounded sliders */
+
+.slider_name.round {
+  border-radius: 18px;
+}
+
+.slider_name.round:before {
+  border-radius: 50%;
+}
+
+.check_switch {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 5px 0 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.check_box {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  border-radius: 18px;
+  border: 1px solid black;
+  height: 18px;
+  width: 18px;
+}
+
+input:checked+.check_box {
+  background-color: black;
+}

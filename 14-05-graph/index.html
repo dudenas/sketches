@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>14-05-Barte_graph</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css" />
+
+	<script src="libraries/p5.js"></script>
+	<script src="libraries/p5.dom.js"></script>
+	<script src="gui.js"></script>
+	<script src="situation.js"></script>
+	<script src="information.js"></script>
+	<script src="sketch.js"></script>
+</head>
+
+<body>
+	<div id="canvas"></div>
+	<!-- situation -->
+	<div class="alignCenter">
+		<h3 class="">situation</h3>
+		<label class="switch">
+			<input id="situation" type="checkbox">
+			<span class="slider_name round"></span>
+		</label>
+		<h3 class="">information</h3>
+	</div>
+
+	<!-- first line -->
+	<div class="alignCenter">
+		<button id="saveButton">save</button>
+		<input value="grafiko pavadinimas" class="input_name" type="input">
+
+		<!-- information -->
+		<h3 class="information">show duration</h3>
+		<label class="information check_switch">
+			<input id="duration_active" type="checkbox">
+			<span class="check_box"></span>
+		</label>
+
+		<h3 class="information">show age</h3>
+		<label class="information check_switch">
+			<input id="age_active" type="checkbox" checked='true'>
+			<span class="check_box"></span>
+		</label>
+
+		<!-- situation -->
+		<h3 class="situation">1</h3>
+		<label class="situation check_switch">
+			<input name="currSituation" type="radio" checked='true'>
+			<span class="check_box"></span>
+		</label>
+
+		<h3 class="situation">2</h3>
+		<label class="situation check_switch">
+			<input name="currSituation" type="radio">
+			<span class="check_box"></span>
+		</label>
+
+		<h3 class="situation">3</h3>
+		<label class="situation check_switch">
+			<input name="currSituation" type="radio">
+			<span class="check_box"></span>
+		</label>
+
+		<h3 class="situation">4</h3>
+		<label class="situation check_switch">
+			<input name="currSituation" type="radio">
+			<span class="check_box"></span>
+		</label>
+	</div>
+
+	<!-- second line -->
+	<div class="alignCenter">
+		<h3>cristian</h3>
+		<label class="check_switch">
+			<input id="cristian_active" type="checkbox">
+			<span class="check_box"></span>
+		</label>
+		</label>
+		<label class="switch">
+			<input id="cristian" type="checkbox">
+			<span class="slider_name round"></span>
+		</label>
+
+		<h3 class="">practising</h3>
+		<label class="check_switch">
+			<input id="practising_active" type="checkbox">
+			<span class="check_box"></span>
+		</label>
+		<label class="switch">
+			<input id="practising" type="checkbox">
+			<span class="slider_name round"></span>
+		</label>
+
+		<h3 class="">sex</h3>
+		<label class="check_switch">
+			<input id="sex_active" type="checkbox">
+			<span class="check_box"></span>
+		</label>
+		<label class="switch">
+			<input id="sex" type="checkbox">
+			<span class="slider_name round"></span>
+		</label>
+
+		<h3 class="">education</h3>
+		<label class="check_switch">
+			<input id="education_active" type="checkbox">
+			<span class="check_box"></span>
+		</label>
+		<label class="switch">
+			<input id="education" type="checkbox">
+			<span class="slider_name round"></span>
+		</label>
+	</div>
+</body>
+
+</html>
