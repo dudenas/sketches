@@ -15,6 +15,7 @@ function preload() {
 
 function setup() {
 	createCanvas(800, 500).parent(select('#canvas'))
+	
 	pixelDensity(2)
 
 	len = Object.keys(data).length

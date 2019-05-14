@@ -11,6 +11,8 @@ h3 {
 #canvas {
   top: -5%;
   position: relative;
+  border-radius: 40px;
+  overflow: hidden;
 }
 
 body {
