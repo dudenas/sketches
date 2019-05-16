@@ -1,7 +1,7 @@
 let clrs = [5, 250]
 
-let scl = 135
-let padd = 0
+let scl = 90 
+let padd = 1
 
 let rows, cols
 let cells = []
