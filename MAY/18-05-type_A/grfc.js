@@ -29,10 +29,12 @@ class Letter {
   //————————————————————————————————————————————————————————————————————————————————— Letter update
   update() {
     let percent = ((frameCount + this.i * 2 + this.j * 2) % (totalFrames)) / (totalFrames);
-    percent = ease[styles[0]](percent);
+    let percentb = ((frameCount + this.i * 2 + this.j * 2) % (totalFrames)) / (totalFrames);
+    let percentc = ((frameCount + this.j * 4) % (totalFrames)) / (totalFrames);
+    percent = ease[styles[0]](percent,0.75);
     this.y = map(sin(percent * TWO_PI), -1, 1, this.yo - rows * scl, this.yo * 3 / 2);
-    this.x3 = map(sin(percent * TWO_PI), -1, 1, 0, this.x1 / 4 * 3);
-    this.x4 = map(sin(percent * TWO_PI), -1, 1, 0, this.x2 / 4 * 3);
+    this.x3 = map(cos(percentb * TWO_PI), -1, 1, 0, this.x1 / 4 * 3);
+    this.x4 = map(cos(percentc * TWO_PI), -1, 1, 0, this.x2 / 4 * 3);
     this.y3 = map(this.x3, 0, this.x1, this.y1, this.y2)
     this.y4 = map(this.x4, 0, this.x2, this.y1, this.y2)
   }

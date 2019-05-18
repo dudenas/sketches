@@ -1,6 +1,6 @@
 let clrs = [5, 250, [255, 0, 85], 125];
 let ease, styles;
-let totalFrames = 90;
+let totalFrames = 120;
 
 //————————————————————————————————————————————————————————————————————————————————— Setup
 function setup() {
@@ -9,11 +9,13 @@ function setup() {
 	// easing functions
 	ease = new p5.Ease();
 	styles = ease.listAlgos();
-	styles = ['elasticInOut'];
+	styles = ['doubleExponentialSigmoid'];
+	// quadraticInOut
+	
 
 	// setup style
-	strokeCap(SQUARE);
-	strokeJoin(BEVEL);
+	strokeCap(ROUND);
+	strokeJoin(ROUND);
 
 	// setup graphics
 	grfcSetup();
