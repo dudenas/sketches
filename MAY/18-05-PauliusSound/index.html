@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>18-05-PauliusSound</title>
+
+	<script src="libraries/p5.js"></script>
+	<script src="libraries/p5.dom.js"></script>
+	<script src="libraries/Tone.js"></script>
+	<script src="libraries/p5.sound.js"></script>
+	<script src="sketch.js"></script>
+
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin: auto;
+		}
+
+		#canvas {
+			overflow: hidden;
+			margin: 2em;
+			border-radius: 20px;
+			width: 540px;
+			height: 540px;
+		}
+
+		button {
+			background-color: white;
+			color: black;
+			padding: 0.5em 4em;
+			text-align: center;
+			text-decoration: none;
+			font-size: 12px;
+			border-radius: 4em;
+			border: 1px solid black;
+			transition: padding ease-in-out 500ms, background-color 200ms ease-in-out, border 200ms ease-in-out, font-size 200ms ease-in-out;
+		}
+
+		button:hover {
+			background-color: black;
+			padding: 0.5em 8em;
+			color: white;
+		}
+
+		button:focus {
+			outline: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="canvas"></div>
+	<button>play</button>
+</body>
+
+</html>
