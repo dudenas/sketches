@@ -1,5 +1,5 @@
 let imgs = []
-let totalPhotos = 10
+let totalPhotos = 9
 
 // style
 let scl = 25
@@ -8,7 +8,6 @@ let clrs = [250, 5, [255, 0, 85], 125]
 
 // font
 let myFont
-let loaded = false
 
 // debug
 let debug = true
@@ -20,7 +19,6 @@ let sketch = function (p) {
 		if (p.type === "NORMAL") {
 			myFont = p.loadFont('assets/font/Silka-Bold.otf', () => {
 				console.log('font loaded')
-				loaded = true
 			})
 			fps = p.createP()
 		}
@@ -65,6 +63,7 @@ let sketch = function (p) {
 	p.reset = function () {
 		grfcSetup(p)
 		p.redraw()
+		console.log('reset')
 	}
 
 	//————————————————————————————————————————————————————————————————————————————————— KeyPressed
@@ -107,11 +106,6 @@ let sketch = function (p) {
 		p.save();
 	}
 }
-
-if (loaded) {
-
-}
-
 
 cvs = new p5(sketch, "my_image");
 cvs.type = "NORMAL";

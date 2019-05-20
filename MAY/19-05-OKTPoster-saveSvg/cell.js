@@ -32,7 +32,7 @@ class Cell {
     this.angle = diff.heading()
 
     // set attraction
-    // diff.setMag(map(diff.mag(), 0, 100, 1, 15))
+    // diff.setMag(this.p.map(diff.mag(), 0, 50, 1, 10, true))
     // this.pos.add(diff)
 
   }

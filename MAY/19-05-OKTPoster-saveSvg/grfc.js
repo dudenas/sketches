@@ -72,10 +72,10 @@ class Grfc {
   constructor(x, y, p) {
     this.p = p
     this.pos = this.p.createVector(x, y)
-    this.w = this.p.floor(this.p.random(3, 6)) * scl
-    this.h = this.p.floor(this.p.random(3, 6)) * scl
     // this.w = this.p.floor(this.p.random(3, 6)) * scl
-    // this.h = this.w
+    // this.h = this.p.floor(this.p.random(3, 6)) * scl
+    this.w = this.p.floor(this.p.random(3, 6)) * scl
+    this.h = this.w
     // this.w = 100
     // this.h = 100
   }
