@@ -9,11 +9,11 @@ function setup() {
 	// easing functions
 	ease = new p5.Ease();
 	styles = ease.listAlgos();
-	styles = ['elasticInOut'];
+	styles = ['smoothStep'];
 
 	// setup style
-	strokeCap(ROUND);
-	strokeJoin(ROUND);
+	strokeCap(SQUARE);
+	strokeJoin(BEVEL);
 
 	// setup graphics
 	grfcSetup();
@@ -26,6 +26,7 @@ function setup() {
 function draw() {
 	background(clrs[0]);
 
+	translate((-scl / 2 + padd) / 2,(-scl / 2 + padd) / 3)
 	// draw graphics
 	grfcDraw();
 
