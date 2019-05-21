@@ -1,13 +1,12 @@
 //————————————————————————————————————————————————————————————————————————————————— Cell
 class Cell {
-  constructor(x, y, scl, letter, p) {
-    this.p = p
-    this.pos = this.p.createVector(x, y)
+  constructor(x, y, scl, letter) {
+    this.pos = createVector(x, y)
     this.posOriginal = this.pos.copy()
     this.r = scl
     this.letter = letter
     this.angle = 0
-    this.target = this.p.createVector()
+    this.target = createVector()
     this.minD = Infinity
   }
 
@@ -36,23 +35,23 @@ class Cell {
 
   //————————————————————————————————————————————————————————————————————————————————— Cell show
   show() {
-    this.p.stroke(clrs[1])
-    this.p.strokeWeight(1)
-    this.p.noFill()
-    this.p.push()
-    this.p.translate(this.pos.x + scl / 2, this.pos.y + scl / 2)
-    this.p.rotate(this.angle)
+    stroke(clrs[1])
+    strokeWeight(1)
+    noFill()
+    push()
+    translate(this.pos.x + scl / 2, this.pos.y + scl / 2)
+    rotate(this.angle)
 
     if (debug) {
-      this.p.rectMode(this.p.CENTER)
-      this.p.rect(0, 0, this.r, this.r)
+      rectMode(CENTER)
+      rect(0, 0, this.r, this.r)
 
     }
 
-    this.p.noStroke()
-    this.p.fill(clrs[1])
-    this.p.text(this.letter, 0, 0)
-    this.p.pop()
+    noStroke()
+    fill(clrs[1])
+    text(this.letter, 0, 0)
+    pop()
   }
 
 }

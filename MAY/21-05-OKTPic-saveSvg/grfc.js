@@ -11,15 +11,17 @@ let onTop = []
 let date, logo
 let dateW = 10
 let dateH = 4
+let minPhoto = 10
+let maxPhoto = 20
 
 //————————————————————————————————————————————————————————————————————————————————— GrfcSetup
-function grfcSetup(p) {
+function grfcSetup() {
   cells = []
   onTop = []
   photos = []
   // cols and rows
-  cols = p.floor(p.width / scl)
-  rows = p.floor(p.height / scl)
+  cols = floor(width / scl)
+  rows = floor(height / scl)
 
   // setup grfc
   for (let i = 0; i < totalPhotos; i++) {
@@ -28,31 +30,36 @@ function grfcSetup(p) {
     let maxTry = 0
     while (maxTry < 10000 && !found) {
       if (i == 0) {
-        temp = p.random(8, 14)
-      } else {
+        // set the photo
+        temp = random(minPhoto, maxPhoto)
+        w = floor(temp) * scl
+        h = w / 1.5
+        x = floor(random(temp / 2, cols - temp / 2)) * scl
+        y = floor(random(temp / 2 / 1.5, rows - temp / 2 / 1.5)) * scl
+      } else if (i == 2) {
         // set the logo
         temp = 4
+        w = floor(temp) * scl
+        h = w
+        x = floor(random(temp / 2, cols - temp / 2)) * scl
+        y = floor(random(temp / 2, rows - temp / 2)) * scl
       }
-      w = p.floor(temp) * scl
-      h = w
-      x = p.floor(p.random(temp / 2, cols - temp / 2)) * scl
-      y = p.floor(p.random(temp / 2, rows - temp / 2)) * scl
 
       // set the date
       if (i == 1) {
         w = dateW * scl
         h = dateH * scl
-        x = p.floor(p.random(dateW / 2, cols - dateW / 2)) * scl
-        y = p.floor(p.random(dateH / 2, rows - dateH / 2)) * scl
+        x = floor(random(dateW / 2, cols - dateW / 2)) * scl
+        y = floor(random(dateH / 2, rows - dateH / 2)) * scl
       }
 
       // set not to over flow
       found = true
       if (photos.length > 0) {
-        let lm = (x + w / 2 > (p.floor(cols / 2) - dateW / 2) * scl)
-        let rm = (x - w / 2 < (p.floor(cols / 2) + dateW / 2) * scl)
-        let tm = (y + h / 2 > (p.floor(rows / 2) - dateH / 2) * scl)
-        let bm = (y - h / 2 < (p.floor(rows / 2) + dateH / 2) * scl)
+        let lm = (x + w / 2 > (floor(cols / 2) - dateW / 2) * scl)
+        let rm = (x - w / 2 < (floor(cols / 2) + dateW / 2) * scl)
+        let tm = (y + h / 2 > (floor(rows / 2) - dateH / 2) * scl)
+        let bm = (y - h / 2 < (floor(rows / 2) + dateH / 2) * scl)
 
         for (let j = 0; j < photos.length; j++) {
           let other = photos[j]
@@ -70,22 +77,22 @@ function grfcSetup(p) {
 
       maxTry++
     }
-    if (i == 0) photos.push(new Grfc(x, y, p, w, h))
-    else if (i == 1) photos.push(new Grfc(x, y, p, w, h, false, true))
-    else photos.push(new Grfc(x, y, p, w, h, true, false))
+    if (i == 0) photos.push(new Grfc(x, y, w, h))
+    else if (i == 1) photos.push(new Grfc(x, y, w, h, false, true))
+    else photos.push(new Grfc(x, y, w, h, true, false))
   }
 
   // setup letters
   let letterIndex = 0
   let bringFront = false
   for (let i = 0; i < cols; i++) {
-    if (p.random(1) > 0.75) bringFront = true
+    if (random(1) > 0.75) bringFront = true
     else bringFront = false
     for (let j = 0; j < rows; j++) {
       let letter = phrase[letterIndex % phrase.length]
 
-      if (bringFront) onTop.push(new Cell(i * scl, j * scl, scl, letter, p))
-      else cells.push(new Cell(i * scl, j * scl, scl, letter, p))
+      if (bringFront) onTop.push(new Cell(i * scl, j * scl, scl, letter))
+      else cells.push(new Cell(i * scl, j * scl, scl, letter))
       letterIndex++
     }
   }
@@ -96,30 +103,39 @@ function grfcSetup(p) {
       elm.setTarget(other)
     })
   })
+
+  onTop.forEach((elm) => {
+    photos.forEach((other) => {
+      elm.setTarget(other)
+    })
+  })
 }
 
 //————————————————————————————————————————————————————————————————————————————————— GrfcDraw
-function grfcDraw(p) {
+function grfcDraw() {
   cells.forEach((elm) => {
     elm.update()
     elm.show()
   })
 
   photos.forEach((elm) => {
-    elm.show()
+    if (!elm.logoShow && !elm.dateShow) elm.show()
   })
 
   onTop.forEach((elm) => {
     elm.update()
     elm.show()
   })
+
+  photos.forEach((elm) => {
+    if (elm.logoShow || elm.dateShow) elm.show()
+  })
 }
 
 //————————————————————————————————————————————————————————————————————————————————— Grfc
 class Grfc {
-  constructor(x, y, p, w, h, logoShow, dateShow) {
-    this.p = p
-    this.pos = this.p.createVector(x, y)
+  constructor(x, y, w, h, logoShow, dateShow) {
+    this.pos = createVector(x, y)
     this.w = w
     this.h = h
     this.logoShow = logoShow
@@ -129,33 +145,33 @@ class Grfc {
   show() {
     // pic
     if (debug) {
-      this.p.noFill();
-      this.p.strokeWeight(4)
-      this.p.stroke(clrs[1])
-      this.p.rectMode(this.p.CENTER)
-      this.p.rect(this.pos.x, this.pos.y, this.w, this.h)
+      noFill();
+      strokeWeight(4)
+      stroke(clrs[1])
+      rectMode(CENTER)
+      rect(this.pos.x, this.pos.y, this.w, this.h)
     } else {
-      this.p.noStroke()
-      this.p.fill(clrs[2])
-      this.p.rectMode(this.p.CENTER)
-      this.p.rect(this.pos.x, this.pos.y, this.w, this.h)
+      noStroke()
+      fill(clrs[2])
+      rectMode(CENTER)
+      rect(this.pos.x, this.pos.y, this.w, this.h)
     }
 
     // logo
     if (this.logoShow) {
-      this.p.imageMode(this.p.CENTER)
-      this.p.image(logo, this.pos.x, this.pos.y, this.p.floor(4) * scl, this.p.floor(4) * scl)
+      imageMode(CENTER)
+      image(logo, this.pos.x, this.pos.y, floor(4) * scl, floor(4) * scl)
     }
 
     // date
     if (this.dateShow) {
-      this.p.imageMode(this.p.CENTER)
-      this.p.image(date, this.pos.x, this.pos.y, dateW * scl, dateH * scl)
+      imageMode(CENTER)
+      image(date, this.pos.x, this.pos.y, dateW * scl, dateH * scl)
     }
 
-    if(!this.dateShow && !this.logoShow){
-      this.p.imageMode(this.p.CENTER)
-      this.p.image(img, this.pos.x, this.pos.y, this.w, this.h)
+    if (!this.dateShow && !this.logoShow) {
+      imageMode(CENTER)
+      image(img, this.pos.x, this.pos.y, this.w, this.h)
     }
   }
 }

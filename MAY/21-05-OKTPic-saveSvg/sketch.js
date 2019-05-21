@@ -5,93 +5,77 @@ let totalPhotos = 3
 // style
 let scl = 25
 let txtSize = 10
-let clrs = [250, 5, [255, 0, 85], 125]
+let clrs = [250, 5, 250, [255, 0, 85], 125]
 
 // font
 let myFont
 
 // debug
-let debug = true
-let fps
+let debug = false
 
-let sketch = function (p) {
-	//————————————————————————————————————————————————————————————————————————————————— Preload
-	p.preload = function () {
-		if (p.type === "NORMAL") {
+let imgIndex = 0
+let canvas
 
-			myFont = p.loadFont('assets/font/Silka-Bold.otf', () => {
-				console.log('font loaded')
-			})
-			date = p.loadImage('assets/date.png', () => {
-				console.log('date loaded')
-			})
-			logo = p.loadImage('assets/logo.png', () => {
-				console.log('logo loaded')
-			})
 
-			img = p.loadImage('assets/photo/0.jpg', () => {
-				console.log('photo loaded')
-			})
+//————————————————————————————————————————————————————————————————————————————————— Preload
+preload = function () {
+	myFont = loadFont('assets/font/Silka-Bold.otf', () => {
+		console.log('font loaded')
+	})
+	date = loadImage('assets/date.png', () => {
+		console.log('date loaded')
+	})
+	logo = loadImage('assets/logo.png', () => {
+		console.log('logo loaded')
+	})
 
-			fps = p.createP()
-		}
+	for (let i = 0; i < 19; i++) {
+		let img = loadImage('assets/photo/' + (i + 1) + '.jpg', () => console.log(`photo loaded — ${i + 1}`))
+		imgs[i] = img
 	}
-
-	//————————————————————————————————————————————————————————————————————————————————— Setup
-	p.setup = function () {
-		if (p.type === "NORMAL") {
-			p.createCanvas(540, 540)
-			p.pixelDensity(2)
-			p.noLoop()
-		} else {
-			alert("don't know which canvas to create")
-		}
-		// set the font
-		if (p.type === "NORMAL") {
-			p.textFont(myFont)
-			p.textAlign(p.CENTER, p.CENTER)
-			p.textSize(txtSize)
-			grfcSetup(p)
-		}
-	}
-
-	//————————————————————————————————————————————————————————————————————————————————— Draw
-	p.draw = function () {
-		if (p.type === "NORMAL") {
-			p.background(clrs[0])
-			// offset to align to the middle
-			let x = (p.width - (cols * scl)) / 2
-			let y = (p.height - (rows * scl)) / 2
-			p.translate(x, y)
-
-			grfcDraw(p)
-
-			fps.html(p.floor(p.frameRate()))
-		}
-	}
-
-	p.reset = function () {
-		grfcSetup(p)
-		p.redraw()
-		console.log('reset')
-	}
-
-	//————————————————————————————————————————————————————————————————————————————————— KeyPressed
-	p.keyPressed = function () {
-		if (p.type === "NORMAL") {
-			if (p.key == 'd' || p.key == 'D') {
-				debug = !debug
-				p.redraw()
-			}
-			if (p.key == 'r' || p.key == 'R') p.reset()
-			if (p.key == 's' || p.key == 'S') p.save()
-		}
-	}
-
 }
 
-cvs = new p5(sketch, "my_image");
-cvs.type = "NORMAL";
+//————————————————————————————————————————————————————————————————————————————————— Setup
+setup = function () {
+	createCanvas(475, 600)
+	pixelDensity(2)
+	noLoop()
+	// set the font
+	textFont(myFont)
+	textAlign(CENTER, CENTER)
+	textSize(txtSize)
+	grfcSetup()
+}
 
-// svg = new p5(sketch, "hidden_div");
-// svg.type = "SVG";
+//————————————————————————————————————————————————————————————————————————————————— Draw
+draw = function () {
+	img = imgs[imgIndex]
+	background(clrs[0])
+	// offset to align to the middle
+	let x = (width - (cols * scl)) / 2
+	let y = (height - (rows * scl)) / 2
+	translate(x, y)
+
+	grfcDraw()
+}
+
+function reset() {
+	grfcSetup()
+	redraw()
+	console.log(imgIndex)
+	console.log('reset')
+}
+
+//————————————————————————————————————————————————————————————————————————————————— KeyPressed
+function keyPressed() {
+	// if (key == 'd' || key == 'D') {
+	// 	debug = !debug
+	// 	redraw()
+	// }
+	if (key == 'r' || key == 'R') reset()
+	if (key == 't' || key == 'T') {
+		reset()
+		imgIndex = (imgIndex + 1) % 19
+	}
+	if (key == 's' || key == 'S') save(`${imgIndex}.png`)
+}
