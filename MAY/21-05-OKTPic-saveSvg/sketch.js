@@ -74,8 +74,8 @@ function keyPressed() {
 	// }
 	if (key == 'r' || key == 'R') reset()
 	if (key == 't' || key == 'T') {
-		reset()
 		imgIndex = (imgIndex + 1) % 19
+		reset()
 	}
 	if (key == 's' || key == 'S') save(`${imgIndex}.png`)
 }
