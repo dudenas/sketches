@@ -60,7 +60,6 @@ class Branch {
     translate(this.start.x, this.start.y)
     rotate(this.angle)
     let txtSize = map(this.lenOriginal, 0, startLen, 4, 18)
-
     let bounds = myFont.textBounds(this.curr, 0, 0, txtSize)
     while (this.len > bounds.w) {
       this.curr += phrase[this.index]
