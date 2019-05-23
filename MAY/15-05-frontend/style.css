@@ -1,7 +1,120 @@
 :root {
-  --main-bg-color: gray;
+  --main-bg-color: rgb(124, 124, 124);
+  --main-white-color: white;
+  --main-black-color: black;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  padding: 0.8em 1.2em;
+  height: 100%;
+}
+
+.logo {
+  width: 8em;
 }
 
 body {
   background: var(--main-bg-color);
+}
+
+ul {
+  list-style-type: none;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.hide-mobile {
+  display: none;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.controls nav {
+  position: absolute;
+  top: 50%;
+  margin-top: calc(-2em - 50px);
+}
+
+.controls li {
+  margin: 1em 0em 1em 0em;
+}
+
+.menu-container {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 16em;
+  background: var(--main-black-color);
+}
+
+.menu-nav {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+  background: var(--main-bg-color);
+  text-align: left;
+  color: var(--main-white-color);
+}
+
+.menu-top {
+  height: 8em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.menu-bottom {
+  height: 6em;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+hr {
+  border-top: 0.25px solid var(--main-white-color);
+  width: 100%;
+  height: 0%;
+  z-index: 3;
+}
+
+.vertical-line {
+  border-top: 0.25px solid var(--main-white-color);
+  width: 0%;
+  height: 100%;
+  z-index: 3;
+}
+
+@media only screen and (min-width: 540px) {
+  .show-mobile {
+    display: block;
+  }
+
+  .hide-desktop {
+    display: none;
+  }
+
+  .hide-mobile {
+    display: block;
+  }
 }

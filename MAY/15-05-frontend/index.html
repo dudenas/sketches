@@ -10,15 +10,55 @@
 </head>
 
 <body>
+  <div class="menu-container">
+    <div class="menu-nav">
+      <div class="menu-top">
+        <div>
+          <h3>data</h3>
+          <h1>2015 15 13</h1>
+        </div>
+      </div>
+      <hr>
+      <div class="menu-bottom">
+        <div>
+          <h3>laikas</h3>
+          <h1>15:13:13</h1>
+        </div>
+        <hr class="vertical-line">
+        <div>
+          <h3>bangu aukstis</h3>
+          <h1>1.05</h1>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="container">
-    <img src="images/logo-ku-white.svg" alt="logo" class="logo">
+    <header>
+      <img src="images/logo-ku-white.svg" alt="logo" class="logo">
 
-    <nav>
-      <a href="#" class="hide-desktop">
-        <img src="images/burger-button.svg" alt="toggle menu" class="menu" id="menu">
-      </a>
-      <ul class="show-desktop hide-desktop" id="nav"></ul>
-    </nav>
+      <nav>
+        <a href="#" class="hide-desktop">
+          <img src="images/burger-button.svg" alt="toggle menu" class="menu" id="menu">
+        </a>
+
+        <ul class="show-desktop hide-mobile" id="nav">
+          <li><a href="#">home</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="controls">
+      <nav>
+        <ul class="show-desktop hide-mobile" id="controls">
+          <li><img src="images/icon-chart.svg" alt="chart icon"></li>
+          <li><img src="images/play-button.svg" alt="chart icon"></li>
+          <li><img src="images/icon-expand.svg" alt="chart icon"></li>
+        </ul>
+      </nav>
+    </section>
+    <footer>
+      <div class="show-mobile hide-desktop"><img src="images/icon-expand.svg" alt="icon-expant"></div>
+      <div class="show-desktop hide-mobile">EN / LT</div>
+    </footer>
   </div>
 </body>
 
