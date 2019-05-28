@@ -1,0 +1,125 @@
+/* custom variables */
+:root {
+  /* colors */
+  --bg-color: rgb(89, 59, 255);
+  --white-color: white;
+  --black-color: black;
+  --gray-color: rgb(125, 125, 125);
+  /* main padding margin */
+  --main-diff: 4em;
+}
+
+/* remove defaults */
+* {
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  /* TEMPORALY */
+  color: var(--white-color);
+}
+
+/* body */
+body {
+  background: var(--bg-color);
+}
+
+/* container */
+.container {
+  position: relative;
+  margin: var(--main-diff);
+}
+
+/* navigation */
+.nav {
+  height: calc(100vh - 8em);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+
+
+  position: absolute;
+  right: 0;
+}
+
+/* controls */
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.controls>a {
+  margin: 1em 0em;
+}
+
+/* menu */
+.menu-outer-top {
+  position: absolute;
+  top: 0;
+  height: 60vh;
+  width: 25em;
+  background: var(--white-color);
+  z-index: 2;
+}
+
+.menu-outer-bot {
+  position: absolute;
+  bottom: 0;
+  height: 100vh;
+  width: 25em;
+  background: var(--black-color);
+  z-index: 1;
+}
+
+.menu-inside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 8em);
+}
+
+/* menu top */
+.menu-top li,
+a {
+  color: var(--black-color);
+  list-style: none;
+}
+
+.menu-top li,
+a {
+  color: var(--black-color);
+  list-style: none;
+}
+
+/* set the style of the menu */
+.menu-top ul li:not(:first-child) {
+  font-size: 0.9em;
+  color: var(--gray-color);
+  margin: 0.5em 0;
+}
+
+.menu-top ul li:first-child {
+  font-size: 1.4em;
+  margin-bottom: 1em;
+}
+
+.menu-top>div {
+  margin: 1em 0;
+}
+
+.menu-top {
+  margin-bottom: 4em;
+}
+
+/* menu bot */
+.menu-bot {
+  height: calc(40vh - 4em);
+  background: var(--black-color);
+}
+
+/* logo */
+.logo {
+  width: 10em;
+}
