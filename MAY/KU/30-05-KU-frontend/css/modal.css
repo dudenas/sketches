@@ -1,0 +1,48 @@
+.modal {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: var(--bg-black-color);
+
+}
+
+#modal-graph {
+  display: none;
+}
+
+.modal-close {
+  position: absolute;
+  z-index: 12;
+  right: 0;
+  top: 0;
+}
+
+.modal-content {
+  height: calc(100vh - var(--main-diff) * 2);
+  width: 100%;
+}
+
+/* ATACH GRAPHICS TO THIS PART */
+#modal-graph-grfc {
+  position: absolute;
+  z-index: 11;
+  background: rgba(5, 5, 5, 0.5);
+  width: 100%;
+  height: 100%;
+}
+
+/* DATA */
+/* data */
+.modal-graph-data-info {
+  position: absolute;
+  z-index: 12;
+  margin-left: calc(var(--main-diff) * 2);
+  display: grid;
+  width: 50%;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: var(--main-diff);
+}

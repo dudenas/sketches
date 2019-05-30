@@ -38,8 +38,7 @@ function saveSwitch() {
   showSave = !showSave
 }
 
-// expand
-// color switch
+// expand desktop
 function expandwitch() {
   let top = document.querySelector(".menu-outer-top");
   let bot = document.querySelector(".menu-outer-bot");
@@ -53,8 +52,3 @@ function expandwitch() {
 
   showMenu = !showMenu
 }
-
-// #expand:hover+#test {
-//   
-//   background: red;
-// }

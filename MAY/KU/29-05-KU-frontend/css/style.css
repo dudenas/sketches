@@ -120,6 +120,8 @@ a {
 
 .menu-top-control {
   margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
 }
 
 .colorSwitch,
@@ -264,20 +266,40 @@ button {
 /*  */
 /*  */
 /* min height */
-@media (max-height:550px) {
+@media(max-height:550px) {
   :root {
     --menu-top: 50vh;
     --menu-bot: 50vh;
     --main-diff: 2em;
     font-size: 12px;
   }
-}
 
-@media (max-width:550px) {
-  :root {
-    --menu-top: 50vh;
-    --menu-bot: 50vh;
-    --main-diff: 2em;
-    font-size: 14px;
+  .menu-top-control {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    /* align-items: center; */
+  }
+
+  .btn-clr>* {
+    width: 1.6em;
+
+  }
+
+  .btn-clr {
+    padding: 0;
+    margin: 0 0.5em;
+  }
+
+  .logo {
+    width: 8em;
+  }
+
+  .colorSwitch {
+    margin-right: 1em;
+  }
+
+  .menu-top-control ul li:last-child {
+    margin-bottom: 0em;
   }
 }

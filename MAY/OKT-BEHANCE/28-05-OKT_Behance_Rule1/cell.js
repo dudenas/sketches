@@ -34,7 +34,6 @@ class Cell {
       push()
       translate(this.pos.x + scl / 2, this.pos.y + scl / 2)
       rotate(this.angle)
-
       line(0, 0, lineLen, lineLen)
       pop()
     } else {
