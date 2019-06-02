@@ -1,0 +1,143 @@
+.modal {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: var(--bg-black-color);
+}
+
+.modal-close {
+  position: absolute;
+  z-index: 12;
+  right: 0;
+  top: 0;
+}
+
+.modal-content {
+  height: calc(100vh - var(--main-diff) * 2);
+  width: 100%;
+}
+
+/* INITIAL GRAPH ABOUT  */
+#modal-graph,
+#modal-about {
+  display: none;
+}
+
+
+/* ATACH GRAPHICS TO THIS PART */
+#modal-graph-grfc {
+  position: absolute;
+  z-index: 11;
+  background: rgba(5, 5, 5, 0.5);
+  width: 100%;
+  height: 100%;
+}
+
+/* DATE */
+.modal-content-date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content-date-time {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+}
+
+.modal-content-date-time * {
+  display: flex;
+  margin: 0 0.5em;
+}
+
+#modal-date-btn {
+  position: absolute;
+  padding: 1.2em 3em;
+  border: 1px solid var(--white-color);
+  border-radius: 3em;
+  right: 50%;
+  bottom: 0;
+  transform: translateX(50%);
+}
+
+/* DATA */
+/* data */
+.modal-graph-data-info {
+  position: absolute;
+  z-index: 12;
+  margin-left: calc(var(--main-diff) * 2);
+  display: grid;
+  width: 50%;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: var(--main-diff);
+}
+
+/*  */
+
+/* ABOUT */
+.modal-content-about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.modal-about-grfc {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+  padding: 6em 0;
+}
+
+.modal-about-grfc img {
+  width: 20%;
+}
+
+.modal-about-grfc div h4:first-child {
+  padding-right: 1em;
+}
+
+.modal-about-grfc div {
+  text-align: left;
+  display: flex;
+  width: 8em;
+}
+
+.modal-about-data-info {
+  width: 60%;
+}
+
+.modal-about-line {
+  width: 80%;
+  border: 1px solid var(--light-gray-color);
+}
+
+.modal-about {
+  background: var(--white-color);
+}
+
+.modal-about * {
+  color: var(--black-color);
+}
+
+/* SHARE */
+.modal-about-share * {
+  padding: 2em 0;
+}
+
+/* FONT */
+.modal-about-share h2 {
+  font-size: var(--font-info-size);
+}
+
+.modal-about-share a {
+  font-size: var(--font-h2-size);
+  padding: 0 1em;
+}
