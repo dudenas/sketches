@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/modal.css">
   <link rel="stylesheet" href="css/tooltip.css">
+  <link rel="stylesheet" href="css/mobile.css">
   <link rel="stylesheet" href="css/date.css">
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -17,23 +18,33 @@
 </head>
 
 <body>
+  <!-- MOBILE NAVIGATION -->
+  <div class="mobile-nav">
+    <div class="container">
+      <img class="logo" src="assets/logo-ku-black.svg" alt="logo">
+      <button id="modal-burger-open"><img src="assets/burger-button.svg" alt="burger-button"></button>
+      <a class="modal-close mobile-menu-hidden" id="modal-burger-close">Uždaryti</a>
+    </div>
+  </div>
+
   <div id="main">
     <!-- navigation -->
     <div class="container">
       <div class="nav">
         <!-- about -->
-        <a id="about">Apie projektą</a>
+        <a class="mobile-menu mobile-menu-hidden" id="about">Apie projektą</a>
         <!-- controls -->
-        <div class="controls">
+        <div class="controls hide-mobile">
           <!-- graph -->
-          <button id="graph"><img src="assets/icon-chart.svg" alt=""></button>
+          <button class="hide-mobile" id="graph"><img src="assets/icon-chart.svg" alt=""></button>
           <!-- play -->
-          <button id="play"><img src="assets/play-button.svg" alt=""></button>
+          <button class="hide-mobile" id="play"><img src="assets/play-button.svg" alt=""></button>
           <!-- expand -->
-          <button onclick="expandwitch()" id="expand"><img src="assets/icon-expand.svg" alt=""></button>
+          <button class="hide-mobile" onclick="expandwitch()" id="expand"><img src="assets/icon-expand.svg"
+              alt="expand"></button>
         </div>
         <!-- language -->
-        <div id="language">
+        <div class="mobile-menu mobile-menu-hidden" id="language">
           <a id="lt">LT</a>
           <a id="en">EN</a>
         </div>
@@ -41,11 +52,11 @@
     </div>
     <!-- menu -->
     <!-- white top -->
-    <div class="menu-outer-top">
+    <div class="menu-outer-top mobile-menu-hidden">
       <div class="container">
         <div class="menu-top">
           <!-- logo -->
-          <img class="logo" src="assets/logo-ku-black.svg" alt="logo">
+          <img class="logo hide-mobile" src="assets/logo-ku-black.svg" alt="logo">
           <div class="menu-top-control">
             <!-- color pick -->
             <div class="colorSwitch">
@@ -103,7 +114,9 @@
       </div>
     </div>
     <!-- menu bot -->
+    <button id="expand-mobile"><img src="assets/icon-expand.svg" alt="expand"></button>
     <div class="menu-outer-bot">
+      <!-- expand-mobile -->
       <div class="container">
         <div class="menu-bot">
           <!-- top -->
@@ -155,7 +168,7 @@
           <a class="time">
             <div>
               <h1 class="time-title" id="year">2019</h1>
-              <img src="assets/icon-arrow.svg" alt="">
+              <img class="arrow-down" src="assets/icon-arrow.svg" alt="">
             </div>
             <ul class='closed'>
               <li>1900</li>
@@ -172,7 +185,7 @@
           <a class="time">
             <div>
               <h1 class="time-title" id="month">11</h1>
-              <img src="assets/icon-arrow.svg" alt="">
+              <img class="arrow-down" src="assets/icon-arrow.svg" alt="">
             </div>
             <ul class='closed'>
               <li>1900</li>
@@ -189,7 +202,7 @@
           <a class="time">
             <div>
               <h1 class="time-title" id="day">09</h1>
-              <img src="assets/icon-arrow.svg" alt="">
+              <img class="arrow-down" src="assets/icon-arrow.svg" alt="">
             </div>
             <ul class='closed'>
               <li>1900</li>
@@ -226,17 +239,17 @@
           <img src="assets/about-scheme-low.svg" alt="">
           <div>
             <h4>—</h4>
-            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, reiciendis.</h4>
+            <h4>Mažas Bangavimas</h4>
           </div>
           <img src="assets/about-scheme-medium.svg" alt="">
           <div>
             <h4>—</h4>
-            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, reiciendis.</h4>
+            <h4>Vidutinis Bangavimas</h4>
           </div>
           <img src="assets/about-scheme-high.svg" alt="">
           <div>
             <h4>—</h4>
-            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, reiciendis.</h4>
+            <h4>Didelis Bangavimas</h4>
           </div>
         </div>
         <!-- LINE -->

@@ -11,6 +11,7 @@
   --main-diff: 3em;
   --menu-top: 60vh;
   --menu-bot: 40vh;
+  --menu-bot-mobile: 30vh;
   --menu-width: 25em;
   /* main values */
   --blur-amount: 10px;
@@ -19,6 +20,7 @@
   --font-explain-size: 0.7rem;
   --font-info-size: 1rem;
   --font-h2-size: 1.7rem;
+  --font-h3-size: 1.2rem;
   --font-h4-size: 0.8rem;
 }
 
@@ -31,7 +33,7 @@
   outline: none;
   color: var(--white-color);
   position: relative;
-  font-weight: 100;
+  font-weight: 400;
   user-select: none;
 }
 
@@ -269,7 +271,7 @@ button {
 .btn-clr {
   border: 2px solid var(--white-color);
   padding: 0.5em;
-  border-radius: 50%;
+  border-radius: 100%;
 }
 
 .btn-clr:hover {
@@ -298,28 +300,28 @@ button {
 /*  */
 /* min height */
 @media(max-height:550px) {
+
   :root {
     --menu-top: 50vh;
     --menu-bot: 50vh;
     --main-diff: 2em;
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .menu-top-control {
     display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    /* align-items: center; */
+    margin: 0;
+    padding: 0;
   }
 
   .btn-clr>* {
     width: 1.6em;
-
   }
 
   .btn-clr {
-    padding: 0;
-    margin: 0 0.5em;
+    padding: 0.25em;
+    margin: 0em 1em;
+
   }
 
   .logo {
@@ -328,9 +330,5 @@ button {
 
   .colorSwitch {
     margin-right: 1em;
-  }
-
-  .menu-top-control ul li:last-child {
-    margin-bottom: 0em;
   }
 }

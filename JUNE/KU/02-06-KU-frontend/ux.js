@@ -1,6 +1,7 @@
 let showColor = true
 let showSave = true
 let showMenu = false;
+let showData = false;
 
 // TOOLTIP
 
@@ -12,6 +13,46 @@ let modalGraph = document.querySelector("#modal-graph")
 let modalAbout = document.querySelector("#modal-about")
 // DATE
 let modalDate = document.querySelector("#modal-date")
+// BURGER MENU
+let modalBurgerOpen = document.querySelector("#modal-burger-open")
+let modalBurgerClose = document.querySelector("#modal-burger-close")
+// show hide
+modalBurgerClose.addEventListener('click', () => {
+  modalBurgerOpen.style.display = "block"
+  modalBurgerClose.style.display = "none"
+  $('.mobile-menu')
+    .removeClass('mobile-menu-show').addClass('mobile-menu-hidden')
+  $('.menu-outer-top')
+    .removeClass('mobile-menu-show').addClass('mobile-menu-hidden')
+})
+
+modalBurgerOpen.addEventListener('click', () => {
+  modalBurgerOpen.style.display = "none"
+  modalBurgerClose.style.display = "block"
+  $('.mobile-menu')
+    .removeClass('mobile-menu-hidden').addClass('mobile-menu-show')
+  $('.menu-outer-top')
+    .removeClass('mobile-menu-hidden').addClass('mobile-menu-show')
+})
+
+// hide data
+
+document.querySelector('#expand-mobile').addEventListener('click', () => {
+  let bot = document.querySelector(".menu-outer-bot");
+  let expBtn = document.querySelector("#expand-mobile");
+  if (!showData) {
+    let newVal = "var(--menu-bot-mobile) / 5"
+    bot.style.bottom = `calc(${newVal} * -4)`
+    expBtn.style.bottom = `calc(${newVal} + var(--main-diff))`
+  } else {
+    bot.style.bottom = "0px"
+    expBtn.style.bottom = "calc(var(--menu-bot-mobile) + var(--main-diff))"
+  }
+  showData = !showData
+})
+
+// close date
+// close date chosen
 // open graph
 document.querySelector("#graph").addEventListener('click', () => {
   modalGraph.style.display = "block"
@@ -22,6 +63,7 @@ document.querySelector("#modal-graph-close").addEventListener('click', () => {
   modalGraph.style.display = "none"
   mainGrfc.style.filter = "blur(0px)"
 })
+
 // open about
 document.querySelector("#about").addEventListener('click', () => {
   modalAbout.style.display = "block"
@@ -32,6 +74,7 @@ document.querySelector("#modal-about-close").addEventListener('click', () => {
   modalAbout.style.display = "none"
   mainGrfc.style.filter = "blur(0px)"
 })
+
 // open date
 document.querySelector("#date").addEventListener('click', () => {
   modalDate.style.display = "block"
@@ -47,6 +90,7 @@ document.querySelector("#modal-date-btn").addEventListener('click', () => {
   modalDate.style.display = "none"
   mainGrfc.style.filter = "blur(0px)"
 })
+
 
 // MENU
 // color switch
@@ -101,6 +145,7 @@ function expandwitch() {
   showMenu = !showMenu
 }
 
+// DATE
 // get time
 $(document).ready(function () {
   $(".modal-content-date-time div").on("click", function () {
@@ -116,13 +161,21 @@ $(document).ready(function () {
         .next("ul")
         .addClass('opened').removeClass('closed')
         .show();
+      // rotate the icon
+      $(this)
+        .find("img")
+        .addClass('arrow-up').removeClass('arrow-down')
     } else {
       $(this)
         .next("ul")
         .addClass('closed').removeClass('opened')
         .hide();
+      $(this)
+        .find("img")
+        .addClass('arrow-down').removeClass('arrow-up')
     }
   });
+
   // update time
   $(".modal-content-date-time ul li").on("click", function () {
     $(this)
