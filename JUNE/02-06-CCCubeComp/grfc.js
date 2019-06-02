@@ -1,4 +1,4 @@
-let padd = 0.9
+let padd = 1
 
 class Grfc {
   constructor(x, y) {
@@ -57,8 +57,7 @@ class Grfc {
     stroke(clrs[1])
     strokeWeight(SWborder)
     noFill()
-    rect(0, 0, scl, scl)
-
+    // rect(0, 0, scl, scl)
 
     beginShape()
     strokeWeight(SWLine)
@@ -84,11 +83,13 @@ class Obj {
     translate(this.x, this.y)
     // grid
     stroke(clrs[1])
-    strokeWeight(SWinside)
+    strokeWeight(SWPoint)
     noFill()
-    rect(0, 0, gridSize, gridSize)
+    // rect(0, 0, gridSize, gridSize)
+    if (this.y > 0) point(0, 0)
     translate(gridSize, gridSize)
     // obj
+    strokeWeight(SWInside)
     if (!this.edge) {
       vertex(this.x + gridSize, this.y + gridSize)
       switch (this.shape) {
