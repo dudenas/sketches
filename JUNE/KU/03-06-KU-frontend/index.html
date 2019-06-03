@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="lt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/modal.css">
+  <link rel="stylesheet" href="css/tooltip.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <link rel="stylesheet" href="css/date.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <title>KU frontend</title>
+</head>
+
+<body>
+  <!-- MOBILE NAVIGATION -->
+  <div class="mobile-nav">
+    <div class="container">
+      <img class="logo" src="assets/logo-ku-black.svg" alt="logo">
+      <button id="modal-burger-open"><img src="assets/burger-button.svg" alt="burger-button"></button>
+      <a class="modal-close mobile-menu-hidden" id="modal-burger-close">Uždaryti</a>
+    </div>
+  </div>
+
+  <div id="main">
+    <!-- navigation -->
+    <div class="container">
+      <div class="nav">
+        <!-- about -->
+        <a class="mobile-menu mobile-menu-hidden" id="about">Apie projektą</a>
+        <!-- controls -->
+        <div class="controls hide-mobile">
+          <!-- graph -->
+          <button class="hide-mobile" id="graph"><img src="assets/icon-chart.svg" alt=""></button>
+          <!-- play -->
+          <button class="hide-mobile" id="play"><img src="assets/play-button.svg" alt=""></button>
+          <!-- expand -->
+          <button class="hide-mobile" onclick="expandwitch()" id="expand"><img src="assets/icon-expand.svg"
+              alt="expand"></button>
+        </div>
+        <!-- language -->
+        <div class="mobile-menu mobile-menu-hidden" id="language">
+          <a id="lt">LT</a>
+          <a id="en">EN</a>
+        </div>
+      </div>
+    </div>
+    <!-- menu -->
+    <!-- white top -->
+    <div class="menu-outer-top mobile-menu-hidden">
+      <div class="container">
+        <div class="menu-top">
+          <!-- logo -->
+          <img class="logo hide-mobile" src="assets/logo-ku-black.svg" alt="logo">
+          <div class="menu-top-control">
+            <!-- color pick -->
+            <div class="colorSwitch">
+              <div class="icon-color">
+                <img src="assets/icon-change-color.svg" alt="icon-change-color">
+              </div>
+              <div id="test">
+                <ul>
+                  <!-- COLOR BUTTONS -->
+                  <li>
+                    <a onclick="colorSwitch()">Keisti Spalvą</a>
+                  </li>
+                  <li class="showColor">
+                    <div>
+                      <button class="btn-clr"><img src="assets/color-b-b.svg" alt="color-b-b.svg"></button>
+                      <button class="btn-clr pushRight"><img src="assets/color-b-r.svg" alt="color-b-r.svg"></button>
+                      <button class="btn-clr pushRight"><img src="assets/color-b-y.svg" alt="color-b-y.svg"></button>
+                    </div>
+                  </li>
+                  <li class="showColor">
+                    <div>
+                      <button class="btn-clr"><img src="assets/color-w-b.svg" alt="color-w-b.svg"></button>
+                      <button class="btn-clr pushRight"><img src="assets/color-w-r.svg" alt="color-w-r.svg"></button>
+                      <button class="btn-clr pushRight"><img src="assets/color-w-y.svg" alt="color-w-y.svg"></button>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- save pick -->
+            <div class="saveSwitch">
+              <div class="icon-save">
+                <img src="assets/icon-download.svg" alt="icon-download">
+              </div>
+              <div>
+                <!-- SAVE BUTTONS -->
+                <ul>
+                  <li>
+                    <a class="t-send" onclick="saveSwitch()">Parsisiųsti</a>
+                    <span class="tooltip">
+                      Lorem ipsum dolor sit <br><br><strong>amet consectetur</strong><br><br> adipisicing elit.
+                      Aliquam,
+                      similique officia consectetur maxime placeat incidunt delectus corrupti repellendus repudiandae
+                      cumque.
+                    </span>
+                  </li>
+                  <li class="showSave"><a>Darbalaukio fonas (kompiuteriui)</a></li>
+                  <li class="showSave"><a>Instagram paveiksliukas</a></li>
+                  <li class="showSave"><a>Facebook viršelis</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- menu bot -->
+    <button id="expand-mobile"><img src="assets/icon-expand.svg" alt="expand"></button>
+    <div class="menu-outer-bot">
+      <!-- expand-mobile -->
+      <div class="container">
+        <div class="menu-bot">
+          <!-- top -->
+          <div class="menu-bot-top">
+            <div class="data-date">
+              <h3 class="data-title">Data</h3>
+              <div class="align-icon pushTop">
+                <h1 class="data-value data-date-target">2019 05 12</h1>
+                <button id="date" class="icon-edit">
+                  <img src="assets/edit-button.svg" alt="">
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- bottom -->
+          <div class="menu-bot-bot">
+            <div class="data-time">
+              <h3 class="data-title">Laikas</h3>
+              <h1 class="data-value pushTop data-time-target">15:04:34</h1>
+            </div>
+            <div class="data-swell">
+              <div class="align-icon">
+                <h3 class="data-title">Bangavimas</h3>
+                <button class="t-swell icon-swell" title="test">
+                  <img src="assets/info-icon.svg" alt="info-icon">
+                  <span class="tooltip">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus omnis voluptates iste maiores?
+                    Commodi temporibus vitae hic cupiditate quae repudiandae.
+                  </span>
+                </button>
+              </div>
+              <h1 class="data-value pushTop data-swell-target">1.05</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <!-- modal-date -->
+  <div id="modal-date" class="modal">
+    <div class="container">
+      <!-- CLOSE BUTTON -->
+      <a class="modal-close" id="modal-date-close">Uždaryti</a>
+      <!-- DATA INFO -->
+      <div class="modal-content modal-content-date">
+        <div class="modal-content-date-time">
+          <a class="time">
+            <div>
+              <h1 class="time-title" id="year">2019</h1>
+              <img class="arrow-down" src="assets/icon-arrow.svg" alt="">
+            </div>
+            <ul class='closed'>
+              <li>1900</li>
+              <li>1901</li>
+              <li>1901</li>
+              <li>1901</li>
+              <li>1901</li>
+              <li>1901</li>
+              <li>1901</li>
+              <li>1901</li>
+              <li>1901</li>
+            </ul>
+          </a>
+          <a class="time">
+            <div>
+              <h1 class="time-title" id="month">11</h1>
+              <img class="arrow-down" src="assets/icon-arrow.svg" alt="">
+            </div>
+            <ul class='closed'>
+              <li>1900</li>
+              <li>1901</li>
+              <li>1901</li>
+              <li>1901</li>
+              <li>1901</li>
+              <li>1901</li>
+              <li>1901</li>
+              <li>1901</li>
+              <li>1901</li>
+            </ul>
+          </a>
+          <a class="time">
+            <div>
+              <h1 class="time-title" id="day">09</h1>
+              <img class="arrow-down" src="assets/icon-arrow.svg" alt="">
+            </div>
+            <ul class='closed'>
+              <li>1900</li>
+              <li>1901</li>
+              <li>1901</li>
+              <li>1901</li>
+              <li>1901</li>
+              <li>1901</li>
+              <li>1901</li>
+              <li>1901</li>
+              <li>1901</li>
+            </ul>
+          </a>
+        </div>
+      </div>
+      <a id="modal-date-btn">Pasirinkti</a>
+    </div>
+  </div>
+
+  <!-- modal-about -->
+  <div id="modal-about" class="modal modal-about">
+    <div class="container">
+      <!-- CLOSE BUTTON -->
+      <a class="modal-close" id="modal-about-close">Uždaryti</a>
+      <!-- DATA INFO -->
+      <div class="modal-content modal-content-about">
+        <div class="modal-about-data-info">
+          <h2>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur dolor, vero dolore deleniti corrupti
+            eius
+            dicta ullam perferendis est. Eaque?</h2>
+        </div>
+        <!-- DATA GRFC -->
+        <div class="modal-about-grfc">
+          <img src="assets/about-scheme-low.svg" alt="">
+          <div>
+            <h4>—</h4>
+            <h4>Mažas Bangavimas</h4>
+          </div>
+          <img src="assets/about-scheme-medium.svg" alt="">
+          <div>
+            <h4>—</h4>
+            <h4>Vidutinis Bangavimas</h4>
+          </div>
+          <img src="assets/about-scheme-high.svg" alt="">
+          <div>
+            <h4>—</h4>
+            <h4>Didelis Bangavimas</h4>
+          </div>
+        </div>
+        <!-- LINE -->
+        <hr class="modal-about-line">
+        <!-- SHARE -->
+        <div class="modal-about-share">
+          <h3>pasidalinti</h3>
+          <a id="fb">Facebook</a>
+          <a id="twitter">Twitter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal-graph -->
+  <div id="modal-graph" class="modal">
+    <div class="container">
+      <!-- CLOSE BUTTON -->
+      <a class="modal-close" id="modal-graph-close">Uždaryti</a>
+      <!-- DATA INFO -->
+      <div class="modal-content">
+        <div class="modal-graph-data-info">
+          <div class="modal-data">
+            <h3 class="data-title">Data</h3>
+            <h1 class="pushTop data-value data-date-target">2019 05 12</h1>
+          </div>
+          <div class="modal-data">
+            <h3 class="data-title">Vidutinis bangavimas (m)</h3>
+            <h1 class="pushTop data-value data-swell-mid-target">1.05</h1>
+          </div>
+          <div class="modal-data">
+            <h3 class="data-title">Mažiausias bangavimas (m)</h3>
+            <h1 class="pushTop data-value data-swell-min-target">1.05</h1>
+          </div>
+          <div class="modal-data">
+            <h3 class="data-title">Didžiausias bangavimas (m)</h3>
+            <h1 class="pushTop data-value data-swell-max-target">1.05</h1>
+          </div>
+        </div>
+        <!-- GRAPH -->
+        <div id="modal-graph-grfc"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT TAG -->
+  <script src="ux.js"></script>
+</body>
+
+</html>
