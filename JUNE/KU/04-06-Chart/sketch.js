@@ -1,5 +1,5 @@
 const ctx = document.getElementById('myChart').getContext('2d');
-let dt = [0.1, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6]
+const data = [0.1, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6]
 const graphClrs = ['rgba(255,255,255,1)', 'rgba(0,0,0,1)']
 
 const myChart = new Chart(ctx, {
@@ -7,13 +7,12 @@ const myChart = new Chart(ctx, {
 	data: {
 		labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
 		datasets: [{
-			data: dt,
+			data: data,
 		}]
 	},
 	options: {
 		// TOOLTIP
 		tooltips: {
-			// mode: 'single',
 			bodyFontStyle: 'normal',
 			bodyFontSize: 12,
 			bodyFontColor: graphClrs[1],
@@ -22,13 +21,13 @@ const myChart = new Chart(ctx, {
 			xPadding: 10,
 			displayColors: false,
 			callbacks: {
-				title: function (tooltipItem, d) {
+				title: () => {
 					return null;
 				},
-				label: (data, d) => {
-					let index = data.index
-					let hour = d.labels[index]
-					let value = d.datasets[0].data[index]
+				label: (elm, data) => {
+					let index = elm.index
+					let hour = data.labels[index]
+					let value = data.datasets[0].data[index]
 
 					return `${hour} h ${value} m`
 				}
@@ -41,7 +40,7 @@ const myChart = new Chart(ctx, {
 			line: {
 				backgroundColor: 'rgba(0, 0, 0, 0)',
 				borderColor: graphClrs[1],
-				borderWidth: 2
+				borderWidth: 2,
 			},
 			// POINT
 			point: {
@@ -66,7 +65,7 @@ const myChart = new Chart(ctx, {
 					lineWidth: 1
 				},
 				ticks: {
-					callback: function (value, index) {
+					callback: (value, index) => {
 						if (value === 0) {
 							return;
 						} else if (index % 2 === 0) {
@@ -92,7 +91,7 @@ const myChart = new Chart(ctx, {
 					lineWidth: 1
 				},
 				ticks: {
-					callback: function (value, index) {
+					callback: (value, index) => {
 						if (index === 0) {
 							return '';
 						} else if (index % 6 === 0) {
