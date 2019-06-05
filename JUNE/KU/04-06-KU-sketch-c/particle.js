@@ -6,7 +6,7 @@ let maxForce = 0.1;
 let distToSteer = 100;
 let pathLen = 150;
 
-let maxParticles = 100;
+let maxParticles = 5;
 let particles = [];
 let r = 5;
 let maxR = r * 3;
@@ -14,13 +14,12 @@ let maxR = r * 3;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //————————————————————————————————————————————————————————————————————————————————— Particle
 class Particle {
-  constructor(p, x, y) {
-    this.p = p;
-    this.pos = this.p.createVector(x, y);
-    this.vel = this.p.createVector(0, 0);
-    this.acc = this.p.createVector(0, 0);
-    this.speed = this.p.random(1, 1.1);
-    this.r = this.p.random(r, maxR);
+  constructor(x, y) {
+    this.pos = createVector(x, y);
+    this.vel = createVector(0, 0);
+    this.acc = createVector(0, 0);
+    this.speed = random(1, 1.1);
+    this.r = random(r, maxR);
     this.finnished = false;
     this.path = [];
   }
@@ -43,7 +42,7 @@ class Particle {
   }
   //————————————————————————————————————————————————————————————————————————————————— Particle lookUp
   lookUp() {
-    let other = grid[this.p.constrain(this.p.floor(this.pos.x / scl), 0, cols - 1)][this.p.constrain(this.p.floor(this.pos.y / scl), 0, rows - 1)];
+    let other = grid[constrain(floor(this.pos.x / scl), 0, cols - 1)][constrain(floor(this.pos.y / scl), 0, rows - 1)];
     let force = p5.Vector.fromAngle(other.angle);
     this.applyForce(force);
   }
@@ -70,44 +69,41 @@ class Particle {
 
   //————————————————————————————————————————————————————————————————————————————————— Particle show
   show() {
-    this.p.noStroke();
-    this.p.fill(clrs[1]);
-    this.p.ellipse(this.pos.x, this.pos.y, this.r, this.r);
-    // for (let a of this.path) {
-    //   this.p.ellipse(a.x, a.y, this.r, this.r);
-    // }
+    noStroke();
+    fill(grfcClr);
+    ellipse(this.pos.x, this.pos.y, this.r, this.r);
   }
 
   //————————————————————————————————————————————————————————————————————————————————— Particle edges
   edges() {
     let padd = this.r + 2;
-    if (this.pos.x > this.p.width + padd * 2) {
+    if (this.pos.x > width + padd * 2) {
       this.finnished = true;
     }
-    if (this.pos.x < -padd * 2) this.pos.x = this.p.width + padd;
-    if (this.pos.y > this.p.height + padd * 2) this.pos.y = -padd;
-    if (this.pos.y < -padd * 2) this.pos.y = this.p.height + padd;
+    if (this.pos.x < -padd * 2) this.pos.x = width + padd;
+    if (this.pos.y > height + padd * 2) this.pos.y = -padd;
+    if (this.pos.y < -padd * 2) this.pos.y = height + padd;
   }
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //————————————————————————————————————————————————————————————————————————————————— updateSpeed
-function updateSpeed(p) {
-  maxSpeed = p.map(currValue, 0, 2, minSpeedValue, maxSpeedValue);
-  maxR = p.map(currValue, 0, 2, r * 2, r * 6);
+function updateSpeed() {
+  maxSpeed = map(currValue, 0, 2, minSpeedValue, maxSpeedValue);
+  maxR = map(currValue, 0, 2, r * 2, r * 6);
 }
 
 //————————————————————————————————————————————————————————————————————————————————— generateWave
-function generateWave(p) {
+function generateWave() {
   for (let i = 0; i < maxParticles; i++) {
-    let particle = new Particle(p, 0, p.random(p.height))
+    let particle = new Particle(0, random(height))
     particles.push(particle);
   }
 }
 
 //————————————————————————————————————————————————————————————————————————————————— particlesDraw
-function particlesUpdate(p) {
-  updateSpeed(p);
+function particlesUpdate() {
+  updateSpeed();
   for (let i = particles.length - 1; i >= 0; i--) {
     particles[i].render();
     if (particles[i].finnished) {

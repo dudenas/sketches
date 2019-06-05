@@ -1,9 +1,54 @@
-body {
+* {
   margin: 0;
   padding: 0;
+  /* overflow: hidden; */
 }
 
-div {
-  margin: 1em 0 0 1em ;
+body {
+  display: flex;
+  flex-direction: column;
 }
 
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+#container div {
+  display: flex;
+  align-items: center;
+  margin: 0.25em 0;
+}
+
+body {
+  background: #ccc;
+  margin: 0;
+}
+
+.show-canvas {
+  width: 800px;
+  height: 500px;
+  text-align: center;
+  background: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  z-index: -10;
+}
+
+.scaleable-wrapper {
+  /* resize: both; */
+  position: fixed;
+  /* MOBILE */
+  /* overflow-x: visible;
+  overflow-y: hidden; */
+  background: #666;
+  height: 100%;
+  width: 100%;
+  z-index: -10;
+}

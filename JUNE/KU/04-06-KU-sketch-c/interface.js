@@ -1,91 +1,27 @@
-let speedSlider, speedSliderDiv;
 let yearDrop, monthDrop, dayDrop;
-let currentTimeButton, currentTimeOn = false;
 
 //—————————————————————————————————————————————————————— buttonSetup
-function buttonsSetup(p) {
+function buttonsSetup() {
   // fps
-  fr = p.createP('').parent(p.select("#fps"));
-  // speed
-  speedSliderDiv = p.createP('').parent(p.select("#speedSlider"));
-  speedSlider = p.createSlider(1, 5, 1).parent(p.select("#speedSlider"));
+  fr = createP('').parent(select("#fps"));
+
   // currentTime
-  currentTimeButton = p.createCheckbox('currentTime', false).parent(p.select("#currentTime"));
-  currentTimeButton.changed(() => {
-    var today = new Date();
-    currentTimeOn = !currentTimeOn;
-    if (currentTimeOn) {
-      DAY = today.getDate();
-      MONTH = today.getMonth() + 1;
-      YEAR = today.getFullYear();
-      month = data[YEAR][MONTH];
-      day = month[DAY];
-      let hour = today.getHours();
-      let minute = today.getMinutes();
-      let tempTime = (hour * 60 + minute) / (24 * 60 + 60);
-      currTime = p.floor(p.map(tempTime, 0, 1, 0, 96));
-      setNextValue = true;
-      setFirstValues = true;
-    } else {
-      YEAR = Number(yearDrop.value());
-      monthSetup(p);
-    }
-  });
-
-
-  // dropw down date
-  yearDrop = p.createSelect();
-  yearDrop.parent(p.select("#dropDown"));
-  yearDrop.option('2019');
-  yearDrop.option('2020');
-  yearDrop.changed(() => {
-    if (!currentTimeOn) {
-      YEAR = Number(yearDrop.value());
-      monthSetup(p);
-    }
-  });
-  YEAR = Number(yearDrop.value());
-
-  // setupmonth
-  monthSetup(p);
-
-  // setupday
-  daySetup(p);
+  initTime()
 }
 
 //—————————————————————————————————————————————————————— buttonUpdate
-function buttonUpdate(p) {
+function buttonUpdate() {
   //fps
-  fr.html(`fps | ${p.floor(p.frameRate())}`);
-  // speed
-  speedSliderDiv.html(`speed | ${speedSlider.value()}`);
-  switch (speedSlider.value()) {
-    case 1:
-      framesToChangeTime = 15 * 60 * 60;
-      break;
-    case 2:
-      framesToChangeTime = 15 * 15;
-      break;
-    case 3:
-      framesToChangeTime = 15 * 5;
-      break;
-    case 4:
-      framesToChangeTime = 15;
-      break;
-    case 5:
-      framesToChangeTime = 5;
-      break;
-  }
-  // framesToChangeTime = floor(map(speedSlider.value(), 1, 5, 15 * 60 * 60, 15));
+  fr.html(`fps | ${floor(frameRate())}`);
 }
 
 //—————————————————————————————————————————————————————— setupMonth
-function monthSetup(p) {
+function monthSetup(first) {
   if (monthDrop) {
     monthDrop.remove();
   }
-  monthDrop = p.createSelect();
-  monthDrop.parent(p.select("#dropDown"));
+  monthDrop = createSelect();
+  monthDrop.parent(select("#dropDown")).id('monthDrop');
   let i = 1;
   while (i <= 12) {
     if (data[YEAR][i] != undefined) {
@@ -94,41 +30,89 @@ function monthSetup(p) {
     i++;
   }
 
-  MONTH = Number(monthDrop.value());
-  daySetup(p);
+  // SET FIRST VALUES
+  if (!first) {
+    MONTH = Number(monthDrop.value())
+    daySetup();
+  } else {
+    setInitDropDownValue(document.getElementById('monthDrop'), MONTH)
+    daySetup(true);
+  }
 
   monthDrop.changed(() => {
-    if (!currentTimeOn) {
-      MONTH = Number(monthDrop.value());
-      month = data[YEAR][MONTH];
-      daySetup(p);
-    }
+    MONTH = Number(monthDrop.value());
+    month = data[YEAR][MONTH];
+    daySetup();
   });
 }
 
 //—————————————————————————————————————————————————————— setupDay
-function daySetup(p) {
+function daySetup(first) {
   if (dayDrop) dayDrop.remove();
-  dayDrop = p.createSelect();
-  dayDrop.parent(p.select("#dropDown"));
+  dayDrop = createSelect();
+  dayDrop.parent(select("#dropDown")).id('dayDrop');
   let i = 1;
   while (month[i] != undefined) {
     dayDrop.option(i);
     i++;
   }
 
-  DAY = Number(dayDrop.value());
-  day = month[DAY];
+  // SET FIRST VALUES
+  if (!first) {
+    DAY = Number(dayDrop.value());
+    day = month[DAY]
+  } else {
+    setInitDropDownValue(document.getElementById('dayDrop'), DAY)
+  }
 
   dayDrop.changed(() => {
-    if (!currentTimeOn) {
-      DAY = Number(dayDrop.value());
-      day = month[DAY];
-      setNextValue = true;
-      setFirstValues = true;
-    }
+    DAY = Number(dayDrop.value());
+    day = month[DAY];
+    setNextValue = true;
+    setFirstValues = true;
   });
 
   setNextValue = true;
   setFirstValues = true;
+}
+
+//—————————————————————————————————————————————————————— initTime
+function initTime() {
+  var today = new Date();
+  DAY = today.getDate();
+  MONTH = today.getMonth() + 1;
+  YEAR = today.getFullYear();
+  month = data[YEAR][MONTH];
+  day = month[DAY];
+  let hour = today.getHours();
+  let minute = today.getMinutes();
+  let tempTime = (hour * 60 + minute) / (24 * 60);
+  currTime = floor(map(tempTime, 0, 1, 0, 96));
+
+  // dropw down date
+  yearDrop = createSelect();
+  yearDrop.parent(select("#dropDown")).id('yearDrop')
+  yearDrop.option('2019')
+  yearDrop.option('2020')
+  yearDrop.changed(() => {
+    YEAR = Number(yearDrop.value());
+    monthSetup();
+  });
+
+  // SET INIT YEAR
+  setInitDropDownValue(document.getElementById('yearDrop'), YEAR)
+
+  // setupmonth and day
+  monthSetup(true);
+}
+
+//—————————————————————————————————————————————————————— setInitDropDownValues
+function setInitDropDownValue(mySelect, val) {
+  // console.log(mySelect, val)
+  for (var i, j = 0; i = mySelect.options[j]; j++) {
+    if (i.value == val) {
+      mySelect.selectedIndex = j;
+      break;
+    }
+  }
 }

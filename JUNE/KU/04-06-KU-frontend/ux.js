@@ -3,17 +3,15 @@ let showSave = true
 let showMenu = false;
 let showData = false;
 
-// TOOLTIP
-
-// MODAL
+//—————————————————————————————————————————————————————— MODAL
 let mainGrfc = document.querySelector("#main")
-// GRAPH
+//—————————————————————————————————————————————————————— GRAPH
 let modalGraph = document.querySelector("#modal-graph")
-// ABOUT
+//—————————————————————————————————————————————————————— ABOUT
 let modalAbout = document.querySelector("#modal-about")
-// DATE
+//—————————————————————————————————————————————————————— DATE
 let modalDate = document.querySelector("#modal-date")
-// BURGER MENU
+//—————————————————————————————————————————————————————— BURGER MENU
 let modalBurgerOpen = document.querySelector("#modal-burger-open")
 let modalBurgerClose = document.querySelector("#modal-burger-close")
 // show hide
@@ -35,7 +33,7 @@ modalBurgerOpen.addEventListener('click', () => {
     .removeClass('mobile-menu-hidden').addClass('mobile-menu-show')
 })
 
-// hide data
+//—————————————————————————————————————————————————————— MOBILE hide data
 document.querySelector('#expand-mobile').addEventListener('click', () => {
   let bot = document.querySelector(".menu-outer-bot");
   let expBtn = document.querySelector("#expand-mobile");
@@ -50,8 +48,7 @@ document.querySelector('#expand-mobile').addEventListener('click', () => {
   showData = !showData
 })
 
-// close date
-// close date chosen
+//—————————————————————————————————————————————————————— GRAPH
 // open graph
 document.querySelector("#graph").addEventListener('click', () => {
   modalGraph.style.display = "block"
@@ -65,6 +62,7 @@ document.querySelector("#modal-graph-close").addEventListener('click', () => {
   mainGrfc.style.filter = "blur(0px)"
 })
 
+//—————————————————————————————————————————————————————— ABOUT
 // open about
 document.querySelector("#about").addEventListener('click', () => {
   modalAbout.style.display = "block"
@@ -76,6 +74,7 @@ document.querySelector("#modal-about-close").addEventListener('click', () => {
   mainGrfc.style.filter = "blur(0px)"
 })
 
+//—————————————————————————————————————————————————————— DATE
 // open date
 document.querySelector("#date").addEventListener('click', () => {
   modalDate.style.display = "block"
@@ -93,8 +92,8 @@ document.querySelector("#modal-date-btn").addEventListener('click', () => {
 })
 
 
-// MENU
-// color switch
+//—————————————————————————————————————————————————————— MENU
+//—————————————————————————————————————————————————————— color switch
 function colorSwitch() {
   let elements = document.querySelectorAll(".showColor");
   elements.forEach(elm => {
@@ -112,7 +111,7 @@ function colorSwitch() {
   showColor = !showColor
 }
 
-// save switch
+//—————————————————————————————————————————————————————— save switch
 function saveSwitch() {
   let elements = document.querySelectorAll(".showSave");
   elements.forEach(elm => {
@@ -130,8 +129,8 @@ function saveSwitch() {
   showSave = !showSave
 }
 
-// NAVIGATION
-// expand desktop
+//—————————————————————————————————————————————————————— NAVIGATION
+//—————————————————————————————————————————————————————— expand desktop
 function expandwitch() {
   let top = document.querySelector(".menu-outer-top");
   let bot = document.querySelector(".menu-outer-bot");
@@ -146,7 +145,8 @@ function expandwitch() {
   showMenu = !showMenu
 }
 
-// DATE
+//—————————————————————————————————————————————————————— JQUERY
+//—————————————————————————————————————————————————————— DATE
 // get time
 $(document).ready(function () {
   $(".modal-content-date-time div").on("click", function () {

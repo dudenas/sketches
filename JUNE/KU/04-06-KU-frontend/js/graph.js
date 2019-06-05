@@ -2,6 +2,7 @@ const ctx = document.getElementById('myChart').getContext('2d');
 const data = [0.1, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6]
 const graphClrs = ['rgba(0,0,0,1)', 'rgba(255,255,255,1)']
 
+//—————————————————————————————————————————————————————— config chart
 const config = {
 	type: 'line',
 	data: {
@@ -11,7 +12,7 @@ const config = {
 		}]
 	},
 	options: {
-		// TOOLTIP
+		//—————————————————————————————————————————————————————— TOOLTIP
 		tooltips: {
 			bodyFontStyle: 'normal',
 			bodyFontSize: 12,
@@ -34,15 +35,15 @@ const config = {
 			}
 		},
 		legend: false,
-		// ELEMENTS
+		//—————————————————————————————————————————————————————— ELEMENTS
 		elements: {
-			// LINE
+			//—————————————————————————————————————————————————————— LINE
 			line: {
 				backgroundColor: 'rgba(0, 0, 0, 0)',
 				borderColor: graphClrs[1],
 				borderWidth: 1,
 			},
-			// POINT
+			//—————————————————————————————————————————————————————— POINT
 			point: {
 				backgroundColor: graphClrs[1],
 				borderColor: "rgba(0,0,0,0)",
@@ -55,7 +56,7 @@ const config = {
 		},
 
 		scales: {
-			// Y AXES
+			//—————————————————————————————————————————————————————— Y AXES
 			yAxes: [{
 				gridLines: {
 					drawBorder: false,
@@ -80,7 +81,7 @@ const config = {
 				},
 			}],
 
-			// X AXES
+			//—————————————————————————————————————————————————————— X AXES
 			xAxes: [{
 				height: 10,
 				gridLines: {
@@ -110,6 +111,7 @@ const config = {
 	}
 }
 
+//—————————————————————————————————————————————————————— init chart
 let chart = new Chart(ctx, config);
 
 // setTimeout(() => {

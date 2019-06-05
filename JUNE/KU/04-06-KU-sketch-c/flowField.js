@@ -10,50 +10,40 @@ let deviation = -Math.PI * 2; //-Math.PI / 2; //Math.PI / 4;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //————————————————————————————————————————————————————————————————————————————————— cell
 class Cell {
-  constructor(p, x, y) {
-    this.p = p;
-    this.pos = this.p.createVector(x * scl + scl / 2, y * scl + scl / 2);
+  constructor(x, y) {
+    this.pos = createVector(x * scl + scl / 2, y * scl + scl / 2);
     this.angle = 0;
-    // this.setupAngle();
   }
   //————————————————————————————————————————————————————————————————————————————————— cell updateAngle
   updateAngle() {
-    let index = this.p.floor(this.p.map(this.pos.x / scl, 0, this.p.width / scl, 0, 96));
-    let max = this.p.map(this.p.pow(day[index].value, 1.5), 0, 2, 0, deviation);
-    this.angle = this.p.map(this.p.noise(this.pos.x / (this.p.width), this.pos.y / (this.p.height), time), 0, 1, -max, max);
-    // this.angle = map(pow(day[index].value, 1.5), 0, 2, 0, deviation);
+    let index = floor(map(this.pos.x / scl, 0, width / scl, 0, 96));
+    let max = map(pow(day[index].value, 1.5), 0, 2, 0, deviation);
+    this.angle = map(noise(this.pos.x / (width), this.pos.y / (height), time), 0, 1, -max, max);
   }
-
-  //————————————————————————————————————————————————————————————————————————————————— cell setupAngle
-  // setupAngle() {
-  //   let index = this.p.floor(this.p.map(this.pos.x / scl, 0, this.p.width / scl, 0, 96));
-  //   this.angle = this.p.map(this.p.pow(day[index].value, 1.5), 0, 2, 0, deviation);
-  // }
 
   //————————————————————————————————————————————————————————————————————————————————— cell show
   show() {
-    this.p.stroke(clrs[1]);
-    this.p.strokeWeight(SW);
-    this.p.noFill();
-    this.p.push();
-    this.p.translate(this.pos.x, this.pos.y);
-    this.p.rotate(this.angle);
-    this.p.line(-scl / 2, 0, scl / 2, 0);
-    // rect(0, 0, scl, scl);
-    this.p.pop();
+    stroke(clrs[1]);
+    strokeWeight(SW);
+    noFill();
+    push();
+    translate(this.pos.x, this.pos.y);
+    rotate(this.angle);
+    line(-scl / 2, 0, scl / 2, 0);
+    pop();
   }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //————————————————————————————————————————————————————————————————————————————————— fieldSetup
-function fieldSetup(p) {
-  scl = p.width / ratio;
-  cols = p.floor(p.width / scl);
-  rows = p.floor(p.height / scl);
+function fieldSetup() {
+  scl = width / ratio;
+  cols = floor(width / scl);
+  rows = floor(height / scl);
   grid = make2Darray(cols, rows);
   console.log(`scale ${scl} / cols ${cols} / rows ${rows}`);
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
-      grid[i][j] = new Cell(p, i, j);
+      grid[i][j] = new Cell(i, j);
     }
   }
 }
