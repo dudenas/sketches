@@ -26,7 +26,7 @@
   animation: loading-animation 1.4s infinite;
 }
 
-@-webkit-keyframes loading-animation {
+@keyframes loading-animation {
   0% {
     opacity: 1;
   }
