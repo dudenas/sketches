@@ -17,7 +17,7 @@ function preload() {
 
 //————————————————————————————————————————————————————————————————————————————————— Setup
 function setup() {
-	createCanvas(540, 540)
+	createCanvas(800, 600)
 	strokeCap(SQUARE)
 	textFont(myFont)
 	textSize(txtSize)
@@ -32,8 +32,9 @@ function setup() {
 //————————————————————————————————————————————————————————————————————————————————— Draw
 function draw() {
 	background(clrs[0])
+	scale(0.8)
 
-	translate(width / 2, height / 2)
+	translate(width / 2 + width * 0.2 / 2, height / 2 + height * 0.2 / 2)
 	rotate(-PI / 2)
 	lines.forEach(elm => {
 		elm.update()
