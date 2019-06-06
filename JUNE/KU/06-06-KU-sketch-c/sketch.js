@@ -9,6 +9,7 @@ let showCurrent = false;
 // interval
 let interval = 1;
 let intervalFrames = 1;
+let saving = false;
 
 //—————————————————————————————————————————————————————— dataPreload
 function preload() {
@@ -41,10 +42,9 @@ function draw() {
     } else {
       if (currParticles > minParticles) currParticles -= 5
     }
-    console.log(currParticles)
+
     interval = floor(map(currValue, 0, 2, 100, 25));
     intervalFrames = 0;
-    // console.log(currValue, interval)
   }
 
   intervalFrames++;
@@ -66,43 +66,6 @@ function draw() {
   buttonUpdate();
 }
 
-//————————————————————————————————————————————————————————————————————————————————— helpFunctions
-function keyPressed() {
-  if (key == ' ') {
-    debug = !debug;
-  }
-
-  if (key == 's' || key == 'S') {
-    showCurrent = !showCurrent;
-  }
-
-  // SAVE
-  if (key == 'q' || key == 'Q') {
-    saveInsta()
-  }
-  if (key == 'w' || key == 'W') {
-    saveFacebook()
-  }
-  if (key == 'e' || key == 'E') {
-    saveDesktop()
-  }
-  if (key == 'r' || key == 'R') {
-    saveMobile()
-  }
-
-  // next color
-  if (key == 'n' || key == 'N') {
-    currClr = (currClr + 1) % 3
-    bgClr = clrs[currClr]
-  }
-  // diff grfc clr
-  if (key == 'm' || key == 'M') {
-    grfcBlack = !grfcBlack
-    grfcClr = grfcBlack ? clrs[3] : clrs[4]
-    background(grfcClr, 255)
-  }
-
-}
 
 
 //————————————————————————————————————————————————————————————————————————————————— helpFunctions

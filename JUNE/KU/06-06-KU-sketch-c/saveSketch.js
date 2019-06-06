@@ -178,3 +178,53 @@ function calcSat(temp) {
 
   return [sat, bri]
 }
+
+//————————————————————————————————————————————————————————————————————————————————— saveFunctions
+function saveFunction(fnct) {
+  return new Promise(resolve => {
+    resolve(document.getElementById('loading').style.display = 'flex')
+  }).then(() => {
+    return new Promise(resolve => {
+      setTimeout(() => resolve(fnct()), 100)
+    })
+  }).then(() => {
+    document.getElementById('loading').style.display = 'none'
+  })
+}
+
+//————————————————————————————————————————————————————————————————————————————————— helpFunctions
+function keyPressed() {
+  if (key == ' ') {
+    debug = !debug;
+  }
+
+  if (key == 's' || key == 'S') {
+    showCurrent = !showCurrent;
+  }
+
+  // SAVE
+  if (key == 'q' || key == 'Q') {
+    saveFunction(saveInsta)
+  }
+  if (key == 'w' || key == 'W') {
+    saveFunction(saveFacebook)
+  }
+  if (key == 'e' || key == 'E') {
+    saveFunction(saveDesktop)
+  }
+  if (key == 'r' || key == 'R') {
+    saveFunction(saveMobile)
+  }
+
+  // next color
+  if (key == 'n' || key == 'N') {
+    currClr = (currClr + 1) % 3
+    bgClr = clrs[currClr]
+  }
+  // diff grfc clr
+  if (key == 'm' || key == 'M') {
+    grfcBlack = !grfcBlack
+    grfcClr = grfcBlack ? clrs[3] : clrs[4]
+    background(grfcClr, 255)
+  }
+}
