@@ -21,7 +21,7 @@ function saveSetup() {
 function saveDraw() {
   if (save) {
     capturer.capture(canvas);
-    if (frameCount == (totalFrames * +1)) {
+    if (frameCount == (300)) {
       console.log('finnished');
       capturer.stop();
       capturer.save();
