@@ -1,4 +1,4 @@
-let phrase = 'Those who are hungry, are the easiest to feed. '
+let phrase = 'If you see look, if you look, observe. '
 
 
 // ————————————————————————————————————————————————————————————————————————————————— Segment
@@ -11,7 +11,7 @@ class Segment {
     this.index = index
     this.len = len
     this.display = display
-    if (txt) this.txt = this.display ? false : random(1) > 0
+    if (txt) this.txt = this.display ? false : true
     this.phrase = ''
     this.goTop = (j + 1) % 4 == 0
     this.goBot = (j + 2) % 4 == 0
@@ -30,7 +30,7 @@ class Segment {
   }
   // ————————————————————————————————————————————————————————————————————————————————— Segment updateLen
   update(index) {
-    let percent = ((frameCount + index * 2 + this.index) % totalFrames) / totalFrames
+    let percent = ((frameCount + index * 6) % totalFrames) / totalFrames
     // let percent = ((frameCount) % totalFrames) / totalFrames
     if (this.goBot) this.y = map(sin(percent * TWO_PI), -1, 1, -this.ylen, this.yorig)
     if (this.goTop) this.y = map(sin(percent * TWO_PI), -1, 1, this.ylen, this.yorig)
@@ -52,7 +52,7 @@ class Segment {
   showTxtOnTop() {
     push()
     translate(0, -this.y)
-    if (this.txt && this.goBot || this.goBot) {
+    if (this.txt && (this.goBot || this.goTop)) {
       noStroke()
       fill(clrs[1])
       text(this.phrase, this.x, 0)
@@ -113,7 +113,7 @@ class Grfc {
     push()
     translate(0, this.y)
     this.segments.forEach(elm => {
-      // elm.showTxtOnTop()
+      elm.showTxtOnTop()
       elm.showLine()
     });
     pop()
