@@ -1,4 +1,4 @@
-const clrs = [250, 5]
+const clrs = [5, 250]
 const totalSegments = 7
 const totalLines = 23 // 23
 const SW = 1

@@ -1,5 +1,5 @@
 // saving
-let save = false
+let save = true
 let capturer
 let totalFrames = 45
 
