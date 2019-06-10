@@ -1,5 +1,5 @@
 let yearDrop, monthDrop, dayDrop;
-let resSlider, resTxt
+let resSlider, resTxt, rSlider, rTxt
 
 //—————————————————————————————————————————————————————— buttonSetup
 function buttonsSetup() {
@@ -8,6 +8,8 @@ function buttonsSetup() {
   // resSlider
   resSlider = createSlider(1, 10, 1, 1)
   resSlider.parent('#resSlider')
+  rSlider = createSlider(4, 6, 4.5, 0.1)
+  rSlider.parent('#rSlider')
 
   // currentTime
   initTime()
@@ -20,6 +22,11 @@ function buttonUpdate() {
   // 
   document.getElementById('resTxt').innerHTML = `resolution x ${resSlider.value()}`;
   res = resSlider.value()
+
+  // r slider
+  document.getElementById('rTxt').innerHTML = `size ${nf(rSlider.value(),0,1)}`;
+  r = rSlider.value()
+  maxR = r * 3;
 }
 
 //—————————————————————————————————————————————————————— setupMonth

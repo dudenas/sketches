@@ -3,7 +3,13 @@
   padding: 0;
   font-family: sans-serif;
   font-weight: 100;
-  /* overflow: hidden; */
+  background-color: #111;
+  color: white;
+}
+
+#sliders {
+  display: flex;
+  flex-direction: column;
 }
 
 #loading {
@@ -45,7 +51,6 @@
 body {
   display: flex;
   flex-direction: column;
-  color: white;
 }
 
 #container {
@@ -54,13 +59,14 @@ body {
   align-items: center;
   position: relative;
   z-index: 1;
+  padding-top: 1em;
 }
 
 #resSlider {
   width: 100%;
 }
 
-#resTxt {
+.pad-right {
   padding-right: 1em;
 }
 
@@ -99,8 +105,9 @@ body {
   /* MOBILE */
   /* overflow-x: visible;
   overflow-y: hidden; */
-  background: #111;
+  background: none;
   height: 100%;
   width: 100%;
+  transform: scale(0.7);
   z-index: -10;
 }
