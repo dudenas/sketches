@@ -81,16 +81,8 @@ function saveFunction(fnct) {
 
 //————————————————————————————————————————————————————————————————————————————————— helpFunctions
 function keyPressed() {
-  if (key == ' ') {
-    debug = !debug;
-  }
-
-  if (key == 's' || key == 'S') {
-    showCurrent = !showCurrent;
-  }
-
   // SAVE
-  if (key == 'q' || key == 'Q') {
+  if (key == 's' || key == 'S') {
     saveFunction(saveGrfc)
   }
 
