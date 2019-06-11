@@ -4,10 +4,10 @@ let minSpeedValue = 0.5;
 let maxSpeedValue = 8;
 let maxForce = 0.1;
 let distToSteer = 100;
-let pathLen = 150;
+let pathLen = 100;
 
-let currParticles = 100;
-let maxParticles = 150;
+let currParticles = 150;
+let maxParticles = 200;
 let minParticles = 50;
 let particles = [];
 let r = 4.5;

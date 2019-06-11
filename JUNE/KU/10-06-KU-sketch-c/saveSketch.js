@@ -37,7 +37,7 @@ function saveGrfc() {
     let len = particle.path.length
     if (len > minLenPath) {
       let r = particle.r;
-      for (let i = 0; i < len; i++) {
+      for (let i = 0; i < len - 1; i++) {
         let ind = particle.path[i];
         let temp = map(i, 0, len, 0, 1)
 
@@ -57,10 +57,10 @@ function saveGrfc() {
 //————————————————————————————————————————————————————————————————————————————————— calcSat
 function calcSat(temp) {
   let sat = saveClrs[currClr][1]
-  let bri = map(pow(temp, 6), 0, 1, saveClrs[currClr][2], 0);
+  let bri = map(pow(temp, 1), 0, 1, saveClrs[currClr][2], 0);
   if (!grfcBlack) {
-    sat = map(pow(temp, 6), 0, 1, saveClrs[currClr][1], 0);
-    bri = map(pow(temp, 6), 0, 1, saveClrs[currClr][2], 100);
+    sat = map(pow(temp, 1), 0, 1, saveClrs[currClr][1], 0);
+    bri = map(pow(temp, 1), 0, 1, saveClrs[currClr][2], 100);
   }
 
   return [sat, bri]
