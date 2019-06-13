@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>11-06-KU-sketch-c</title>
+
+	<link rel="stylesheet" href="style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+
+	<link rel="stylesheet" type="text/css"
+		href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" />
+
+	<script src="libraries/p5.js"></script>
+	<script src="libraries/p5.dom.js"></script>
+	<script src="particle.js"></script>
+	<script src="data.js"></script>
+	<script src="flowField.js"></script>
+	<script src="interface.js"></script>
+	<script src="sketch.js"></script>
+	<script src="saveSketch.js"></script>
+</head>
+
+<body>
+	<!-- CANVAS -->
+	<div id="show-canvas">
+		<!-- LOADING -->
+		<div id="loading">
+			<div>SAVING</div>
+			<div class="loadingPoint">.</div>
+			<div class="loadingPoint">.</div>
+			<div class="loadingPoint">.</div>
+		</div>
+	</div>
+	<!-- SAVE CANVAS -->
+	<div id="hidden-canvas" style="display:none"></div>
+	<!-- CONTAINER UI UX -->
+	<div id="container">
+		<div id="dropDown"></div>
+		<div id="sliders">
+			<div class='align-txt'>background color</div>
+			<div class='clrCircle align-grfc' id="bgClrGrfc">
+				<a class="bg blue checked"></a>
+				<a class="bg red unchecked"></a>
+				<a class="bg yellow unchecked"></a>
+				<a class="bg white unchecked"></a>
+			</div>
+			<div class='align-txt'>graphics color</div>
+			<div class='clrCircle align-grfc' id="grfcClrGrfc">
+				<a class="grfc white unchecked"></a>
+				<a class="grfc black checked"></a>
+			</div>
+			<div class='align-txt' id="particlesTxt">particles 100</div>
+			<div class='align-grfc' id="particlesSlider"></div>
+			<div class='align-txt' id="rTxt">size 1</div>
+			<div class='align-grfc' id="rSlider"></div>
+			<div class='align-txt' id="intervalTxt">interval 100</div>
+			<div class='align-grfc' id="intervalSlider"></div>
+			<div class='align-txt' id="resTxt">resolution x 1</div>
+			<div class='align-grfc' id="resSlider"></div>
+		</div>
+		<div id="saveButton">save</div>
+		<div id="fps"></div>
+	</div>
+</body>
+
+</html>

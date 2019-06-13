@@ -1,0 +1,170 @@
+.mobile-nav {
+  display: none;
+}
+
+#expand-mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  :root {
+    --main-diff: 2em;
+    font-size: 14px;
+  }
+
+  .hide-mobile {
+    display: none;
+  }
+
+  /* HAMBURGER */
+
+  /* MODAL */
+  /* DATE */
+  .time h1 {
+    font-size: var(--font-h3-size);
+  }
+
+  /* ABOUT */
+  .modal-about-grfc {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 4em;
+    grid-column-gap: 2em;
+    width: 80%;
+    margin-right: 0;
+  }
+
+  .modal-about-data-info {
+    width: 80%;
+  }
+
+  .modal-content-about {
+    height: 100%;
+    margin: 8em 0;
+  }
+
+  .modal-close {
+    position: fixed;
+    top: var(--main-diff);
+    right: var(--main-diff);
+  }
+
+  .modal-about-grfc img {
+    width: 100%;
+  }
+
+
+  /* DATA BOT */
+  .menu-outer-bot {
+    height: var(--menu-bot-mobile);
+    width: 100%;
+  }
+
+  .menu-outer-bot .container {
+    height: calc(var(--menu-bot-mobile));
+  }
+
+  /* expand */
+  #expand-mobile {
+    display: block;
+    position: absolute;
+    right: var(--main-diff);
+    bottom: calc(var(--menu-bot-mobile) + var(--main-diff));
+  }
+
+  /* MENU SHOW OTHER ELEMENTS */
+  .mobile-menu-show {
+    display: block;
+  }
+
+  .mobile-menu-hidden {
+    display: none;
+  }
+
+  .mobile-menu {
+    position: fixed;
+    z-index: 10;
+    bottom: var(--main-diff);
+    text-align: left;
+    margin-bottom: 2em;
+  }
+
+  #about {
+    left: var(--main-diff);
+    color: var(--black-color);
+    margin-left: 5em;
+  }
+
+  #language {
+    right: var(--main-diff);
+    margin-right: 5em;
+  }
+
+  #language * {
+    color: var(--black-color);
+  }
+
+  /* MENU TOP SHOW */
+  .menu-outer-top {
+    /* display: block; */
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+  }
+
+  .menu-top {
+    justify-content: flex-start;
+  }
+
+  .menu-top-control {
+    margin: 4em 2em;
+  }
+
+  .menu-top-control>div {
+    margin: 0.5em 0;
+  }
+
+  /* TOOLTIP */
+
+  .tooltip {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: calc(100% - var(--main-diff) * 2);
+    transform: translate(-50%, -50%);
+  }
+
+  .t-swell span {
+    bottom: auto;
+    font-size: var(--font-h3-size);
+  }
+
+
+  /* NEW MENU TOP */
+  .mobile-nav {
+    display: block;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 5.5em;
+    background: var(--white-color);
+  }
+
+  .mobile-nav .container {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    height: calc(100% - var(--main-diff) * 2);
+  }
+
+  .modal-close {
+    color: black;
+  }
+
+  /* LOGO */
+  .logo {
+    display: flex;
+
+  }
+}

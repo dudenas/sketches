@@ -1,0 +1,196 @@
+@font-face {
+  font-family: "KU-regular";
+  src: url("FONT/KU-regular.woff2") format("woff2"), url("FONT/KU-regular.woff") format("woff"), url("FONT/KU-regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+:root {
+  --bgClr: rgb(5, 5, 5);
+  --activeClr: rgb(255, 75, 50);
+  --txtClr: rgb(250, 250, 250);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'KU-regular', san-serif;
+  font-size: 0.95rem;
+  background-color: var(--bgClr);
+  color: var(--txtClr);
+  transition: all 200ms ease-in-out;
+  user-select: none;
+}
+
+/* MAIN */
+body {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+}
+
+/* container */
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  padding-top: 1em;
+}
+
+#container>div {
+  margin: 0.5em 0;
+}
+
+/* LOADING */
+#loading {
+  position: absolute;
+  background: transparent;
+  font-size: 6em;
+  font-family: sans-serif;
+  display: none;
+  justify-items: center;
+  justify-content: center;
+  flex-direction: row;
+  z-index: 10;
+}
+
+#loading * {
+  border-radius: 0;
+}
+
+.loadingPoint:nth-child(2) {
+  animation: loading-animation 1s infinite;
+}
+
+.loadingPoint:nth-child(3) {
+  animation: loading-animation 1.2s infinite;
+}
+
+.loadingPoint:nth-child(4) {
+  animation: loading-animation 1.4s infinite;
+}
+
+@keyframes loading-animation {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+/* SLIDERS UI UX */
+#sliders {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+  grid-auto-rows: 1em;
+  align-items: center;
+}
+
+.align-grfc {
+  justify-self: start;
+}
+
+.align-txt {
+  justify-self: end;
+}
+
+#resSlider {
+  width: 100%;
+}
+
+/* bg clrs */
+.clrCircle {
+  display: flex;
+  flex-direction: row;
+}
+
+.clrCircle>a {
+  width: 1.25em;
+  height: 1.25em;
+  margin: 0 0.25em;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.clrCircle>a:hover {
+  border: 2px var(--activeClr) solid;
+}
+
+#bgClrGrfc .blue {
+  background: rgb(50, 65, 185);
+}
+
+#bgClrGrfc .red {
+  background: rgb(255, 75, 50);
+}
+
+#bgClrGrfc .yellow {
+  background: rgb(215, 170, 0);
+}
+
+#bgClrGrfc .white {
+  background: rgb(255, 255, 255);
+}
+
+#grfcClrGrfc .black {
+  background: rgb(0, 0, 0);
+}
+
+#grfcClrGrfc .white {
+  background: rgb(255, 255, 255);
+}
+
+.checked {
+  border: 2px var(--activeClr) solid;
+}
+
+.unchecked {
+  border: 2px var(--txtClr) solid;
+}
+
+/* dropdown */
+#dropDown>select {
+  margin: 0 0.5em;
+  padding: 1em;
+  width: 8em;
+  height: 2em;
+  text-align-last: center;
+}
+
+/* saveButton */
+#saveButton {
+  background: var(--txtClr);
+  color: var(--bgClr);
+  padding: 0.25em 2em;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+#saveButton:hover {
+  background: var(--activeClr);
+  color: var(--txtClr);
+}
+
+/* canvas */
+#main-canvas {
+  border-radius: 2em;
+}
+
+#show-canvas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  transform: scale(0.8);
+  margin: -2em 0;
+}
