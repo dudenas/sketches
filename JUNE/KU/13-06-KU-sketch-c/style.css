@@ -16,10 +16,10 @@
   padding: 0;
   font-family: 'KU-regular', san-serif;
   font-size: 0.95rem;
-  background-color: var(--bgClr);
   color: var(--txtClr);
   transition: all 200ms ease-in-out;
   user-select: none;
+  background-color: var(--bgClr);
 }
 
 /* MAIN */
@@ -40,24 +40,22 @@ body {
 }
 
 #container>div {
-  margin: 0.5em 0;
+  margin: 1em 0;
 }
 
 /* LOADING */
 #loading {
   position: absolute;
-  background: transparent;
-  font-size: 6em;
   font-family: sans-serif;
-  display: none;
-  justify-items: center;
-  justify-content: center;
+  display: flex;
   flex-direction: row;
   z-index: 10;
+  background: transparent;
 }
 
 #loading * {
   border-radius: 0;
+  font-size: 6rem;
 }
 
 .loadingPoint:nth-child(2) {
@@ -193,4 +191,5 @@ body {
   background: transparent;
   transform: scale(0.8);
   margin: -2em 0;
+  margin-bottom: -4em;
 }
