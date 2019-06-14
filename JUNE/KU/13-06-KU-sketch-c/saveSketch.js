@@ -68,7 +68,6 @@ function saveGrfc() {
             grfcCanvas.vertex(x2 * res, y2 * res);
             grfcCanvas.endShape()
           }
-
         }
       }
     }
