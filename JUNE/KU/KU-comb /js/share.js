@@ -32,9 +32,11 @@ facebookShare.onclick = function (e) {
   //   method: 'share'
   // }, function (response) {});
   var facebookWindow = window.open(
-    `https://www.facebook.com/sharer/sharer.php?u=https://www.ku.lt/en/
-  &quote=similique officia consectetur maxime placeat incidunt delectus corrupti repellendus repudiandae
-  &description=this is a description`, 'facebook-popup', 'height=350,width=600');
+    // https://www.ku.lt/en/
+    // u=${document.URL}
+    // &quote=similique officia consectetur maxime placeat incidunt delectus corrupti repellendus repudiandae
+    // &description=this is a description
+    `https://www.facebook.com/sharer/sharer.php?`, 'facebook-popup', 'height=350,width=600');
   if (facebookWindow.focus) {
     facebookWindow.focus();
   }
