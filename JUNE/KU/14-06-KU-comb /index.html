@@ -5,6 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta property="og:title" content="The Rock" />
+  <meta property="og:type" content="video.movie" />
+  <meta property="og:url" content="http://www.imdb.com/title/tt0117500/" />
+  <meta property="og:image"
+    content="https://ichef.bbci.co.uk/news/660/cpsprodpb/37B5/production/_89716241_thinkstockphotos-523060154.jpg" />
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
 
   <link rel="stylesheet" href="css/FONT/SpaceGrotesk-Regular-export/SpaceGrotesk-Regular.css">
@@ -16,6 +22,7 @@
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="http://connect.facebook.net/en_US/all.js"></script>
 
   <script src="js/libraries/p5.js"></script>
   <script src="js/libraries/p5.dom.js"></script>
@@ -58,8 +65,8 @@
       <div class="nav">
         <!-- about -->
         <a class="mobile-menu mobile-menu-hidden" id="about">
-          <!-- <span lang="lt">Apie projektą</span> -->
-          <!-- <span lang="en">About the project</span> -->
+          <span lang="lt">Apie projektą</span>
+          <span lang="en">About the project</span>
         </a>
         <!-- controls -->
         <div class="controls hide-mobile">
@@ -99,8 +106,8 @@
                   <!-- COLOR BUTTONS -->
                   <li>
                     <a onclick="colorSwitch()">
-                      <!-- <span lang="lt">Keisti Spalvą</span> -->
-                      <!-- <span lang="en">Change Color</span> -->
+                      <span lang="lt">Keisti Spalvą</span>
+                      <span lang="en">Change Color</span>
                     </a>
                   </li>
                   <li class="showColor">
@@ -136,8 +143,8 @@
                 <ul>
                   <li>
                     <a class="t-send" onclick="saveSwitch()">
-                      <!-- <span lang="lt">Parsisiųsti</span> -->
-                      <!-- <span lang="en">Download</span> -->
+                      <span lang="lt">Parsisiųsti</span>
+                      <span lang="en">Download</span>
                     </a>
                     <span class="tooltip">
                       Lorem ipsum dolor sit <br><br><strong>amet consectetur</strong><br><br> adipisicing elit.
@@ -147,20 +154,20 @@
                     </span>
                   </li>
                   <li class="showSave" id="saveDesktop"><a class="hide-mobile">
-                      <!-- <span lang="lt">Darbalaukio fonas (kompiuteriui)</span> -->
-                      <!-- <span lang="en">Desktop (computer)</span> -->
+                      <span lang="lt">Darbalaukio fonas (kompiuteriui)</span>
+                      <span lang="en">Desktop (computer)</span>
                     </a></li>
                   <li class="showSave" id="saveMobile"><a class="hide-desktop">
-                      <!-- <span lang="lt">Darbalaukio fonas (mobiliajam)</span> -->
-                      <!-- <span lang="en">Desktop (mobile)</span> -->
+                      <span lang="lt">Darbalaukio fonas (mobiliajam)</span>
+                      <span lang="en">Desktop (mobile)</span>
                     </a></li>
                   <li class="showSave" id="saveInsta"><a>
-                      <!-- <span lang="lt">Instagram paveiksliukas</span> -->
-                      <!-- <span lang="en">Instagram picture</span> -->
+                      <span lang="lt">Instagram paveiksliukas</span>
+                      <span lang="en">Instagram picture</span>
                     </a></li>
                   <li class="showSave" id="saveFacebook"><a>
-                      <!-- <span lang="lt">Facebook viršelis</span> -->
-                      <!-- <span lang="en">Facebook cover</span> -->
+                      <span lang="lt">Facebook viršelis</span>
+                      <span lang="en">Facebook cover</span>
                     </a></li>
                 </ul>
               </div>
@@ -286,8 +293,8 @@
         <!-- SHARE -->
         <div class="modal-about-share">
           <h3>pasidalinti</h3>
-          <a id="fb">Facebook</a>
-          <a id="twitter">Twitter</a>
+          <a id="fb" data-js="facebook-share">Facebook</a>
+          <a id="twitter" data-js="twitter-share">Twitter</a>
         </div>
       </div>
     </div>
@@ -327,8 +334,9 @@
   </div>
 
   <!-- SCRIPT TAG -->
-  <script src="js/buttons.js"></script>
   <script src="ux.js"></script>
+  <script src="js/buttons.js"></script>
+  <script src="js/share.js"></script>
   <script src="js/resizeGrfc.js"></script>
   <script src="js/graph.js"></script>
 </body>
