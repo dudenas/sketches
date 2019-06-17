@@ -22,7 +22,7 @@ facebookShare.onclick = function (e) {
   console.log('facebook share')
 
   FB.ui({
-    method: 'feed',
+    method: 'share',
     name: 'This is the content of the "name" field.',
     link: 'https://www.imdb.com/title/tt9428444/?ref_=nv_sr_1?ref_=nv_sr_1',
     picture: 'https://m.media-amazon.com/images/M/MV5BMTc3MTkzYTgtZTYwMC00NjBiLWE0YzYtZjhkMjMyMDA5N2MyXkEyXkFqcGdeQXVyNjI2MzY3Mzg@._V1_UY268_CR149,0,182,268_AL_.jpg',

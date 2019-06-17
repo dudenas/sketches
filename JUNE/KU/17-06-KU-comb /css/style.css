@@ -30,7 +30,7 @@
   text-decoration: none;
   padding: 0;
   margin: 0;
-  font-family: "Space Grotesk Regular";
+  font-family: "Space Grotesk Regular", sans-serif;
   outline: none;
   color: var(--white-color);
   position: relative;
