@@ -1,0 +1,46 @@
+#intro {
+  display: block;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+  background: var(--bg-black-color);
+}
+
+#intro .container {
+  height: calc(100vh - var(--main-diff) * 2);
+}
+
+#intro .about {
+  position: absolute;
+  right: 0;
+}
+
+#intro .page-index {
+  position: absolute;
+  font-size: var(--font-h4-size);
+  bottom: 0;
+}
+
+#intro .language {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+/* next button */
+#intro #nextButton {
+  position: absolute;
+  /* margin: auto; */
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: center;
+  background: transparent;
+  color: var(--white-color);
+  border: var(--button-border-stroke) solid var(--white-color);
+  font-size: var(--font-h2-size);
+  border-radius: var(--button-border-radius);
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+}
