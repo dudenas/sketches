@@ -17,7 +17,7 @@ document.querySelector("#modal-date-btn").addEventListener('click', () => {
     elm.innerHTML = `${YEAR} ${nf(MONTH,2,0)} ${nf(DAY,2,0)}`
   })
 })
-s
+
 //—————————————————————————————————————————————————————— DOCUMENT READY
 // functionality
 $(document).ready(function () {
