@@ -22,9 +22,9 @@
 }
 
 /* INITIAL GRAPH ABOUT  */
+/* #modal-about */
 #modal-date,
-#modal-graph,
-#modal-about {
+#modal-graph {
   display: none;
 }
 
