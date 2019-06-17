@@ -42,23 +42,23 @@ $(document).ready(function () {
 
   // LANGUAGE
   // set first language to lithuanian / remove en spans
-  $("span:lang(en)").addClass('language-hide')
+  // $("span:lang(en)").addClass('language-hide')
 
-  $('#language a').click(function (e) {
-    e.preventDefault()
-    if ($(this).attr('id') == 'lt') {
-      $('#en').addClass('language-passive').removeClass('language-active')
-      document.documentElement.setAttribute('lang', 'lt')
-      $("span:lang(lt)").addClass('language-show').removeClass('language-hide')
-      $("span:lang(en)").addClass('language-hide').removeClass('language-show')
-    } else {
-      $('#lt').addClass('language-passive').removeClass('language-active')
-      document.documentElement.setAttribute('lang', 'en')
-      $("span:lang(en)").addClass('language-show').removeClass('language-hide')
-      $("span:lang(lt)").addClass('language-hide').removeClass('language-show')
-    }
-    $(this).addClass('language-active').removeClass('language-passive')
-  })
+  // $('#language a').click(function (e) {
+  //   e.preventDefault()
+  //   if ($(this).attr('id') == 'lt') {
+  //     $('#en').addClass('language-passive').removeClass('language-active')
+  //     document.documentElement.setAttribute('lang', 'lt')
+  //     $("span:lang(lt)").addClass('language-show').removeClass('language-hide')
+  //     $("span:lang(en)").addClass('language-hide').removeClass('language-show')
+  //   } else {
+  //     $('#lt').addClass('language-passive').removeClass('language-active')
+  //     document.documentElement.setAttribute('lang', 'en')
+  //     $("span:lang(en)").addClass('language-show').removeClass('language-hide')
+  //     $("span:lang(lt)").addClass('language-hide').removeClass('language-show')
+  //   }
+  //   $(this).addClass('language-active').removeClass('language-passive')
+  // })
   // CLRS
   $('.btn-clr').click(function (e) {
     console.log(this.className)
