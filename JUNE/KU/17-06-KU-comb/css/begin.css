@@ -4,7 +4,7 @@
   height: 100%;
   width: 100%;
   z-index: 5;
-  background: var(--bg-black-color);
+  background: var(--bg-intro-color);
 }
 
 #intro .container {
@@ -16,7 +16,7 @@
   right: 0;
 }
 
-#intro .page-index {
+#intro #page-index {
   position: absolute;
   font-size: var(--font-h4-size);
   bottom: 0;
@@ -31,7 +31,6 @@
 /* next button */
 #intro #nextButton {
   position: absolute;
-  /* margin: auto; */
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 0);
@@ -43,4 +42,40 @@
   border-radius: var(--button-border-radius);
   padding: 1rem 2rem;
   box-sizing: border-box;
+}
+
+/* TEXT */
+#intro #startText {
+  font-size: var(--font-h1-size);
+  width: 80%;
+}
+
+#intro #explainText {
+  display: none;
+  font-size: var(--font-h2-size);
+  width: 80%;
+}
+
+#intro #controlText {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  font-size: var(--font-h3-size);
+  width: 100%;
+}
+
+#intro #controlText div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem;
+}
+
+#intro .center-intro {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: 1.5em;
 }

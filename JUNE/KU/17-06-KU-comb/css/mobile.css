@@ -78,10 +78,12 @@
 
   /* MENU SHOW OTHER ELEMENTS */
   .mobile-menu-show {
+    opacity: 1;
     display: block;
   }
 
   .mobile-menu-hidden {
+    opacity: 0;
     display: none;
   }
 
@@ -93,9 +95,9 @@
     margin-bottom: 2em;
   }
 
-  .about {
+  .mobile-menu.about {
     left: var(--main-diff);
-    margin-left: 5em;
+    margin-left: 0;
     color: var(--black-color);
   }
 
@@ -105,7 +107,7 @@
 
   .language {
     right: var(--main-diff);
-    margin-right: 5em;
+    margin-right: 0;
   }
 
   .language * {
@@ -114,7 +116,7 @@
 
   /* MENU TOP SHOW */
   .menu-outer-top {
-    /* display: block; */
+    top: -100vh;
     height: 100%;
     width: 100%;
     z-index: 3;
@@ -154,7 +156,7 @@
     position: fixed;
     z-index: 10;
     width: 100%;
-    height: 5.5em;
+    height: var(--menu-nav-mobile);
     background: var(--white-color);
   }
 
@@ -168,6 +170,7 @@
 
   .modal-close {
     color: var(--black-color);
+    opacity: 1;
   }
 
   #modal-date .modal-close {
@@ -179,4 +182,26 @@
     display: flex;
 
   }
+
+  /* INTRO */
+  #intro #startText {
+    font-size: var(--font-h2-size);
+  }
+
+  #intro #explainText {
+    font-size: var(--font-h3-size);
+  }
+
+  #intro #controlText {
+    font-size: var(--font-h4-size);
+    width: 100%;
+  }
+
+  #intro #page-index {
+    font-size: var(--font-h4-size);
+    top: calc(var(--menu-nav-mobile) + 1em);
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
 }

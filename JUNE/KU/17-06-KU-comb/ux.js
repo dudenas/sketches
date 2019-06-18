@@ -22,6 +22,16 @@ modalBurgerClose.addEventListener('click', () => {
     .removeClass('mobile-menu-show').addClass('mobile-menu-hidden')
   $('.menu-outer-top')
     .removeClass('mobile-menu-show').addClass('mobile-menu-hidden')
+  if (stage < 3) {
+    document.getElementById('intro').style.display = 'block';
+    mainGrfc.style.filter = 'blur(var(--blur-amount))';
+    mainGrfc.style.transform = 'scale(1.4, 1.4)';
+  }
+  setTimeout(() => {
+    document.querySelector('.menu-outer-top').style.top = '-100vh';
+    document.querySelector('.mobile-menu.about').style.marginLeft = '0em';
+    document.querySelector('.mobile-menu.language').style.marginRight = '0em'
+  }, 100)
 })
 
 modalBurgerOpen.addEventListener('click', () => {
@@ -31,6 +41,17 @@ modalBurgerOpen.addEventListener('click', () => {
     .removeClass('mobile-menu-hidden').addClass('mobile-menu-show')
   $('.menu-outer-top')
     .removeClass('mobile-menu-hidden').addClass('mobile-menu-show')
+  if (stage < 3) {
+    mainGrfc.style.filter = 'blur(0px)'
+    mainGrfc.style.transform = 'scale(1, 1)';
+    document.getElementById('intro').style.display = 'none';
+  }
+  setTimeout(() => {
+    document.querySelector('.menu-outer-top').style.top = '0vh';
+    document.querySelector('.mobile-menu.about').style.marginLeft = '5em'
+    document.querySelector('.mobile-menu.language').style.marginRight = '5em'
+  }, 100)
+
 })
 
 //—————————————————————————————————————————————————————— MOBILE hide data
@@ -67,13 +88,11 @@ document.querySelector("#modal-graph-close").addEventListener('click', () => {
 document.querySelectorAll(".about").forEach(elm => {
   elm.addEventListener('click', () => {
     modalAbout.style.display = "block"
-    mainGrfc.style.filter = "blur(var(--blur-amount))"
   })
 });
 // close about
 document.querySelector("#modal-about-close").addEventListener('click', () => {
   modalAbout.style.display = "none"
-  mainGrfc.style.filter = "blur(0px)"
 })
 
 //—————————————————————————————————————————————————————— DATE
@@ -92,38 +111,42 @@ document.querySelector("#modal-date-close").addEventListener('click', () => {
 //—————————————————————————————————————————————————————— MENU
 //—————————————————————————————————————————————————————— color switch
 function colorSwitch() {
-  let elements = document.querySelectorAll(".showColor");
-  elements.forEach(elm => {
-    if (!showColor) {
-      elm.style.display = "none"
-    } else {
-      elm.style.display = "block"
-    }
-  })
+  if (stage == 3) {
+    let elements = document.querySelectorAll(".showColor");
+    elements.forEach(elm => {
+      if (!showColor) {
+        elm.style.display = "none"
+      } else {
+        elm.style.display = "block"
+      }
+    })
 
-  if (showColor) {
-    showSave = false
-    saveSwitch()
+    if (showColor) {
+      showSave = false
+      saveSwitch()
+    }
+    showColor = !showColor
   }
-  showColor = !showColor
 }
 
 //—————————————————————————————————————————————————————— save switch
 function saveSwitch() {
-  let elements = document.querySelectorAll(".showSave");
-  elements.forEach(elm => {
-    if (!showSave) {
-      elm.style.display = "none"
-    } else {
-      elm.style.display = "block"
-    }
-  })
+  if (stage == 3) {
+    let elements = document.querySelectorAll(".showSave");
+    elements.forEach(elm => {
+      if (!showSave) {
+        elm.style.display = "none"
+      } else {
+        elm.style.display = "block"
+      }
+    })
 
-  if (showSave) {
-    showColor = false
-    colorSwitch()
+    if (showSave) {
+      showColor = false
+      colorSwitch()
+    }
+    showSave = !showSave
   }
-  showSave = !showSave
 }
 
 //—————————————————————————————————————————————————————— NAVIGATION

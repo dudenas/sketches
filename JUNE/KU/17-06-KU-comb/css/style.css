@@ -2,7 +2,8 @@
 :root {
   /* colors */
   /* --bg-color: rgb(89, 59, 255); */
-  --bg-black-color: rgba(0, 0, 0, 0.9);
+  --bg-black-color: rgba(0, 0, 0, 0.6);
+  --bg-intro-color: rgba(0, 0, 0, 0.2);
   --white-color: white;
   --black-color: black;
   --gray-color: rgb(125, 125, 125);
@@ -11,14 +12,16 @@
   --main-diff: 3em;
   --menu-top: 60vh;
   --menu-bot: 40vh;
-  --menu-bot-mobile: 30vh;
   --menu-width: 25em;
+  --menu-bot-mobile: 30vh;
+  --menu-nav-mobile: 5.5em;
   /* main values */
-  --blur-amount: 10px;
+  --blur-amount: 20px;
   --shadow-color: rgba(25, 25, 25, 0.1);
   /* font size */
   --font-explain-size: 0.7rem;
   --font-info-size: 1rem;
+  --font-h1-size: 3rem;
   --font-h2-size: 1.7rem;
   --font-h3-size: 1.2rem;
   --font-h4-size: 0.8rem;
@@ -52,7 +55,8 @@ strong {
 }
 
 #main {
-  filter: blur(0);
+  filter: blur(var(--blur-amount));
+  transform: scale(1.4, 1.4);
   height: 100vh;
   width: 100vw;
   position: fixed;
@@ -156,7 +160,7 @@ a {
 }
 
 .menu-top-control ul li:first-child a {
-  color: var(--black-color);
+  color: var(--gray-color);
 }
 
 .menu-top-control ul a {

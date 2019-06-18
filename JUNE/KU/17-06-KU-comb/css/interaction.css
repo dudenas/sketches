@@ -1,0 +1,27 @@
+  /* MOBILE */
+  @media only screen and (max-width: 600px) {
+
+    /* MENU TOP SHOW */
+    .menu-outer-top {
+      transition: top 250ms ease-in-out;
+    }
+
+    .mobile-menu.about {
+      transition: margin-left 350ms ease-out;
+    }
+
+    .language {
+      transition: margin-right 350ms ease-out;
+    }
+
+    #main {
+      transition: filter 250ms ease-out, transform 250ms ease-out;
+    }
+  }
+
+
+
+
+
+  /* transition: filter 0ms ease-in-out; */
+  /* transition: height 1000ms ease-in-out; */
