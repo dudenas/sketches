@@ -1,0 +1,27 @@
+h3 span {
+  display: block;
+}
+
+h3>span {
+  overflow: hidden;
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+h3>span:nth-child(2) {
+  transition-delay: .05s;
+}
+
+h3>span:nth-child(3) {
+  transition-delay: .1s;
+}
+
+h3>span>span {
+  position: relative;
+  transform: translateY(100%);
+  transition: inherit;
+}
+
+h3.slide-in>span>span {
+  transform: translateY(0);
+}

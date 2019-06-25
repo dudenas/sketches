@@ -1,0 +1,6 @@
+@font-face {
+  font-family: "Space Grotesk Medium";
+  src: url("SpaceGrotesk-Medium.woff2") format("woff2"), url("SpaceGrotesk-Medium.woff") format("woff"), url("SpaceGrotesk-Medium.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+}
