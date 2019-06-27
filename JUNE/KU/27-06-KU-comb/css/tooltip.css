@@ -1,0 +1,86 @@
+.tooltip {
+  position: absolute;
+  /* z-index: 100; */
+  left: calc(100% + 1rem);
+  width: 15em;
+  background: var(--white-color);
+  padding: calc(var(--main-diff) / 2);
+  border-radius: 0.5rem;
+  cursor: none;
+  font-size: var(--font-explain-size);
+  box-shadow: 0 0 1rem 0.1rem var(--shadow-color);
+  line-height: 1.6;
+  display: none;
+}
+
+.tooltip span {
+  color: var(--gray-color);
+}
+
+.t-swell:hover .tooltip {
+  display: block;
+  transform: scale(1);
+  transition: all 200ms ease-in-out;
+}
+
+/* t-send */
+.t-send:hover+.tooltip {
+  display: none;
+}
+
+/* MOBILE */
+@media only screen and (max-width: 600px) {
+  .t-swell>span {
+    top: calc(var(--menu-nav-mobile));
+    left: 1em;
+  }
+}
+
+/* DESKTOP */
+@media only screen and (min-width: 600px) {
+
+  /* t-send */
+  .t-send:hover+.tooltip {
+    display: block;
+    transform: scale(1);
+    transition: all 200ms ease-in-out;
+  }
+
+  /* t-swell */
+  .t-swell:hover .tooltip {
+    transform: scale(1);
+    transition: all 200ms ease-in-out;
+  }
+
+  .tooltip {
+    transform: scale(0);
+    display: block;
+  }
+
+  .t-send+span {
+    top: 0;
+    transform-origin: top left;
+  }
+
+  .t-swell>span {
+    bottom: 0;
+    transform-origin: bottom left;
+  }
+}
+
+@media (max-height:550px) {
+
+  /* t-send */
+  .t-send:hover+.tooltip {
+    display: none;
+  }
+
+  .t-swell span {
+    bottom: 0;
+    left: 1em;
+  }
+
+  .tooltip {
+    display: none;
+  }
+}

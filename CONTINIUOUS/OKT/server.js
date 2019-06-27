@@ -100,11 +100,45 @@ function getInfo(plays) {
       }
       rp(options)
         .then(function ($) {
-          const temp = {}
+          const temp = {
+            title: plays[i],
+            url: URL + plays[i],
+            images: []
+          }
+
+          // ABOUT 
+          const play = $('.play')
+          temp['Pavadinimas'] = play.find($('h1'))[0].children[0].data
+          temp['Rezisierius'] = play.find($('.director'))[0].next.data
+          temp['About'] = ''
+          let txt = $('.content').find($('.text p'))
+          for (let k = 0; k < txt.length; k++) {
+            try {
+              temp['About'] += txt.find($('span'))[k].children[0].data
+              // console.log(txt.find($('span'))[k].children)
+            } catch (err) {
+              // console.log(err)
+              temp['About'] += txt[k].children[0].data
+            }
+          }
+          console.log("TCL: next -> temp['About']", temp['About'])
+
+
+          // IMAGES
+          // const images = $('img')
+          // for (let k = 0; k < images.length; k++) {
+          //   const imgURL = images[k].attribs.src
+          //   if (imgURL != 'https://www.okt.lt/wp/wp-content/themes/okt-custom/img/remejai.png' &&
+          //     imgURL != 'https://www.okt.lt/wp/wp-content/plugins/wp-polls/images/loading.gif' &&
+          //     imgURL != 'https://www.okt.lt/wp/wp-content/themes/okt-custom/img/logo.png' &&
+          //     imgURL != 'https://www.okt.lt/wp/wp-content/uploads/2018/12/750x100px_be-datu.jpg') {
+          //     temp.images.push(imgURL)
+          //   }
+          // }
+
+          // INFO
           const title = $('.left', '.float-left').find($('h3'))
           const values = $('.left', '.float-left').find($('p'))
-          temp['title'] = plays[i]
-          temp['url'] = URL + plays[i]
           for (let k = 0; k < title.length; k++) {
             const children = values[k].children
             let tempKey = title[k].children[0].data
@@ -162,7 +196,6 @@ function getInfo(plays) {
               const regExp = /([^ ]+) ([^ ]+) ? ([^ ]+)/g
               let tempValue = values[k + 1].children[0].data
               let match = regExp.exec(tempValue);
-              console.log(tempValue)
               let matchMonth = match[2].substring(0, 3)
               let changedMonth = 0
               months.forEach((elm, index) => {
