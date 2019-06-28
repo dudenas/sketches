@@ -18,7 +18,7 @@
   }
 
   to {
-    clip-path: circle(100vh at center);
+    clip-path: circle(100vw at center);
   }
 }
 
