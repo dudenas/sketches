@@ -218,7 +218,14 @@ function getInfo(plays) {
 }
 
 function saveData(file) {
+  file.sort(function (a, b) {
+    return (new Date(b['Premjera']) - new Date(a['Premjera'])) * -1
+  });
+
   fs.writeFile("test.json", JSON.stringify(file), (err) => {
     err ? console.error(err) : console.log('\nsaved JSON')
   });
+  // fs.writeFile("test.js", file, (err) => {
+  //   err ? console.error(err) : console.log('\nsaved JS')
+  // });
 }
