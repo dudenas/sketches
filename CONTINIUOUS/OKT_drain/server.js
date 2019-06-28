@@ -121,7 +121,7 @@ function getInfo(plays) {
               temp['About'] += txt[k].children[0].data
             }
           }
-          console.log("TCL: next -> temp['About']", temp['About'])
+          // console.log("TCL: next -> temp['About']", temp['About'])
 
 
           // IMAGES

@@ -1,10 +1,11 @@
 const clrs = [5, 250]
-const grfc = []
-const totalElements = 10
+const totalElements = 6
 const len = 100
+let grfc
 
 function setup() {
 	createCanvas(540, 540)
+	grfc = []
 	for (let j = 0; j < 4; j++) {
 		const randomSize = []
 		const obj = []
@@ -48,4 +49,12 @@ function draw() {
 		})
 		pop()
 	})
+}
+
+function keyPressed() {
+	if (key == 'S') save(`${floor(random(1000))}.png`)
+	if (key == 'R') {
+		setup()
+		draw()
+	}
 }
