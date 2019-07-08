@@ -19,7 +19,7 @@ function preload() {
 
 // ————————————————————————————————————————————————————————————————————————————————— setup
 function setup() {
-	createCanvas(540, 540)
+	createCanvas(800, 600)
 
 	word.push(new Letter('S', -width / 3, -height / 5))
 	word.push(new Letter('H', -width / 30, -height / 5))

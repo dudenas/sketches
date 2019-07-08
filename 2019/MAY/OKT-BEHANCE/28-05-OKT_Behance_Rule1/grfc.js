@@ -78,7 +78,7 @@ class Grfc {
   show() {
     if (skelet) {
       stroke(clrs[3])
-      strokeWeight(SW)
+      strokeWeight(4)
       noFill()
       ellipseMode(CENTER)
       ellipse(this.pos.x, this.pos.y, this.w / 3, this.h / 3)
