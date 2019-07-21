@@ -3,8 +3,8 @@ let img
 let totalPhotos = 3
 
 // style
-let scl = 25
-let txtSize = 10
+let scl = 30 // 25
+let txtSize = 15 // 10
 let clrs = [250, 5, [235, 35, 50], 125]
 let SW = 1.618
 let lineLen = scl / 5 * 2
@@ -39,7 +39,7 @@ preload = function () {
 
 //————————————————————————————————————————————————————————————————————————————————— Setup
 setup = function () {
-	createCanvas(400, 800) // 350 267
+	createCanvas(580, 1040) // 350 267
 	pixelDensity(2)
 	noLoop()
 	// set the font

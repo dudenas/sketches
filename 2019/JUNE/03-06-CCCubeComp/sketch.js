@@ -10,7 +10,8 @@ let grid = 6
 let gridSize
 
 function setup() {
-	createCanvas(540, 540)
+	// createCanvas(540, 540)
+	createCanvas(800, 600)
 	setupGrfc()
 	// STYLE
 	strokeCap(SQUARE)
