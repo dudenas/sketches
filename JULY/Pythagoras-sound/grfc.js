@@ -2,13 +2,16 @@ const grfc = []
 const txtPadd = 10
 const maxPoint = 10
 
+let currentPointIdx = -10
+let currentRowIdx = 8
+
 function setupGrfc() {
   textSize(4)
   textAlign(CENTER, CENTER)
 
   for (let m = -maxPoint; m < maxPoint; m++) {
     beginShape()
-    for (let n = -maxPoint; n < maxPoint; n++) {
+    for (let n = 0; n < maxPoint; n++) {
       if (n != m) {
         const a = pow(m, 2) - pow(n, 2)
         const b = 2 * m * n
@@ -33,12 +36,35 @@ function showGrfc() {
   }
 }
 
+function updateGrfc() {
+  if (currentPointIdx == maxPoint + 1) {
+    currentPointIdx = -10
+    currentRowIdx++
+    if (currentRowIdx == maxPoint) {
+      currentRowIdx = 0
+    }
+  }
+  grfc.forEach(elm => {
+    if (elm.m == currentPointIdx && elm.n == currentRowIdx) elm.highlight()
+  })
+  currentPointIdx++
+}
+
 class Grfc {
   constructor(a, b, m, n) {
     this.a = a
     this.b = b
     this.m = m
     this.n = n
+  }
+
+  highlight() {
+    stroke(clrs[2])
+    strokeWeight(5)
+    point(this.a, -this.b)
+    // UPDATE note
+    updateNote(this.a, this.b)
+
   }
 
   show() {
