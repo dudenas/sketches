@@ -3,7 +3,7 @@ const txtPadd = 10
 const maxPoint = 10
 
 let currentPointIdx = -10
-let currentRowIdx = 8
+let currentRowIdx = 0
 
 function setupGrfc() {
   textSize(4)
