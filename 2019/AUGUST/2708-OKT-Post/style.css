@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap');
+
+/* VARIABLES */
+:root {
+  /* COLOR */
+  --gray-disable-color: #d3d3d3;
+  --gray-enable-color: #333;
+  /* HEIGHT */
+  --slider-height: 15px;
+}
+
+* {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+}
+
+/* CANVAS */
+canvas {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* PARAMETERS */
+.container {
+  position: fixed;
+  top: 50%;
+  transform: translate(0, -50%);
+  z-index: 1;
+}
+
+.container div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 200px;
+  margin-left: 10px;
+}
+
+/* SLIDERS */
+.slider {
+  -webkit-appearance: none;
+  outline: none;
+  height: var(--slider-height);
+  background: var(--gray-disable-color);
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: var(--slider-height);
+  height: var(--slider-height);
+  background: var(--gray-enable-color);
+  cursor: pointer;
+}
