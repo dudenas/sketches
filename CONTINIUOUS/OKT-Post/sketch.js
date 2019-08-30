@@ -20,7 +20,7 @@ function preload() {
 }
 
 function setup() {
-	createCanvas(1080, 1080).id('myCanvas')
+	createCanvas(1200, 1200).id('myCanvas')
 	pixelDensity(1)
 	// text style
 	textFont(myFont)

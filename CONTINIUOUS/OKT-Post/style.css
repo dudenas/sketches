@@ -43,9 +43,9 @@ h1 {
 /* CANVAS */
 #myCanvas {
   position: fixed;
-  left: 25%;
-  top: 25%;
-  transform: translate(-25%, -25%) scale(0.5);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
 }
 
 /* PARAMETERS */
