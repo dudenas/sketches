@@ -25,15 +25,32 @@
 <body>
 	<div id="myCanvas"></div>
 	<div class="container">
+		<!-- MAIN -->
+		<h1>main values</h1>
 		<!-- INPUT -->
 		<div>
 			<p>input text</p>
 			<input type="text" name="fname" id="input_txt">
 		</div>
+		<div>
+			<p>color</p>
+			<!-- Rectangular switch -->
+			<label class="switch">
+				<input type="checkbox" checked>
+				<span class="slider-toggle"></span>
+			</label>
+		</div>
 		<!-- TXT SIZE -->
 		<div>
 			<p>size / value</p>
-			<input type="range" min="40" max="150" value="48" class="slider" id="slider_size">
+			<input type="range" min="40" max="300" value="120" class="slider" id="slider_size">
+		</div>
+		<!-- COPY -->
+		<h1>copy values</h1>
+		<!-- COPY TOP -->
+		<div>
+			<p>copy top / value</p>
+			<input type="range" min="0" max="100" value="80" class="slider" id="slider_copyTop">
 		</div>
 		<!-- COPY Y -->
 		<div>
@@ -43,7 +60,21 @@
 		<!-- COPY FIELD -->
 		<div>
 			<p>copy field</p>
-			<input type="range" min="0" max="48" value="48" class="slider" id="slider_copyLines">
+			<input type="range" min="1" max="48" value="12" class="slider" id="slider_copyLines">
+		</div>
+		<!-- COPY GAP -->
+		<div>
+			<p>copy gap / value</p>
+			<input type="range" min="100" max="200" value="100" class="slider" id="slider_copyGap">
+		</div>
+		<!-- COPY TIMES -->
+		<div>
+			<p>copy times / value</p>
+			<input type="range" min="1" max="100" value="40" class="slider" id="slider_copyTimes">
+		</div>
+		<!-- SAVE -->
+		<div>
+			<button id="button_save" onclick="saveIt = true">SAVE</button>
 		</div>
 	</div>
 	<!-- HTML JAVASCRIPT COMMUNICATION -->
