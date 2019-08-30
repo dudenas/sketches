@@ -6,18 +6,15 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>2108-OKT-Post</title>
+	<title>3008-OKT-Post</title>
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="style.css">
 	<!-- JAVASCRIPT -->
 	<!-- LIBRARIES -->
 	<script src="libraries/p5.js"></script>
-	<script src="libraries/p5.func.js"></script>
-	<script src="libraries/CCapture.all.min.js"></script>
 	<script src="libraries/p5.dom.js"></script>
 	<!-- P5 -->
-	<script src="save.js"></script>
 	<script src="sketch.js"></script>
 
 	<!-- JQUERY -->
@@ -26,25 +23,30 @@
 </head>
 
 <body>
+	<div id="myCanvas"></div>
 	<div class="container">
+		<!-- INPUT -->
 		<div>
 			<p>input text</p>
 			<input type="text" name="fname" id="input_txt">
 		</div>
+		<!-- TXT SIZE -->
 		<div>
 			<p>size / value</p>
 			<input type="range" min="40" max="150" value="48" class="slider" id="slider_size">
 		</div>
+		<!-- COPY Y -->
 		<div>
-			<p>y / value</p>
-			<input type="range" min="0" max="540" value="270" class="slider" id="slider_y">
+			<p>copy y / value</p>
+			<input type="range" min="-48" max="48" value="0" class="slider" id="slider_y">
 		</div>
+		<!-- COPY FIELD -->
 		<div>
-			<p>copy lines</p>
-			<input type="range" min="0" max="270" value="48" class="slider" id="slider_copyLines">
+			<p>copy field</p>
+			<input type="range" min="0" max="48" value="48" class="slider" id="slider_copyLines">
 		</div>
 	</div>
-
+	<!-- HTML JAVASCRIPT COMMUNICATION -->
 	<script src="ux.js"></script>
 </body>
 
