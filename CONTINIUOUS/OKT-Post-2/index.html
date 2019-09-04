@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>3008-OKT-Post</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="style.css">
+	<!-- JAVASCRIPT -->
+	<!-- LIBRARIES -->
+	<script src="libraries/p5.js"></script>
+	<script src="libraries/p5.dom.js"></script>
+	<!-- P5 -->
+	<script src="sketch.js"></script>
+
+	<!-- JQUERY -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<div id="myCanvas"></div>
+	<div class="container">
+		<!-- MAIN -->
+		<h1>main values</h1>
+		<!-- INPUT -->
+		<div>
+			<p>input text</p>
+			<input type="text" name="fname" id="input_txt">
+		</div>
+		<div>
+			<p>color</p>
+			<!-- Rectangular switch -->
+			<label class="switch">
+				<input type="checkbox" checked>
+				<span class="slider-toggle"></span>
+			</label>
+		</div>
+		<!-- TXT SIZE -->
+		<div>
+			<p>size / value</p>
+			<input type="range" min="40" max="300" value="120" class="slider" id="slider_size">
+		</div>
+		<!-- COPY -->
+		<h1>copy values</h1>
+		<!-- COPY TOP -->
+		<div>
+			<p>copy top / value</p>
+			<input type="range" min="0" max="100" value="80" class="slider" id="slider_copyTop">
+		</div>
+		<!-- COPY Y -->
+		<div>
+			<p>copy y / value</p>
+			<input type="range" min="-48" max="48" value="0" class="slider" id="slider_y">
+		</div>
+		<!-- COPY FIELD -->
+		<div>
+			<p>copy field</p>
+			<input type="range" min="1" max="48" value="12" class="slider" id="slider_copyLines">
+		</div>
+		<!-- COPY GAP -->
+		<div>
+			<p>copy gap / value</p>
+			<input type="range" min="100" max="200" value="100" class="slider" id="slider_copyGap">
+		</div>
+		<!-- COPY TIMES -->
+		<div>
+			<p>copy times / value</p>
+			<input type="range" min="1" max="100" value="40" class="slider" id="slider_copyTimes">
+		</div>
+		<!-- SAVE -->
+		<div>
+			<button id="button_save" onclick="saveIt = true">SAVE</button>
+		</div>
+	</div>
+	<!-- HTML JAVASCRIPT COMMUNICATION -->
+	<script src="ux.js"></script>
+</body>
+
+</html>
