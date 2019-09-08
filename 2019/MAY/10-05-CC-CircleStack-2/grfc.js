@@ -1,4 +1,4 @@
-let SW = 12
+let SW = 1
 let total = 5
 let grfc
 let ratio = 1.618

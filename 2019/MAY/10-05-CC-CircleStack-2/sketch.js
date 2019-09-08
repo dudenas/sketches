@@ -1,4 +1,4 @@
-let clrs = [250, 5, [255, 0, 85], 125]
+let clrs = [5, 250, [255, 0, 85], 125]
 let ease, styles
 let totalFrames = 220
 

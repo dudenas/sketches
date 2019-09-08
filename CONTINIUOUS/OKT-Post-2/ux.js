@@ -2,6 +2,9 @@ const inputTxt = document.getElementById('input_txt')
 
 $(inputTxt).change(function () {
   word = this.value;
+
+  // Redraw
+  draw()
 });
 
 // SLIDERS
@@ -31,6 +34,9 @@ $(sliderSize).change(function () {
   tempSliderY.max = int(txtSize / 2);
   yLines = (tempSliderYValue * tempSliderY.max) / tempSliderYMax;
   tempSliderY.value = yLines;
+
+  // Redraw
+  draw()
 });
 
 
@@ -44,6 +50,9 @@ let yLines = 0;
 $(sliderY).change(function () {
   $(this).prev().html(`copy y / ${this.value}`);
   yLines = int(this.value);
+
+  // Redraw
+  draw()
 });
 
 
@@ -54,6 +63,9 @@ let copyLines = 12;
 $(sliderCopyLines).change(function () {
   copyLines = int(this.value);
   yCopyLine = copyLines * 2;
+
+  // Redraw
+  draw()
 });
 
 // TOP
@@ -61,6 +73,9 @@ const sliderCopyTop = document.getElementById('slider_copyTop')
 $(sliderCopyTop).change(function () {
   $(this).prev().html(`copy top / ${this.value / 100}`);
   topPadding = float(int(this.value) / 100)
+
+  // Redraw
+  draw()
 });
 
 // gap
@@ -69,14 +84,9 @@ let gap = 1;
 $(sliderCopyGap).change(function () {
   $(this).prev().html(`copy gap / ${this.value / 100}`);
   gap = float(int(this.value) / 100)
-});
 
-// times
-const sliderCopyTimes = document.getElementById('slider_copyTimes')
-let times = 40;
-$(sliderCopyTimes).change(function () {
-  $(this).prev().html(`copy times / ${this.value}`);
-  times = int(this.value)
+  // Redraw
+  draw()
 });
 
 // TOGGLE
@@ -91,5 +101,8 @@ document.addEventListener('DOMContentLoaded', function () {
       clrs[0] = 0
       clrs[1] = 255
     }
+
+    // Redraw
+    draw()
   });
 });
