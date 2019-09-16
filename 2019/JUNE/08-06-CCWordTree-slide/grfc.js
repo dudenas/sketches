@@ -1,4 +1,4 @@
-let phrase = 'Those who are hungry are the easiest to feed. '
+let phrase = 'Art is a lie that tells the truth. '
 
 
 // ————————————————————————————————————————————————————————————————————————————————— Segment

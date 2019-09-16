@@ -24,7 +24,7 @@ function setup() {
 	// pg.textSize(width / 3)
 	pg.textSize(width)
 	// pg.text('g', width / 2, height / 2 - height / 2.8)
-	pg.text('w', width / 2, height / 2 - height / 6)
+	pg.text('word', width / 2, height / 2 - height / 6)
 	// pg.text('grow', width / 2, height / 2 - height / 5)
 	// pg.text('it', width / 2, height / 3 * 1.8)
 

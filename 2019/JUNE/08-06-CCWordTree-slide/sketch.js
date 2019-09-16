@@ -1,7 +1,7 @@
-const clrs = [250, 5]
+const clrs = [5, 250]
 const totalSegments = 7
 const totalLines = 23
-const SW = 1
+const SW = 0.66
 const paddY = 125
 const txtSize = 8
 
@@ -18,7 +18,7 @@ function preload() {
 
 // ————————————————————————————————————————————————————————————————————————————————— setup
 function setup() {
-	createCanvas(540, 540);
+	createCanvas(800, 600);
 	// style font
 	textFont(myFont)
 	textAlign(CENTER, CENTER)

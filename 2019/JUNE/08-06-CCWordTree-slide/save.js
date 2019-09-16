@@ -1,5 +1,5 @@
 // saving
-let save = true
+let save = false
 let capturer
 let totalFrames = 240
 
@@ -22,7 +22,7 @@ function saveSetup() {
 function saveDraw() {
   if (save) {
     capturer.capture(canvas)
-    if (frameCount == (totalFrames + 1)) {
+    if (frameCount == (totalFrames + 2)) {
       console.log('finnished')
       capturer.stop()
       capturer.save()
