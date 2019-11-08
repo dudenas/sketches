@@ -82,9 +82,6 @@ function main() {
   }
 
   //Distort the domain.
-  //f(p) = fbm( p + fbm( p + fbm( p ) ) )
-  //IQ Domain Wraping
-  //http://www.iquilezles.org/www/articles/warp/warp.htm
   float DistortDomain (vec2 p, out vec2 fDstr, out vec2 sDstr)
   {
     fDstr = vec2 (
@@ -104,29 +101,14 @@ function main() {
   {
 
     vec2 uv = fragCoord.xy / iResolution.xy;
-    // uv.x *= iResolution.x / iResolution.y;
 
     vec2 fDistortion;
     vec2 sDistortion;
     float noise = DistortDomain (uv, fDistortion, sDistortion);
-
-    vec3 col1 = mix(vec3(0.11,0.3,0.3),
-                	vec3(0.23,0.90,0.07),
-                	clamp((noise*noise)*5.0,0.0,1.0));
     
-    vec3 col2 =  mix(col1,
-                	 vec3(0.35,0.34,0.87),
-                	 clamp(length(fDistortion),0.0,1.0));
-    
-    vec3 col3 = mix (col2, 
-                     vec3 (0.21, 0.63, 0.7),
-                     clamp (length (sDistortion.x), 0.0, 1.0));
-    
-    
-    //Gamma
-    fragColor = pow (vec4((noise * noise * (3.0 - 2.0 * noise)) * col3, 1.), vec4 (1./2.2));  
-    uv.x += (fragColor[0] * fragColor[1])/2.0;
-    uv.y += (fragColor[2] * fragColor[3])/2.0;
+    //Distortion
+    uv.x += noise - 0.6;
+    uv.y += noise - 0.6;
     fragColor = texture2D(iChannel0,uv);
   }
 
@@ -135,12 +117,7 @@ function main() {
   }
   `;
   const loader = new THREE.TextureLoader();
-  const texture = loader.load('https://threejsfundamentals.org/threejs/resources/images/bayer.png');
-  texture.minFilter = THREE.NearestFilter;
-  texture.magFilter = THREE.NearestFilter;
-  texture.wrapS = THREE.RepeatWrapping;
-  texture.wrapT = THREE.RepeatWrapping;
-  const channel0 = loader.load('../assets/photo.jpg');
+  const channel0 = loader.load('./assets/photo.png');
   const uniforms = {
     iTime: {
       value: 0
@@ -199,10 +176,6 @@ main();
 var mouse = new THREE.Vector2();
 
 function onMouseMove(event) {
-
-  // calculate mouse position in normalized device coordinates
-  // (-1 to +1) for both components
-
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
   mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 }

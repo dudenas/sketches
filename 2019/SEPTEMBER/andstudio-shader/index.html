@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>andstudio shader</title>
+  <!-- STYLE -->
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .container {
+      transform-origin: 0 0;
+      transform: scale(0.66, 0.66);
+    }
+
+    #c,
+    #loader-image {
+      width: 1200px;
+      height: 900px;
+      z-index: 0;
+      position: absolute;
+    }
+
+    #loader-image {
+      z-index: 10;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <img id="loader-image" src="assets/photo.png" alt="photo">
+    <canvas id="c"></canvas>
+  </div>
+  <script src="https://threejsfundamentals.org/threejs/resources/threejs/r108/three.min.js"></script>
+
+  <script src="js/sketch.js"></script>
+</body>
+
+</html>
