@@ -9,11 +9,11 @@ class tusiPoint {
   update() {
     this.trail.push({
       // x: this.x + this.x * cos(angle) + this.x * cos(-2 * angle),
-      // x: this.x + this.x * cos(angle) + this.x * cos(-2 * angle + R / 4),
-      x: this.x + this.x * cos(angle) - this.x * cos(3 * -angle),
+      x: this.x + this.x * cos(angle) + this.x * cos(-2 * angle + R / 4),
+      // x: this.x + this.x * cos(angle) - this.x * cos(3 * -angle),
       // y: this.y + this.y * sin(angle) + this.y * sin(-2 * angle),
-      // y: this.y + this.y * sin(angle) + this.y * sin(-2 * angle + R / 4),
-      y: this.y + this.y * sin(angle) - this.x * sin(2 * -angle),
+      y: this.y + this.y * sin(angle) + this.y * sin(-2 * angle + R / 4),
+      // y: this.y + this.y * sin(angle) - this.x * sin(2 * -angle),
     })
     if (this.trail.length > 20) this.trail.splice(0, 1)
   }
